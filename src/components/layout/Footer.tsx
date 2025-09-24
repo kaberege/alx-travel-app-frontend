@@ -9,12 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full sm:w-[90%] lg:w-full lg:max-w-7xl mx-auto">
           <div className="flex flex-col gap-6">
             <Image
-              src="/assets/hero-section-image/alx-white.png"
+              src="/kgn_logo.jpg"
               width={500}
               height={500}
-              alt="alx logo"
-              title="alx logo"
-              className="w-[58.73px] h-[30.6px]"
+              alt="kgn logo"
+              title="kgn logo"
+              className="w-8 h-8 rounded-full"
             />
             <p className="text-[11px] sm:text-base text-neutral-300 font-medium">
               ALX is a platform where travelers can discover and book unique,

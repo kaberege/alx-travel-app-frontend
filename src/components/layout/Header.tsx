@@ -36,12 +36,12 @@ const Header = () => {
       <section className="bg-white py-3 border-b-[1px] border-b-neutral-300 overflow-hidden">
         <div className="w-full max-w-7xl bg-white flex items-center justify-between px-2 sm:px-4  xl:px-1 mx-auto">
           <Image
-            src="/assets/hero-section-image/alx-black.png"
+            src="/kgn_logo.jpg"
             width={500}
             height={500}
-            alt="alx logo"
-            title="alx logo"
-            className="cursor-pointer hidden sm:block w-[35px] h-[20px] md:w-[48.75px] md:h-[23.6px]"
+            alt="kgn logo"
+            title="kgn logo"
+            className="cursor-pointer hidden sm:block w-7 h-7 md:w-10 md:h-10"
           />
           <div className="rounded-full border-[1px] border-neutral-300 py-1 pl-4 pr-1">
             <form className="flex items-center">
