@@ -34,7 +34,26 @@ const Header = () => {
         </div>
       </section>
       <section className="bg-white py-3 border-b-[1px] border-b-neutral-300 overflow-hidden">
-        <div className="w-full max-w-7xl bg-white flex items-center justify-between px-2 sm:px-4  xl:px-1 mx-auto">
+        <div className="w-full max-w-7xl bg-white flex flex-col sm:flex-row items-center justify-between px-2 sm:px-4  xl:px-1 mx-auto">
+          <div className="w-full flex items-center justify-between sm:hidden pb-4">
+            <Image
+              src="/kgn_logo.jpg"
+              width={500}
+              height={500}
+              alt="kgn logo"
+              title="kgn logo"
+              className="cursor-pointer w-7 h-7 md:w-10 md:h-10"
+            />
+            <button className="flex items-center justify-center rounded-full w-[30px] h-[30px] bg-teal-600">
+              <Image
+                src="/assets/icons/profile2.png"
+                width={500}
+                height={500}
+                alt="profile"
+                className="cursor-pointer w-7 h-7"
+              />
+            </button>
+          </div>
           <Image
             src="/kgn_logo.jpg"
             width={500}
@@ -43,7 +62,7 @@ const Header = () => {
             title="kgn logo"
             className="cursor-pointer hidden sm:block w-7 h-7 md:w-10 md:h-10"
           />
-          <div className="rounded-full border-[1px] border-neutral-300 py-1 pl-4 pr-1">
+          <div className="rounded-full border border-neutral-300 py-1 pl-4 pr-1">
             <form className="flex items-center">
               <div className="sm:hidden">
                 <p className="text-[11px] font-semibold">Where to</p>
@@ -52,29 +71,29 @@ const Header = () => {
                     type="search"
                     name="location"
                     id="locations"
-                    className="text-neutral-500 text-[10px] outline-none w-[66px]"
+                    className="text-neutral-500 text-[10px] outline-none w-3/5"
                     placeholder="Location"
                   />
-                  <span className="w-1 h-1 rounded-full bg-neutral-500"></span>
+                  <span className="w-1 h-1 rounded-full bg-neutral-500 shrink-0"></span>
                   <input
                     type="date"
                     name="check-out"
                     id="check-outs"
-                    className="text-neutral-500 text-[10px] outline-none w-[50px]"
+                    className="text-neutral-500 text-[10px] outline-none w-1/5"
                     placeholder="Date"
                   />
-                  <span className="w-1 h-1 rounded-full bg-neutral-500"></span>
+                  <span className="w-1 h-1 rounded-full bg-neutral-500 shrink-0"></span>
                   <input
                     type="search"
                     name="people"
                     id="person"
-                    className="text-neutral-500 text-[10px] outline-none w-[80px]"
+                    className="text-neutral-500 text-[10px] outline-none w-1/5 mr-1"
                     placeholder="Add guest"
                   />
                 </div>
               </div>
               <div className="hidden sm:grid grid-cols-5 w-full sm:max-w-md lg:max-w-2xl">
-                <div className="col-span-2 sm:flex flex-col pr-2 border-r-[1px] border-neutral-300">
+                <div className="col-span-2 sm:flex flex-col pr-2 border-r border-neutral-300">
                   <label
                     htmlFor="location"
                     className="text-zinc-900 font-medium text-xs"
@@ -89,7 +108,7 @@ const Header = () => {
                     placeholder="Search for destination"
                   />
                 </div>
-                <div className="flex flex-col px-2 border-r-[1px] border-neutral-300">
+                <div className="flex flex-col px-2 border-r border-neutral-300">
                   <label
                     htmlFor="check-in"
                     className="text-zinc-900 font-medium text-xs"
@@ -104,7 +123,7 @@ const Header = () => {
                     placeholder="Add date"
                   />
                 </div>
-                <div className="flex flex-col px-2 border-r-[1px] border-neutral-300">
+                <div className="flex flex-col px-2 border-r border-neutral-300">
                   <label
                     htmlFor="check-out"
                     className="text-zinc-900 font-medium text-xs"
@@ -135,18 +154,18 @@ const Header = () => {
                   />
                 </div>
               </div>
-              <button className="flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-500 hover:bg-amber-400 transition-colors cursor-pointer">
+              <button className="flex items-center justify-center shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-500 hover:bg-amber-400 transition-colors cursor-pointer">
                 <Image
                   src="/assets/icons/Linear/Search/magnifers.png"
                   width={500}
                   height={500}
                   alt="Search"
-                  className="w-4.5 h-4.5 sm:w-[19px] sm:h-[19px]"
+                  className="w-4.5 h-4.5 sm:w-[19px] sm:h-[19px] shrink-0"
                 />
               </button>
             </form>
           </div>
-          <button className="lg:hidden flex items-center justify-center rounded-full w-[30px] h-[30px] bg-teal-600">
+          <button className="hidden sm:flex lg:hidden items-center justify-center rounded-full w-[30px] h-[30px] bg-teal-600">
             <Image
               src="/assets/icons/profile2.png"
               width={500}
@@ -155,7 +174,7 @@ const Header = () => {
               className="cursor-pointer w-7 h-7"
             />
           </button>
-          <div className="flex gap-2 max-lg:hidden">
+          <div className="lg:flex gap-2 hidden">
             <button
               className="flex items-center justify-center text-white text-sm bg-teal-600 rounded-full focus:ring-2 focus:ring-teal-800
             py-1 px-3 hover:bg-teal-700 transition-colors cursor-pointer shadow-sm shadow-teal-900"
