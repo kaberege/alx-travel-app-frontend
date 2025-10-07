@@ -29,7 +29,7 @@ const BookingForm = () => {
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = async (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { value, name } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -43,7 +43,7 @@ const BookingForm = () => {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/bookings`,
-        formData
+        formData,
       );
       console.log(response);
       alert("Booking confirmed!");
@@ -56,17 +56,17 @@ const BookingForm = () => {
   };
 
   return (
-    <section className="sm:grow bg-white p-3 sm:p-6 lg:pt-8 shadow-md rounded-lg">
-      <h2 className="text-zinc-950 text-base lg:text-xl font-semibold">
+    <section className="rounded-lg bg-white p-3 shadow-md sm:grow sm:p-6 lg:pt-8">
+      <h2 className="text-base font-semibold text-zinc-950 lg:text-xl">
         Contact Detail
       </h2>
       <form onSubmit={handleSubmit}>
         {/* Contact Information */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+        <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label
               htmlFor="first-name-booking"
-              className="text-zinc-950 text-xs lg:text-sm font-medium"
+              className="text-xs font-medium text-zinc-950 lg:text-sm"
             >
               First Name
             </label>
@@ -77,13 +77,13 @@ const BookingForm = () => {
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="border border-zinc-300 rounded-md focus:outline-1 focus:outline-teal-600 px-2 py-1 w-full mt-1"
+              className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
             />
           </div>
           <div>
             <label
               htmlFor="last-name-booking"
-              className="text-zinc-950 text-xs lg:text-sm font-medium"
+              className="text-xs font-medium text-zinc-950 lg:text-sm"
             >
               Last Name
             </label>
@@ -94,15 +94,15 @@ const BookingForm = () => {
               value={formData.lastName}
               onChange={handleChange}
               required
-              className="border border-zinc-300 rounded-md focus:outline-1 focus:outline-teal-600 px-2 py-1 w-full mt-1"
+              className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+        <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label
               htmlFor="email-booking"
-              className="text-zinc-950 text-xs lg:text-sm font-medium"
+              className="text-xs font-medium text-zinc-950 lg:text-sm"
             >
               Email
             </label>
@@ -113,13 +113,13 @@ const BookingForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="border border-zinc-300 rounded-md focus:outline-1 focus:outline-teal-600 px-2 py-1 w-full mt-1"
+              className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
             />
           </div>
           <div>
             <label
               htmlFor="phone-booking"
-              className="text-zinc-950 text-xs lg:text-sm font-medium"
+              className="text-xs font-medium text-zinc-950 lg:text-sm"
             >
               Phone Number
             </label>
@@ -130,21 +130,17 @@ const BookingForm = () => {
               value={formData.phoneNumber}
               onChange={handleChange}
               required
-              className="border border-zinc-300 rounded-md focus:outline-1 focus:outline-teal-600 px-2 py-1 w-full mt-1"
+              className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
             />
           </div>
         </div>
 
         {/* Accept Information */}
-        <div className="mt-4 pb-6 border-b border-b-zinc-300">
-          <label className="group flex items-center cursor-pointer">
+        <div className="mt-4 border-b border-b-zinc-300 pb-6">
+          <label className="group flex cursor-pointer items-center">
             <input type="checkbox" className="peer hidden" />
-            <div
-              className="flex items-center justify-center w-4 h-4 rounded border-2 border-teal-600 
-          peer-checked:bg-teal-600 peer-checked:border-teal-600/0 peer-checked:hover:bg-teal-700 
-          cursor-pointer transition-colors duration-200 shrink-0"
-            >
-              <BiCheck className="hidden group-has-[:checked]:block text-white font-bold shrink-0" />
+            <div className="flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border-2 border-teal-600 transition-colors duration-200 peer-checked:border-teal-600/0 peer-checked:bg-teal-600 peer-checked:hover:bg-teal-700">
+              <BiCheck className="hidden shrink-0 font-bold text-white group-has-[:checked]:block" />
             </div>
             <span className="ml-2 text-[11px]">
               Receive text message update about your booking. Messages rates may
@@ -154,16 +150,16 @@ const BookingForm = () => {
         </div>
 
         {/* Payment Information */}
-        <h2 className="text-zinc-950 text-base lg:text-xl font-semibold mt-6">
+        <h2 className="mt-6 text-base font-semibold text-zinc-950 lg:text-xl">
           Pay with
         </h2>
-        <div className="flex items-center border border-zinc-300 rounded-md px-2 mt-2">
+        <div className="mt-2 flex items-center rounded-md border border-zinc-300 px-2">
           <Image
             src="/assets/icons/credit-card 1.png"
             width={500}
             height={500}
             alt="Payment method"
-            className="w-4 h-4 mr-2"
+            className="mr-2 h-4 w-4"
           />
           <select
             name="method"
@@ -171,7 +167,7 @@ const BookingForm = () => {
             value={formData.method}
             onChange={handleChange}
             required
-            className="w-full outline-none text-zinc-700 text-sm py-2"
+            className="w-full py-2 text-sm text-zinc-700 outline-none"
           >
             <option value="">Credit or debit card</option>
             <option value="credit">Credit card</option>
@@ -179,12 +175,12 @@ const BookingForm = () => {
           </select>
         </div>
         <div className="flex flex-col">
-          <div className="flex items-center border border-zinc-300 rounded-t-md px-2 mt-2">
+          <div className="mt-2 flex items-center rounded-t-md border border-zinc-300 px-2">
             <label
               htmlFor="card-booking"
-              className="flex items-center shrink-0"
+              className="flex shrink-0 items-center"
             >
-              <span className="text-[10px] sm:text-xs text-zinc-500 mr-1 sm:mr-3">
+              <span className="mr-1 text-[10px] text-zinc-500 sm:mr-3 sm:text-xs">
                 Card number
               </span>
               <Image
@@ -192,7 +188,7 @@ const BookingForm = () => {
                 width={500}
                 height={500}
                 alt="Payment method"
-                className="w-3 h-3"
+                className="h-3 w-3"
               />
             </label>
             <input
@@ -202,11 +198,11 @@ const BookingForm = () => {
               value={formData.cardNumber}
               onChange={handleChange}
               required
-              className="w-full outline-none text-sm py-2 px-1"
+              className="w-full px-1 py-2 text-sm outline-none"
             />
           </div>
-          <div className="grid grid-cols-2 border-x border-b border-zinc-300 rounded-b-md text-xs">
-            <div className="border-r border-zinc-300 ">
+          <div className="grid grid-cols-2 rounded-b-md border-x border-b border-zinc-300 text-xs">
+            <div className="border-r border-zinc-300">
               <input
                 id="expiration-booking"
                 type="text"
@@ -215,7 +211,7 @@ const BookingForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="Expiration Date"
-                className="outline-none px-2 py-1.5 w-full mt-1"
+                className="mt-1 w-full px-2 py-1.5 outline-none"
               />
             </div>
             <div>
@@ -227,17 +223,17 @@ const BookingForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="CVV"
-                className="outline-none px-2 py-1.5 w-full mt-1"
+                className="mt-1 w-full px-2 py-1.5 outline-none"
               />
             </div>
           </div>
         </div>
 
         {/* Billing Address */}
-        <h2 className="text-zinc-950 text-xs font-semibold mt-4 mb-1">
+        <h2 className="mt-4 mb-1 text-xs font-semibold text-zinc-950">
           Billing Address
         </h2>
-        <div className="border border-zinc-300 rounded-md text-xs">
+        <div className="rounded-md border border-zinc-300 text-xs">
           <div className="border-b border-zinc-300">
             <input
               id="street-booking"
@@ -247,7 +243,7 @@ const BookingForm = () => {
               onChange={handleChange}
               required
               placeholder="Street Address"
-              className="outline-none px-2 py-1.5 w-full mt-1"
+              className="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="border-b border-zinc-300">
@@ -259,7 +255,7 @@ const BookingForm = () => {
               onChange={handleChange}
               required
               placeholder="Apt or suite number"
-              className="outline-none px-2  py-1.5 w-full mt-1"
+              className="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="border-b border-zinc-300">
@@ -271,7 +267,7 @@ const BookingForm = () => {
               onChange={handleChange}
               required
               placeholder="City"
-              className="outline-none px-2  py-1.5 w-full mt-1"
+              className="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="grid grid-cols-2">
@@ -284,7 +280,7 @@ const BookingForm = () => {
                 onChange={handleChange}
                 required
                 placeholder=" State"
-                className="outline-none px-2  py-1.5 w-full mt-1"
+                className="mt-1 w-full px-2 py-1.5 outline-none"
               />
             </div>
             <div className="">
@@ -296,13 +292,13 @@ const BookingForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="Zip Code"
-                className="outline-none px-2 py-1.5 w-full mt-1"
+                className="mt-1 w-full px-2 py-1.5 outline-none"
               />
             </div>
           </div>
         </div>
-        <div className="flex flex-col border border-zinc-300 rounded-md mt-4 px-2">
-          <h3 className="text-zinc-500 text-[10px] font-medium pl-1">
+        <div className="mt-4 flex flex-col rounded-md border border-zinc-300 px-2">
+          <h3 className="pl-1 text-[10px] font-medium text-zinc-500">
             Country
           </h3>
           <select
@@ -311,7 +307,7 @@ const BookingForm = () => {
             value={formData.country}
             onChange={handleChange}
             required
-            className="w-full text-[11px] outline-none py-0.5"
+            className="w-full py-0.5 text-[11px] outline-none"
           >
             <option value="Ghana">Ghana</option>
             <option value="Rwanda">Rwanda</option>
@@ -324,12 +320,11 @@ const BookingForm = () => {
         <button
           type="submit"
           disabled={loading}
-          className="text-sm mt-6 w-full sm:max-w-40 lg:max-w-60 mx-auto bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 
-        transition-colors duration-300 cursor-pointer shadow-md shadow-teal-900 focus:ring-2 focus:ring-teal-800"
+          className="mx-auto mt-6 w-full cursor-pointer rounded-md bg-teal-600 px-4 py-2 text-sm text-white shadow-md shadow-teal-900 transition-colors duration-300 hover:bg-teal-700 focus:ring-2 focus:ring-teal-800 sm:max-w-40 lg:max-w-60"
         >
           {loading ? "Processing..." : "Confirm & Pay"}
         </button>
-        {error && <p className="text-red-500 mt-2 text-xs">{error}</p>}
+        {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
       </form>
     </section>
   );

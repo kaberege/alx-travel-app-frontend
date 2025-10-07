@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       type={type}
-      className={`flex items-center justify-center gap-1 text-xs cursor-pointer ${styles}`}
+      className={`flex cursor-pointer items-center justify-center gap-1 text-xs ${styles}`}
     >
       {icon && alt && (
         <Image

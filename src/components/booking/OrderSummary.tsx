@@ -11,20 +11,20 @@ interface BookingDetailsProps {
 const OrderSummary: React.FC<{ bookingDetails: BookingDetailsProps }> = ({
   bookingDetails,
 }) => (
-  <section className="shrink-0 bg-white p-3 sm:p-6 shadow-md shadow-zinc-700 rounded-lg w-full sm:w-60 md:w-72 lg:w-90 sm:h-[420px]">
-    <h2 className="text-zinc-950 text-sm lg:text-base font-semibold">
+  <section className="w-full shrink-0 rounded-lg bg-white p-3 shadow-md shadow-zinc-700 sm:h-[420px] sm:w-60 sm:p-6 md:w-72 lg:w-90">
+    <h2 className="text-sm font-semibold text-zinc-950 lg:text-base">
       Review Order Details
     </h2>
-    <div className="flex flex-col gap-2 mt-4">
+    <div className="mt-4 flex flex-col gap-2">
       <Image
         src="/assets/listing-images/List 1.png"
         width={500}
         height={500}
         alt="Property"
-        className="w-full h-40 object-cover rounded-md cursor-pointer hover:brightness-75 transition-all"
+        className="h-40 w-full cursor-pointer rounded-md object-cover transition-all hover:brightness-75"
       />
       <div className="">
-        <h3 className="text-zinc-950 text-sm lg:text-base font-semibold">
+        <h3 className="text-sm font-semibold text-zinc-950 lg:text-base">
           {bookingDetails.propertyName}
         </h3>
         <div className="mt-2">
@@ -34,18 +34,18 @@ const OrderSummary: React.FC<{ bookingDetails: BookingDetailsProps }> = ({
               width={500}
               height={500}
               alt="star"
-              className="w-[15px] h-[15px]"
+              className="h-[15px] w-[15px]"
             />
             <p className="text-xs text-gray-500">
               <span className="text-gray-950">4.76</span> (345 reviews)
             </p>
           </div>
-          <p className="flex gap-1.5 text-[11px] text-gray-700 mt-2">
-            <span className="bg-gray-200 rounded-sm p-0.5">
+          <p className="mt-2 flex gap-1.5 text-[11px] text-gray-700">
+            <span className="rounded-sm bg-gray-200 p-0.5">
               {bookingDetails.startDate}
             </span>
-            <span className="bg-gray-200 rounded-sm p-0.5">1PM</span>
-            <span className="bg-gray-200 rounded-sm p-0.5">
+            <span className="rounded-sm bg-gray-200 p-0.5">1PM</span>
+            <span className="rounded-sm bg-gray-200 p-0.5">
               {bookingDetails.totalNights} Nights
             </span>
           </p>
@@ -57,15 +57,15 @@ const OrderSummary: React.FC<{ bookingDetails: BookingDetailsProps }> = ({
     <div className="mt-6">
       <div className="flex justify-between">
         <p className="text-sm text-gray-600">Booking fee</p>
-        <p className="text-gray-900 text-xs">${bookingDetails.bookingFee}.00</p>
+        <p className="text-xs text-gray-900">${bookingDetails.bookingFee}.00</p>
       </div>
-      <div className="flex justify-between mt-0.5">
+      <div className="mt-0.5 flex justify-between">
         <p className="text-sm text-gray-600">Subtotal</p>
-        <p className="text-gray-900 text-xs">${bookingDetails.price}.00</p>
+        <p className="text-xs text-gray-900">${bookingDetails.price}.00</p>
       </div>
-      <div className="flex justify-between mt-2 font-semibold">
+      <div className="mt-2 flex justify-between font-semibold">
         <p className="text-sm text-gray-700">Grand Total</p>
-        <p className="text-gray-950 text-sm">
+        <p className="text-sm text-gray-950">
           ${bookingDetails.bookingFee + bookingDetails.price}.00
         </p>
       </div>

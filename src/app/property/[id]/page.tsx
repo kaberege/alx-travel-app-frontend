@@ -20,7 +20,7 @@ export default function PropertyPage() {
       setError(null);
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/properties/${id}`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/properties/${id}`,
         );
         setProperty(response.data);
       } catch (error) {
@@ -38,7 +38,7 @@ export default function PropertyPage() {
 
   if (loading) {
     return (
-      <p className="text-red-500 text-center text-sm font-semibold mt-4">
+      <p className="mt-4 text-center text-sm font-semibold text-red-500">
         Loading...
       </p>
     );
@@ -46,7 +46,7 @@ export default function PropertyPage() {
 
   if (!error) {
     return (
-      <p className="text-red-500 text-center text-sm font-semibold mt-4">
+      <p className="mt-4 text-center text-sm font-semibold text-red-500">
         {error}
       </p>
     );
@@ -54,7 +54,7 @@ export default function PropertyPage() {
 
   if (!propert)
     return (
-      <p className="text-red-500 text-center text-sm font-semibold mt-4">
+      <p className="mt-4 text-center text-sm font-semibold text-red-500">
         Property not found
       </p>
     );

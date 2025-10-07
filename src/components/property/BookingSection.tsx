@@ -1,7 +1,7 @@
 const BookingSection: React.FC<{ price: number }> = ({ price }) => {
   return (
-    <div className="hidden sm:block bg-white p-6 shadow-md shadow-zinc-700 rounded-lg w-[250px] lg:w-80 h-[410px] md:h-[430px] shrink-0">
-      <h3 className="text-base md:text-xl font-semibold text-zinc-950 pb-1 border-b-[1px] border-neutral-300 mb-4">
+    <div className="hidden h-[410px] w-[250px] shrink-0 rounded-lg bg-white p-6 shadow-md shadow-zinc-700 sm:block md:h-[430px] lg:w-80">
+      <h3 className="mb-4 border-b-[1px] border-neutral-300 pb-1 text-base font-semibold text-zinc-950 md:text-xl">
         <strong>${price}</strong>
         <span className="text-sm text-zinc-600">/night</span>
       </h3>
@@ -12,7 +12,7 @@ const BookingSection: React.FC<{ price: number }> = ({ price }) => {
         <input
           id="check-in-book"
           type="date"
-          className="text-sm border p-1 md:p-2 w-full mt-1 text-zinc-600 rounded-md border-zinc-300 outline-teal-600"
+          className="mt-1 w-full rounded-md border border-zinc-300 p-1 text-sm text-zinc-600 outline-teal-600 md:p-2"
         />
       </div>
       <div className="mt-4">
@@ -22,25 +22,25 @@ const BookingSection: React.FC<{ price: number }> = ({ price }) => {
         <input
           id="check-out-book"
           type="date"
-          className="text-sm border p-1 md:p-2 w-full mt-1 text-zinc-600 border-zinc-300 rounded-md outline-teal-600"
+          className="mt-1 w-full rounded-md border border-zinc-300 p-1 text-sm text-zinc-600 outline-teal-600 md:p-2"
         />
       </div>
-      <div className="mt-4 pb-4 border-b-[1px] border-neutral-300">
+      <div className="mt-4 border-b-[1px] border-neutral-300 pb-4">
         <p className="flex items-center justify-between text-sm">
-          <span className=" text-zinc-600">$50 x 7 nights</span>
-          <span className="text-zinc-950 font-medium">
+          <span className="text-zinc-600">$50 x 7 nights</span>
+          <span className="font-medium text-zinc-950">
             <strong>$350</strong>
           </span>
         </p>
         <p className="flex items-center justify-between text-sm">
           <span className="text-zinc-600">Weekly discounts</span>
-          <span className=" text-zinc-950 font-medium">
+          <span className="font-medium text-zinc-950">
             <strong>-$88</strong>
           </span>
         </p>
         <p className="flex items-center justify-between text-sm">
           <span className="text-zinc-600">Service fee</span>
-          <span className="text-zinc-950 font-medium">
+          <span className="font-medium text-zinc-950">
             <strong>$33</strong>
           </span>
         </p>
@@ -55,10 +55,7 @@ const BookingSection: React.FC<{ price: number }> = ({ price }) => {
       </div>
 
       {/* Reserve button */}
-      <button
-        className="text-sm mt-4 w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 
-        transition-colors duration-300 cursor-pointer shadow-md shadow-teal-900 focus:ring-2 focus:ring-teal-800"
-      >
+      <button className="mt-4 w-full cursor-pointer rounded-md bg-teal-600 px-4 py-2 text-sm text-white shadow-md shadow-teal-900 transition-colors duration-300 hover:bg-teal-700 focus:ring-2 focus:ring-teal-800">
         Reserve now
       </button>
     </div>

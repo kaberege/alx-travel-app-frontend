@@ -7,102 +7,86 @@ export default function Home() {
   return (
     <div className="px-2 sm:px-3 lg:px-4">
       <section>
-        <div
-          className='bg-[url("/assets/hero-section-image/Image_mobile.png")] sm:bg-[url("/assets/hero-section-image/Image_desktop.png")] 
-          bg-center bg-no-repeat bg-cover h-[296px] sm:h-[421px] lg:h-[481px] w-full max-w-7xl rounded-3xl mx-auto flex items-center justify-center'
-        >
-          <div className="text-white text-center">
-            <h1 className="text-[28.28px] sm:text-[68.63px] lg:text-[94px] font-semibold">
+        <div className='mx-auto flex h-[296px] w-full max-w-7xl items-center justify-center rounded-3xl bg-[url("/assets/hero-section-image/Image_mobile.png")] bg-cover bg-center bg-no-repeat sm:h-[421px] sm:bg-[url("/assets/hero-section-image/Image_desktop.png")] lg:h-[481px]'>
+          <div className="text-center text-white">
+            <h1 className="text-[28.28px] font-semibold sm:text-[68.63px] lg:text-[94px]">
               Find your favorite
               <br />
               place here!
             </h1>
-            <h2 className="text-[7.42px] sm:text-[18px] lg:text-[24px]  font-medium">
+            <h2 className="text-[7.42px] font-medium sm:text-[18px] lg:text-[24px]">
               The best prices for over 2 million properties worldwide.
             </h2>
           </div>
         </div>
       </section>
-      <section className="w-full max-w-7xl mx-auto max-sm:overflow-x-hidden flex items-center justify-between gap-3 py-5 whitespace-nowrap">
-        <div className="flex items-center gap-3 text-zinc-900 text-[13.78px] sm:text-sm font-semibold">
+      <section className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 py-5 whitespace-nowrap max-sm:overflow-x-hidden">
+        <div className="flex items-center gap-3 text-[13.78px] font-semibold text-zinc-900 sm:text-sm">
           <button
             type="button"
-            className="flex items-center justify-center border-[1px] border-neutral-300 hover:border-teal-600 rounded-full p-1 cursor-pointer 
-            hover:bg-teal-50 transition-colors hover:shadow-sm hover:shadow-teal-600 sm:hidden w-8 h-8"
+            className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-[1px] border-neutral-300 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:hidden"
           >
             <Image
               src="/assets/icons/Linear/Essentional, UI/Filter.png"
               width={500}
               height={500}
               alt="Filter"
-              className="w-[18px] h-[18px]"
+              className="h-[18px] w-[18px]"
             />
           </button>
           <button
             type="button"
-            className="border-[1px] border-teal-600 rounded-full px-3 py-1 cursor-pointer 
-          bg-teal-50 text-teal-600 transition-colors shadow-sm shadow-teal-600"
+            className="cursor-pointer rounded-full border-[1px] border-teal-600 bg-teal-50 px-3 py-1 text-teal-600 shadow-sm shadow-teal-600 transition-colors"
           >
             All
           </button>
           <button
             type="button"
-            className="border-[1px] border-neutral-400 hover:border-teal-600 rounded-full px-2 py-1 cursor-pointer 
-            hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600"
+            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
           >
             Top Villa
           </button>
           <button
             type="button"
-            className="border-[1px] border-neutral-400 hover:border-teal-600 rounded-full px-2 py-1 cursor-pointer 
-            hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600"
+            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
           >
             Free Reschedule
           </button>
           <button
             type="button"
-            className="border-[1px] border-neutral-400 hover:border-teal-600 rounded-full px-2 py-1 cursor-pointer 
-            hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600 
-            sm:hidden lg:block"
+            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           >
             Book Now, Pay later
           </button>
           <button
             type="button"
-            className="border-[1px] border-neutral-400 hover:border-teal-600 rounded-full px-2 py-1 cursor-pointer 
-            hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600 
-            sm:hidden lg:block"
+            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           >
             Self CheckIn
           </button>
           <button
             type="button"
-            className="border-[1px] border-neutral-400 hover:border-teal-600 rounded-full px-2 py-1 cursor-pointer 
-            hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600 
-           sm:hidden lg:block"
+            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           >
             Instant Book
           </button>
           <button
             type="button"
-            className="hidden sm:flex lg:hidden items-center justify-center border-[1px] border-neutral-400 hover:border-teal-600 rounded-full p-1 cursor-pointer 
-            hover:bg-teal-50 transition-colors hover:shadow-sm hover:shadow-teal-600"
+            className="hidden cursor-pointer items-center justify-center rounded-full border-[1px] border-neutral-400 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden"
           >
             <Image
               src="/assets/icons/Linear/Arrows/Alt Arrow Down.png"
               width={500}
               height={500}
               alt="Filter"
-              className="w-[19px] h-[19px]"
+              className="h-[19px] w-[19px]"
             />
           </button>
         </div>
-        <div className="flex items-center gap-3 text-[13.78px] sm:text-sm font-semibold">
+        <div className="flex items-center gap-3 text-[13.78px] font-semibold sm:text-sm">
           <button
             type="button"
-            className="hidden sm:flex items-center justify-center gap-1 border-[1px] border-neutral-400 hover:border-teal-600 
-            rounded-full px-2 py-1 cursor-pointer hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm
-             hover:shadow-teal-600"
+            className="hidden cursor-pointer items-center justify-center gap-1 rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:flex"
           >
             <span className="hidden lg:block">Filter</span>
             <Image
@@ -110,32 +94,28 @@ export default function Home() {
               width={500}
               height={500}
               alt="Filter"
-              className="w-[18px] h-[18px]"
+              className="h-[18px] w-[18px]"
             />
           </button>
           <button
             type="button"
-            className="border-[1px] border-neutral-400 hover:border-teal-600 rounded-full px-2 py-1 cursor-pointer 
-            hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600"
+            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
           >
             <span className="opacity-50">Sort by: </span>
             <span>Highest Price</span>
           </button>
         </div>
       </section>
-      <section className="relative container max-sm:max-w-[390px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-8">
-        <div
-          className="absolute top-2 -left-1 flex items-center gap-1 rounded-r-full rounded-tl-full bg-teal-600 hover:bg-teal-500 
-        cursor-pointer transition-colors py-1 px-2 shadow-xl shadow-teal-800 z-50"
-        >
+      <section className="relative container mx-auto grid grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="absolute top-2 -left-1 z-50 flex cursor-pointer items-center gap-1 rounded-tl-full rounded-r-full bg-teal-600 px-2 py-1 shadow-xl shadow-teal-800 transition-colors hover:bg-teal-500">
           <Image
             src="/assets/icons/discount-item.png"
             width={500}
             height={500}
             alt="Discount"
-            className="w-3.5 h-3.5"
+            className="h-3.5 w-3.5"
           />
-          <span className="text-sm text-white font-medium">60% Off</span>
+          <span className="text-sm font-medium text-white">60% Off</span>
         </div>
         {PROPERTYLISTINGSAMPLE?.map((item, index) => (
           <div key={index} className="flex flex-col gap-3">
@@ -147,29 +127,26 @@ export default function Home() {
                   height={500}
                   alt={item.name}
                   title={item.name}
-                  className="w-full h-full object-cover rounded-2xl cursor-pointer hover:brightness-50 transition-all"
+                  className="h-full w-full cursor-pointer rounded-2xl object-cover transition-all hover:brightness-50"
                 />
               </Link>
             </div>
-            <div className="flex items-center gap-1 text-zinc-900 text-[11px] font-medium whitespace-nowrap overflow-x-hidden">
+            <div className="flex items-center gap-1 overflow-x-hidden text-[11px] font-medium whitespace-nowrap text-zinc-900">
               <button
                 type="button"
-                className="bg-zinc-200 rounded-full px-2 py-1 cursor-pointer hover:bg-teal-100 
-                  hover:text-teal-600 transition-colors"
+                className="cursor-pointer rounded-full bg-zinc-200 px-2 py-1 transition-colors hover:bg-teal-100 hover:text-teal-600"
               >
                 Top Villa
               </button>
               <button
                 type="button"
-                className="bg-zinc-200 rounded-full px-2 py-1 cursor-pointer hover:bg-teal-100 
-                  hover:text-teal-600 transition-colors"
+                className="cursor-pointer rounded-full bg-zinc-200 px-2 py-1 transition-colors hover:bg-teal-100 hover:text-teal-600"
               >
                 Self CheckIn
               </button>
               <button
                 type="button"
-                className="bg-zinc-200 rounded-full px-2 py-1 cursor-pointer hover:bg-teal-100 
-                  hover:text-teal-600 transition-colors"
+                className="cursor-pointer rounded-full bg-zinc-200 px-2 py-1 transition-colors hover:bg-teal-100 hover:text-teal-600"
               >
                 Free Reschedule
               </button>
@@ -177,7 +154,7 @@ export default function Home() {
             <div className="flex flex-col gap-3">
               <div>
                 <div className="flex items-center justify-between">
-                  <h2 className="text-zinc-900 text-lg font-semibold">
+                  <h2 className="text-lg font-semibold text-zinc-900">
                     {item.name}
                   </h2>
                   <div className="flex items-center justify-center gap-1">
@@ -186,30 +163,27 @@ export default function Home() {
                       width={500}
                       height={500}
                       alt="star"
-                      className="w-[15px] h-[15px]"
+                      className="h-[15px] w-[15px]"
                     />
-                    <span className="text-zinc-900 text-sm font-medium">
+                    <span className="text-sm font-medium text-zinc-900">
                       {item.rating}
                     </span>
                   </div>
                 </div>
-                <h3 className="text-zinc-600 text-sm font-medium">
+                <h3 className="text-sm font-medium text-zinc-600">
                   {item.address.state} {item.address.city}{" "}
                   {item.address.country}
                 </h3>
               </div>
               <div className="flex items-center justify-between">
-                <div
-                  className="flex items-center gap-1 text-[11px] sm:ml-1 border-[1px] border-neutral-400 hover:border-teal-600 rounded-full px-2 py-1 cursor-pointer
-                   hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600"
-                >
+                <div className="flex cursor-pointer items-center gap-1 rounded-full border-[1px] border-neutral-400 px-2 py-1 text-[11px] transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:ml-1">
                   <div className="flex items-center justify-center gap-0.5">
                     <Image
                       src="/assets/icons/bed 1.png"
                       width={500}
                       height={500}
                       alt="Bed"
-                      className="w-[13px] h-[13px]"
+                      className="h-[13px] w-[13px]"
                     />
                     <span>{item.offers.bed}</span>
                   </div>
@@ -219,7 +193,7 @@ export default function Home() {
                       width={500}
                       height={500}
                       alt="Shower"
-                      className="w-[13px] h-[13px]"
+                      className="h-[13px] w-[13px]"
                     />
                     <span>{item.offers.shower}</span>
                   </div>
@@ -229,12 +203,12 @@ export default function Home() {
                       width={500}
                       height={500}
                       alt="Occupants"
-                      className="w-[13px] h-[13px]"
+                      className="h-[13px] w-[13px]"
                     />
                     <span>{item.offers.occupants}</span>
                   </div>
                 </div>
-                <span className="text-zinc-900 text-xs font-semibold">
+                <span className="text-xs font-semibold text-zinc-900">
                   ${item.discount ? item.discount : 0}
                   <sub>/n</sub>
                 </span>
@@ -243,17 +217,11 @@ export default function Home() {
           </div>
         ))}
       </section>
-      <section
-        className="container flex flex-col items-center justify-center gap-3 mx-auto 
-        mt-25 mb-9 sm:mt-30 sm:mb-13 lg:mt-20 lg:mb-8"
-      >
-        <button
-          className="text-white hover:text-amber-50 text-xs sm:text-sm text-center cursor-pointer font-medium bg-black rounded-full 
-          px-3 py-1 hover:bg-slate-700 focus:ring-2 focus:ring-slate-950 transition-colors"
-        >
+      <section className="container mx-auto mt-25 mb-9 flex flex-col items-center justify-center gap-3 sm:mt-30 sm:mb-13 lg:mt-20 lg:mb-8">
+        <button className="cursor-pointer rounded-full bg-black px-3 py-1 text-center text-xs font-medium text-white transition-colors hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950 sm:text-sm">
           Show more
         </button>
-        <p className="text-sm text-black text-center font-medium">
+        <p className="text-center text-sm font-medium text-black">
           Click to see more listings
         </p>
       </section>
