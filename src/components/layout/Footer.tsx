@@ -17,10 +17,10 @@ const Footer = () => {
               className="h-8 w-8 rounded-full"
             />
             <p className="text-[11px] font-medium text-neutral-300 sm:text-base">
-              KGN is a platform where travelers can discover and book unique,
+              This is a platform where travelers can discover and book unique,
               comfortable, and affordable lodging options worldwide. From cozy
               city apartments and tranquil countryside retreats to exotic
-              beachside villas, KGN connects you with the perfect place to stay
+              beachside villas, it connects you with the perfect place to stay
               for any trip.
             </p>
           </div>

@@ -41,13 +41,13 @@ const Header = () => {
               title="kgn logo"
               className="h-7 w-7 cursor-pointer md:h-10 md:w-10"
             />
-            <button className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-teal-600">
+            <button className="flex h-7 w-7 items-center justify-center rounded-full bg-teal-600">
               <Image
                 src="/assets/icons/profile2.png"
                 width={500}
                 height={500}
                 alt="profile"
-                className="h-7 w-7 cursor-pointer"
+                className="h-6 w-6 cursor-pointer"
               />
             </button>
           </div>
@@ -157,18 +157,18 @@ const Header = () => {
                   width={500}
                   height={500}
                   alt="Search"
-                  className="h-4.5 w-4.5 shrink-0 sm:h-[19px] sm:w-[19px]"
+                  className="h-4.5 w-4.5 shrink-0 sm:h-5 sm:w-5"
                 />
               </button>
             </form>
           </div>
-          <button className="hidden h-[30px] w-[30px] items-center justify-center rounded-full bg-teal-600 sm:flex lg:hidden">
+          <button className="hidden h-7 w-7 items-center justify-center rounded-full bg-teal-600 sm:flex lg:hidden">
             <Image
               src="/assets/icons/profile2.png"
               width={500}
               height={500}
               alt="profile"
-              className="h-7 w-7 cursor-pointer"
+              className="h-6 w-6 cursor-pointer"
             />
           </button>
           <div className="hidden gap-2 lg:flex">
@@ -193,7 +193,7 @@ const Header = () => {
                 width={500}
                 height={500}
                 alt={type.name}
-                className="h-7 w-7 sm:h-7 sm:w-7"
+                className="h-6 w-6 sm:h-7 sm:w-7"
               />
               <span className="text-[11px] font-medium whitespace-nowrap sm:text-xs">
                 {type.name}

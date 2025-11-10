@@ -6,18 +6,16 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="px-2 sm:px-3 lg:px-4">
-      <section>
-        <div className='mx-auto flex h-[296px] w-full max-w-7xl items-center justify-center rounded-3xl bg-[url("/assets/hero-section-image/Image_mobile.png")] bg-cover bg-center bg-no-repeat sm:h-[421px] sm:bg-[url("/assets/hero-section-image/Image_desktop.png")] lg:h-[481px]'>
-          <div className="text-center text-white">
-            <h1 className="text-[28.28px] font-semibold sm:text-[68.63px] lg:text-[94px]">
-              Find your favorite
-              <br />
-              place here!
-            </h1>
-            <h2 className="text-[7.42px] font-medium sm:text-[18px] lg:text-[24px]">
-              The best prices for over 2 million properties worldwide.
-            </h2>
-          </div>
+      <section className='mx-auto flex h-[296px] w-full max-w-7xl items-center justify-center rounded-3xl bg-[url("/assets/hero-section-image/Image_mobile.png")] bg-cover bg-center bg-no-repeat sm:h-[421px] sm:bg-[url("/assets/hero-section-image/Image_desktop.png")] lg:h-[481px]'>
+        <div className="text-center text-white">
+          <h1 className="text-2xl font-semibold sm:text-6xl lg:text-7xl">
+            Find your favorite
+            <br />
+            place here!
+          </h1>
+          <h2 className="mt-2 text-xs font-medium sm:text-lg lg:text-2xl">
+            The best prices for over 2 million properties worldwide.
+          </h2>
         </div>
       </section>
       <section className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 py-5 whitespace-nowrap max-sm:overflow-x-hidden">
