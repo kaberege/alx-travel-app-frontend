@@ -13,13 +13,11 @@ export interface AcommodationProps {
 }
 
 export interface ButtonProps {
-  label?: string;
+  title?: string;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
-  styles?: string;
-  icon?: string;
-  alt?: string;
-  imageStyles?: string;
+  style?: string;
+  children?: ReactNode;
 }
 
 export interface PillProps {
@@ -63,4 +61,18 @@ export interface ReviewsProps {
   comment: string;
   experience: string;
   time: string;
+}
+
+export interface InputProps {
+  id: string;
+  name: string;
+  type: "text" | "number" | "search" | "date";
+  style: string;
+  placeholder?: string;
+}
+
+export interface LabelProps {
+  htmlFor: string;
+  title: string;
+  style: string;
 }

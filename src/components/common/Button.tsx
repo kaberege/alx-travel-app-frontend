@@ -1,32 +1,16 @@
 import React from "react";
-import Image from "next/image";
 import { type ButtonProps } from "../../interfaces";
 
 const Button: React.FC<ButtonProps> = ({
-  styles,
-  icon,
-  alt,
-  label,
-  onClick,
   type = "button",
-  imageStyles = "w-[15px] h-[15px]",
+  title,
+  style,
+  onClick,
+  children,
 }) => {
   return (
-    <button
-      onClick={onClick}
-      type={type}
-      className={`flex cursor-pointer items-center justify-center gap-1 text-xs ${styles}`}
-    >
-      {icon && alt && (
-        <Image
-          src={icon}
-          width={500}
-          height={500}
-          alt={alt}
-          className={imageStyles}
-        />
-      )}
-      {label && <span>{label}</span>}
+    <button onClick={onClick} type={type} className={style}>
+      {children} {title && <span>{title}</span>}
     </button>
   );
 };

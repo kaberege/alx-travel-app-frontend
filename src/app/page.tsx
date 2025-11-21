@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { PROPERTYLISTINGSAMPLE } from "@/constants";
 import Link from "next/link";
+import Button from "@/components/common/Button";
 
 export default function Home() {
   return (
@@ -19,59 +20,41 @@ export default function Home() {
         </div>
       </section>
       <section className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 py-5 whitespace-nowrap max-sm:overflow-x-hidden">
-        <div className="flex items-center gap-3 text-[13.78px] font-semibold text-zinc-900 sm:text-sm">
-          <button
-            type="button"
-            className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-[1px] border-neutral-300 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:hidden"
-          >
+        <div className="flex items-center gap-3 text-xs font-semibold text-zinc-900 sm:text-sm">
+          <Button style="flex shrink-0 cursor-pointer items-center justify-center rounded-full border border-neutral-300 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:hidden">
             <Image
               src="/assets/icons/Linear/Essentional, UI/Filter.png"
               width={500}
               height={500}
               alt="Filter"
-              className="h-[18px] w-[18px]"
+              className="h-4 w-4"
             />
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer rounded-full border-[1px] border-teal-600 bg-teal-50 px-3 py-1 text-teal-600 shadow-sm shadow-teal-600 transition-colors"
-          >
-            All
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
-          >
-            Top Villa
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
-          >
-            Free Reschedule
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
-          >
-            Book Now, Pay later
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
-          >
-            Self CheckIn
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
-          >
-            Instant Book
-          </button>
-          <button
-            type="button"
-            className="hidden cursor-pointer items-center justify-center rounded-full border-[1px] border-neutral-400 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden"
-          >
+          </Button>
+          <Button
+            title="All"
+            style="cursor-pointer rounded-full border-[1px] border-teal-600 bg-teal-50 px-3 py-1 text-teal-600 shadow-sm shadow-teal-600 transition-colors"
+          />
+          <Button
+            title="Top Villa"
+            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
+          />
+          <Button
+            title="Free Reschedule"
+            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
+          />
+          <Button
+            title="Book Now, Pay later"
+            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
+          />
+          <Button
+            title="Self CheckIn"
+            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
+          />
+          <Button
+            title="Instant Book"
+            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
+          />
+          <Button style="hidden cursor-pointer items-center justify-center rounded-full border-[1px] border-neutral-400 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden">
             <Image
               src="/assets/icons/Linear/Arrows/Alt Arrow Down.png"
               width={500}
@@ -79,13 +62,10 @@ export default function Home() {
               alt="Filter"
               className="h-[19px] w-[19px]"
             />
-          </button>
+          </Button>
         </div>
         <div className="flex items-center gap-3 text-[13.78px] font-semibold sm:text-sm">
-          <button
-            type="button"
-            className="hidden cursor-pointer items-center justify-center gap-1 rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:flex"
-          >
+          <Button style="hidden cursor-pointer items-center justify-center gap-1 rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:flex">
             <span className="hidden lg:block">Filter</span>
             <Image
               src="/assets/icons/Linear/Essentional, UI/Filter.png"
@@ -94,14 +74,11 @@ export default function Home() {
               alt="Filter"
               className="h-[18px] w-[18px]"
             />
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
-          >
+          </Button>
+          <Button style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600">
             <span className="opacity-50">Sort by: </span>
             <span>Highest Price</span>
-          </button>
+          </Button>
         </div>
       </section>
       <section className="relative container mx-auto grid grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
