@@ -3,6 +3,7 @@ import Image from "next/image";
 import { PROPERTYLISTINGSAMPLE } from "@/constants";
 import Link from "next/link";
 import Button from "@/components/common/Button";
+import Pill from "@/components/common/Pill";
 
 export default function Home() {
   return (
@@ -107,24 +108,14 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex items-center gap-1 overflow-x-hidden text-[11px] font-medium whitespace-nowrap text-zinc-900">
-              <button
-                type="button"
-                className="cursor-pointer rounded-full bg-zinc-200 px-2 py-1 transition-colors hover:bg-teal-100 hover:text-teal-600"
-              >
-                Top Villa
-              </button>
-              <button
-                type="button"
-                className="cursor-pointer rounded-full bg-zinc-200 px-2 py-1 transition-colors hover:bg-teal-100 hover:text-teal-600"
-              >
-                Self CheckIn
-              </button>
-              <button
-                type="button"
-                className="cursor-pointer rounded-full bg-zinc-200 px-2 py-1 transition-colors hover:bg-teal-100 hover:text-teal-600"
-              >
-                Free Reschedule
-              </button>
+              {item.category &&
+                item.category.map((category, idx) => (
+                  <Pill
+                    key={idx}
+                    title={category}
+                    style="bg-zinc-200 hover:bg-teal-100"
+                  />
+                ))}
             </div>
             <div className="flex flex-col gap-3">
               <div>
@@ -151,8 +142,24 @@ export default function Home() {
                 </h3>
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex cursor-pointer items-center gap-1 rounded-full border-[1px] border-neutral-400 px-2 py-1 text-[11px] transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:ml-1">
-                  <div className="flex items-center justify-center gap-0.5">
+                <Pill style="gap-1 border-neutral-400 text-[11px] sm:ml-1">
+                  {item.offers &&
+                    Object.values(item.offers).map((offer, odex) => (
+                      <div
+                        key={odex}
+                        className="flex items-center justify-center gap-0.5"
+                      >
+                        <Image
+                          src="/assets/icons/bed 1.png"
+                          width={500}
+                          height={500}
+                          alt="Bed"
+                          className="h-[13px] w-[13px]"
+                        />
+                        <span>{offer}</span>
+                      </div>
+                    ))}
+                  {/*  <div className="flex items-center justify-center gap-0.5">
                     <Image
                       src="/assets/icons/bed 1.png"
                       width={500}
@@ -181,8 +188,8 @@ export default function Home() {
                       className="h-[13px] w-[13px]"
                     />
                     <span>{item.offers.occupants}</span>
-                  </div>
-                </div>
+                  </div> */}
+                </Pill>
                 <span className="text-xs font-semibold text-zinc-900">
                   ${item.discount ? item.discount : 0}
                   <sub>/n</sub>
@@ -193,9 +200,10 @@ export default function Home() {
         ))}
       </section>
       <section className="container mx-auto mt-25 mb-9 flex flex-col items-center justify-center gap-3 sm:mt-30 sm:mb-13 lg:mt-20 lg:mb-8">
-        <button className="cursor-pointer rounded-full bg-black px-3 py-1 text-center text-xs font-medium text-white transition-colors hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950 sm:text-sm">
-          Show more
-        </button>
+        <Button
+          title="Show more"
+          style="cursor-pointer rounded-full bg-black px-3 py-1 text-center text-xs font-medium text-white transition-colors hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950 sm:text-sm"
+        />
         <p className="text-center text-sm font-medium text-black">
           Click to see more listings
         </p>

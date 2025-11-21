@@ -21,11 +21,9 @@ export interface ButtonProps {
 }
 
 export interface PillProps {
-  icon?: string;
-  label: string;
-  alt?: string;
-  styles?: string;
-  offer?: string;
+  title?: string;
+  style?: string;
+  children?: ReactNode;
 }
 
 export type MyProps = {
