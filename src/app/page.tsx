@@ -65,24 +65,24 @@ export default function Home() {
             />
           </Button>
         </div>
-        <div className="flex items-center gap-3 text-[13.78px] font-semibold sm:text-sm">
-          <Button style="hidden cursor-pointer items-center justify-center gap-1 rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:flex">
+        <div className="flex items-center gap-3 text-xs font-semibold text-zinc-900 sm:text-sm">
+          <Button style="hidden cursor-pointer items-center justify-center gap-1 rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:flex">
             <span className="hidden lg:block">Filter</span>
             <Image
-              src="/assets/icons/Linear/Essentional, UI/Filter.png"
+              src="/assets/icons/Linear/Essentional_UI/Filter.png"
               width={500}
               height={500}
               alt="Filter"
               className="h-[18px] w-[18px]"
             />
           </Button>
-          <Button style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600">
+          <Button style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600">
             <span className="opacity-50">Sort by: </span>
             <span>Highest Price</span>
           </Button>
         </div>
       </section>
-      <section className="relative container mx-auto grid grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
+      <section className="relative container mx-auto grid w-full grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
         <div className="absolute top-2 -left-1 z-50 flex cursor-pointer items-center gap-1 rounded-tl-full rounded-r-full bg-teal-600 px-2 py-1 shadow-xl shadow-teal-800 transition-colors hover:bg-teal-500">
           <Image
             src="/assets/icons/discount-item.png"
@@ -95,18 +95,16 @@ export default function Home() {
         </div>
         {propertListingSample?.map((item, index) => (
           <div key={index} className="flex flex-col gap-3">
-            <div className="h-[200px]">
-              <Link href={`property/${item.name}`}>
-                <Image
-                  src={item.image}
-                  width={500}
-                  height={500}
-                  alt={item.name}
-                  title={item.name}
-                  className="h-full w-full cursor-pointer rounded-2xl object-cover transition-all hover:brightness-50"
-                />
-              </Link>
-            </div>
+            <Link className="h-[200px]" href={`property/${item.name}`}>
+              <Image
+                src={item.image}
+                width={500}
+                height={500}
+                alt={item.name}
+                title={item.name}
+                className="h-full w-full cursor-pointer rounded-2xl object-cover transition-all hover:brightness-50"
+              />
+            </Link>
             <div className="flex items-center gap-1 overflow-x-hidden text-[11px] font-medium whitespace-nowrap text-zinc-900">
               {item.category &&
                 item.category.map((category, idx) => (
