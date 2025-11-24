@@ -30,6 +30,12 @@ export type MyProps = {
   children: ReactNode;
 };
 
+export interface OfferProps {
+  bed: string;
+  shower: string;
+  occupants: string;
+  [key: string]: string;
+}
 export interface PropertyProps {
   name: string;
   address: {
@@ -40,11 +46,7 @@ export interface PropertyProps {
   rating: number;
   category: string[];
   price: number;
-  offers: {
-    bed: string;
-    shower: string;
-    occupants: string;
-  };
+  offers: OfferProps;
   image: string;
   discount: string;
   description: {

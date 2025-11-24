@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { PROPERTYLISTINGSAMPLE } from "@/constants";
+import { propertListingSample, offerIcons } from "@/constants";
 import Link from "next/link";
 import Button from "@/components/common/Button";
 import Pill from "@/components/common/Pill";
@@ -24,7 +24,7 @@ export default function Home() {
         <div className="flex items-center gap-3 text-xs font-semibold text-zinc-900 sm:text-sm">
           <Button style="flex shrink-0 cursor-pointer items-center justify-center rounded-full border border-neutral-300 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:hidden">
             <Image
-              src="/assets/icons/Linear/Essentional, UI/Filter.png"
+              src="/assets/icons/Linear/Essentional_UI/Filter.png"
               width={500}
               height={500}
               alt="Filter"
@@ -33,31 +33,31 @@ export default function Home() {
           </Button>
           <Button
             title="All"
-            style="cursor-pointer rounded-full border-[1px] border-teal-600 bg-teal-50 px-3 py-1 text-teal-600 shadow-sm shadow-teal-600 transition-colors"
+            style="cursor-pointer rounded-full border border-teal-600 bg-teal-50 px-3 py-1 text-teal-600 shadow-sm shadow-teal-600 transition-colors"
           />
           <Button
             title="Top Villa"
-            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
+            style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
           />
           <Button
             title="Free Reschedule"
-            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
+            style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
           />
           <Button
             title="Book Now, Pay later"
-            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
+            style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           />
           <Button
             title="Self CheckIn"
-            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
+            style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           />
           <Button
             title="Instant Book"
-            style="cursor-pointer rounded-full border-[1px] border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
+            style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           />
-          <Button style="hidden cursor-pointer items-center justify-center rounded-full border-[1px] border-neutral-400 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden">
+          <Button style="hidden cursor-pointer items-center justify-center rounded-full border border-neutral-400 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden">
             <Image
-              src="/assets/icons/Linear/Arrows/Alt Arrow Down.png"
+              src="/assets/icons/Linear/Arrows/Alt_Arrow_Down.png"
               width={500}
               height={500}
               alt="Filter"
@@ -93,7 +93,7 @@ export default function Home() {
           />
           <span className="text-sm font-medium text-white">60% Off</span>
         </div>
-        {PROPERTYLISTINGSAMPLE?.map((item, index) => (
+        {propertListingSample?.map((item, index) => (
           <div key={index} className="flex flex-col gap-3">
             <div className="h-[200px]">
               <Link href={`property/${item.name}`}>
@@ -144,51 +144,21 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <Pill style="gap-1 border-neutral-400 text-[11px] sm:ml-1">
                   {item.offers &&
-                    Object.values(item.offers).map((offer, odex) => (
+                    Object.entries(item.offers).map((offer, odex) => (
                       <div
                         key={odex}
                         className="flex items-center justify-center gap-0.5"
                       >
                         <Image
-                          src="/assets/icons/bed 1.png"
+                          src={offerIcons[offer[0]]}
                           width={500}
                           height={500}
                           alt="Bed"
-                          className="h-[13px] w-[13px]"
+                          className="h-3 w-3 sm:h-3.5 sm:w-3.5"
                         />
-                        <span>{offer}</span>
+                        <span>{offer[1]}</span>
                       </div>
                     ))}
-                  {/*  <div className="flex items-center justify-center gap-0.5">
-                    <Image
-                      src="/assets/icons/bed 1.png"
-                      width={500}
-                      height={500}
-                      alt="Bed"
-                      className="h-[13px] w-[13px]"
-                    />
-                    <span>{item.offers.bed}</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-0.5">
-                    <Image
-                      src="/assets/icons/bathtub 1.png"
-                      width={500}
-                      height={500}
-                      alt="Shower"
-                      className="h-[13px] w-[13px]"
-                    />
-                    <span>{item.offers.shower}</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-0.5">
-                    <Image
-                      src="/assets/icons/people 1.png"
-                      width={500}
-                      height={500}
-                      alt="Occupants"
-                      className="h-[13px] w-[13px]"
-                    />
-                    <span>{item.offers.occupants}</span>
-                  </div> */}
                 </Pill>
                 <span className="text-xs font-semibold text-zinc-900">
                   ${item.discount ? item.discount : 0}

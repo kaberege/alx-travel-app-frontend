@@ -1,7 +1,12 @@
-import { PropertyProps, AcommodationProps, ReviewsProps } from "@/interfaces";
+import type {
+  OfferProps,
+  PropertyProps,
+  AcommodationProps,
+  ReviewsProps,
+} from "@/interfaces";
 
 // Data for types of accommodation
-export const TypesOfAcommodation: AcommodationProps[] = [
+export const typesOfAcommodation: AcommodationProps[] = [
   {
     name: "Rooms",
     image: "/assets/logos/living-room 1.png",
@@ -77,7 +82,7 @@ export const TypesOfAcommodation: AcommodationProps[] = [
 ];
 
 // Listing Section data:
-export const PROPERTYLISTINGSAMPLE: PropertyProps[] = [
+export const propertListingSample: PropertyProps[] = [
   {
     name: "Villa Ocean Breeze",
     address: {
@@ -556,3 +561,9 @@ export const reviews: ReviewsProps[] = [
     time: "January 2023",
   },
 ];
+
+export const offerIcons: OfferProps = {
+  bed: "/assets/icons/bed 1.png",
+  shower: "/assets/icons/bathtub 1.png",
+  occupants: "/assets/icons/people 1.png",
+};

@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { TypesOfAcommodation } from "@/constants";
+import { typesOfAcommodation } from "@/constants";
 import { usePathname } from "next/navigation";
 import { BsArrowLeft } from "react-icons/bs";
 import Button from "../common/Button";
@@ -185,7 +185,7 @@ const Header = () => {
       </section>
       {["/"].includes(pathname) && (
         <section className="mx-auto my-5 flex w-full max-w-7xl items-center justify-between gap-5 overflow-x-auto px-3 xl:px-1">
-          {TypesOfAcommodation.map((type, index) => (
+          {typesOfAcommodation.map((type, index) => (
             <Button
               key={index}
               style="flex cursor-pointer flex-col items-center justify-center gap-1 border-b-2 border-b-neutral-600/0 pb-2 text-[11px] font-medium whitespace-nowrap text-neutral-500 transition-colors duration-200 hover:border-b-neutral-600 hover:text-neutral-800 sm:text-xs"
