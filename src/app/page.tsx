@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { propertListingSample, offerIcons } from "@/constants";
 import Link from "next/link";
@@ -6,6 +8,7 @@ import Button from "@/components/common/Button";
 import Pill from "@/components/common/Pill";
 
 export default function Home() {
+  const [filter, setFilter] = useState<string>("all");
   return (
     <div className="px-2 sm:px-3 lg:px-4">
       <section className='mx-auto flex h-[296px] w-full max-w-7xl items-center justify-center rounded-3xl bg-[url("/assets/hero-section-image/Image_mobile.png")] bg-cover bg-center bg-no-repeat sm:h-[421px] sm:bg-[url("/assets/hero-section-image/Image_desktop.png")] lg:h-[481px]'>
@@ -22,7 +25,10 @@ export default function Home() {
       </section>
       <section className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 py-5 whitespace-nowrap max-sm:overflow-x-hidden">
         <div className="flex items-center gap-3 text-xs font-semibold text-zinc-900 sm:text-sm">
-          <Button style="flex shrink-0 cursor-pointer items-center justify-center rounded-full border border-neutral-300 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:hidden">
+          <Button
+            onClick={() => setFilter("filter")}
+            style={`flex shrink-0 cursor-pointer items-center justify-center rounded-full border border-neutral-300 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:hidden`}
+          >
             <Image
               src="/assets/icons/Linear/Essentional_UI/Filter.png"
               width={500}
@@ -32,30 +38,39 @@ export default function Home() {
             />
           </Button>
           <Button
+            onClick={() => setFilter("all")}
             title="All"
-            style="cursor-pointer rounded-full border border-teal-600 bg-teal-50 px-3 py-1 text-teal-600 shadow-sm shadow-teal-600 transition-colors"
+            style={`cursor-pointer rounded-full border border-teal-600 ${filter === "all" ? "bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "bg-zinc-400"} px-3 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
           />
           <Button
+            onClick={() => setFilter("top-villa")}
             title="Top Villa"
             style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
           />
           <Button
+            onClick={() => setFilter("free-reschedule")}
             title="Free Reschedule"
             style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
           />
           <Button
+            onClick={() => setFilter("book-now")}
             title="Book Now, Pay later"
             style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           />
           <Button
+            onClick={() => setFilter("self-checkin")}
             title="Self CheckIn"
             style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           />
           <Button
+            onClick={() => setFilter("instant-book")}
             title="Instant Book"
             style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block"
           />
-          <Button style="hidden cursor-pointer items-center justify-center rounded-full border border-neutral-400 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden">
+          <Button
+            onClick={() => setFilter("filter")}
+            style="hidden cursor-pointer items-center justify-center rounded-full border border-neutral-400 p-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden"
+          >
             <Image
               src="/assets/icons/Linear/Arrows/Alt_Arrow_Down.png"
               width={500}
@@ -66,7 +81,10 @@ export default function Home() {
           </Button>
         </div>
         <div className="flex items-center gap-3 text-xs font-semibold text-zinc-900 sm:text-sm">
-          <Button style="hidden cursor-pointer items-center justify-center gap-1 rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:flex">
+          <Button
+            onClick={() => setFilter("filter")}
+            style="hidden cursor-pointer items-center justify-center gap-1 rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:flex"
+          >
             <span className="hidden lg:block">Filter</span>
             <Image
               src="/assets/icons/Linear/Essentional_UI/Filter.png"
@@ -76,7 +94,10 @@ export default function Home() {
               className="h-[18px] w-[18px]"
             />
           </Button>
-          <Button style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600">
+          <Button
+            onClick={() => setFilter("sort-by")}
+            style="cursor-pointer rounded-full border border-neutral-400 px-2 py-1 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600"
+          >
             <span className="opacity-50">Sort by: </span>
             <span>Highest Price</span>
           </Button>
