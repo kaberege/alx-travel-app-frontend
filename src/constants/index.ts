@@ -9,75 +9,75 @@ import type {
 export const typesOfAcommodation: AcommodationProps[] = [
   {
     name: "Rooms",
-    image: "/assets/logos/living-room 1.png",
+    image: "/assets/logos/living-room_1.png",
   },
   {
     name: "Mansion",
-    image: "/assets/logos/mansion 1.png",
+    image: "/assets/logos/mansion_1.png",
   },
   {
     name: "Countryside",
-    image: "/assets/logos/farm 1.png",
+    image: "/assets/logos/farm_1.png",
   },
   {
     name: "Villa",
-    image: "/assets/logos/villa 1.png",
+    image: "/assets/logos/villa_1.png",
   },
   {
     name: "Tropical",
-    image: "/assets/logos/palm-tree 1.png",
+    image: "/assets/logos/palm-tree_1.png",
   },
   {
     name: "New",
-    image: "/assets/logos/key-chain 1.png",
+    image: "/assets/logos/key-chain_1.png",
   },
   {
     name: "Amazing pool",
-    image: "/assets/logos/swimming-pool 1.png",
+    image: "/assets/logos/swimming-pool_1.png",
   },
   {
     name: "Beech house",
-    image: "/assets/logos/vacations 1.png",
+    image: "/assets/logos/vacations_1.png",
   },
   {
     name: "Island",
-    image: "/assets/logos/island (1) 1.png",
+    image: "/assets/logos/island_1.png",
   },
   {
     name: "Camping",
-    image: "/assets/logos/tent 1.png",
+    image: "/assets/logos/tent_1.png",
   },
   {
     name: "Apartement",
-    image: "/assets/logos/apartment 1.png",
+    image: "/assets/logos/apartment_1.png",
   },
   {
     name: "House",
-    image: "/assets/logos/home 1.png",
+    image: "/assets/logos/home_1.png",
   },
   {
     name: "Lake front",
-    image: "/assets/logos/cottage 1.png",
+    image: "/assets/logos/cottage_1.png",
   },
   {
     name: "Farm house",
-    image: "/assets/logos/barn 1.png",
+    image: "/assets/logos/barn_1.png",
   },
   {
     name: "Tree house",
-    image: "/assets/logos/treehouse (1) 1.png",
+    image: "/assets/logos/treehouse_1.png",
   },
   {
     name: "Cabins",
-    image: "/assets/logos/cabin 1.png",
+    image: "/assets/logos/cabin_1.png",
   },
   {
     name: "Castles",
-    image: "/assets/logos/castle-tower 1.png",
+    image: "/assets/logos/castle-tower_1.png",
   },
   {
     name: "Lakeside",
-    image: "/assets/logos/farm 1-1.png",
+    image: "/assets/logos/farm_1_1.png",
   },
 ];
 
@@ -102,7 +102,7 @@ export const propertListingSample: PropertyProps[] = [
     discount: "",
     description: {
       title:
-        "Feel like exploring the Dominican? Start the day with a hike on one of Playa Moron’s many trails. Weave your way around the gated community to find secluded sandy coves for swimming and paddleboarding. When you’Feel like exploring the Dominican? Start the day with a hike on one of Playa Moron’s many trails. Weave your way around the gated community to find secluded sandy coves for swimming and paddleboarding. When you’re ready to chill with friends, the beach house pool awaits. Spend the night entertaining in the outdoor lounge, sipping drinks in the hot tub, and gazing out over incredible ocean views.",
+        "Feel like exploring the Dominican? Start the day with a hike on one of Playa Moron's many trails. Weave your way around the gated community to find secluded sandy coves for swimming and paddleboarding. When you'Feel like exploring the Dominican? Start the day with a hike on one of Playa Moron's many trails. Weave your way around the gated community to find secluded sandy coves for swimming and paddleboarding. When you're ready to chill with friends, the beach house pool awaits. Spend the night entertaining in the outdoor lounge, sipping drinks in the hot tub, and gazing out over incredible ocean views.",
       space:
         "Bedroom 1 - Primary: King size bed, Ensuite bathroom with stand-alone rain shower, Dual vanity, Walk-in closet, Television, Sofa, Deck, Balcony, Ocean view",
     },
@@ -532,7 +532,7 @@ export const reviews: ReviewsProps[] = [
     avatar: "/assets/detail-images/image 25.png",
     name: "kerry",
     comment:
-      "I simply don’t have the words to describe how incredibly beautiful the villa and its surroundings are. This is a wonderful remote spot that is simply breathtaking",
+      "I simply don't have the words to describe how incredibly beautiful the villa and its surroundings are. This is a wonderful remote spot that is simply breathtaking",
     experience: "3 years on ALX",
     time: "March 2024",
   },
@@ -548,7 +548,7 @@ export const reviews: ReviewsProps[] = [
     avatar: "/assets/detail-images/image 25-1.png",
     name: "Cindy & Ben",
     comment:
-      "I simply don’t have the words to describe how incredibly beautiful the villa and its surroundings are. This is a wonderful remote spot that is simply breathtaking",
+      "I simply don't have the words to describe how incredibly beautiful the villa and its surroundings are. This is a wonderful remote spot that is simply breathtaking",
     experience: "1 years on ALX",
     time: "August 2023",
   },
