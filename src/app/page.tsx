@@ -1,14 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { propertListingSample, offerIcons } from "@/constants";
 import Link from "next/link";
 import Button from "@/components/common/Button";
 import Pill from "@/components/common/Pill";
+import type { PropertyProps } from "@/interfaces";
 
 export default function Home() {
+  const [filtered, setFiltered] = useState<PropertyProps[] | null>(null);
   const [filter, setFilter] = useState<string>("all");
+
+  useEffect(() => {
+    setFiltered(propertListingSample);
+  }, []);
+
+  useEffect(() => {
+    filterProperty(filter);
+  }, [filter]);
+
+  const filterProperty = (term: string) => {
+    const termToLowerCase: string = term.toLowerCase();
+    const newProperties: PropertyProps[] =
+      termToLowerCase === "all"
+        ? propertListingSample
+        : propertListingSample.filter((property) =>
+            property.category
+              .map((category) => category.toLowerCase())
+              .includes(termToLowerCase),
+          );
+    setFiltered(newProperties);
+  };
+
   return (
     <div className="bg-white px-2 sm:px-3 lg:px-4">
       <section className='mx-auto flex h-[296px] w-full max-w-7xl items-center justify-center rounded-3xl bg-[url("/assets/hero-section-image/Image_mobile.png")] bg-cover bg-center bg-no-repeat sm:h-[421px] sm:bg-[url("/assets/hero-section-image/Image_desktop.png")] lg:h-[481px]'>
@@ -43,27 +67,27 @@ export default function Home() {
             style={`cursor-pointer rounded-full border ${filter === "all" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
           />
           <Button
-            onClick={() => setFilter("top-villa")}
+            onClick={() => setFilter("top villa")}
             title="Top Villa"
             style={`cursor-pointer rounded-full border ${filter === "top-villa" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
           />
           <Button
-            onClick={() => setFilter("free-reschedule")}
+            onClick={() => setFilter("free reschedule")}
             title="Free Reschedule"
             style={`cursor-pointer rounded-full border ${filter === "free-reschedule" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
           />
           <Button
-            onClick={() => setFilter("book-now")}
+            onClick={() => setFilter("book now")}
             title="Book Now, Pay later"
             style={`cursor-pointer rounded-full border ${filter === "book-now" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
           />
           <Button
-            onClick={() => setFilter("self-checkin")}
+            onClick={() => setFilter("self checkin")}
             title="Self Checkin"
             style={`cursor-pointer rounded-full border ${filter === "self-checkin" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
           />
           <Button
-            onClick={() => setFilter("instant-book")}
+            onClick={() => setFilter("instant book")}
             title="Instant Book"
             style={`cursor-pointer rounded-full border ${filter === "instant-book" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
           />
@@ -95,7 +119,7 @@ export default function Home() {
             />
           </Button>
           <Button
-            onClick={() => setFilter("sort-by")}
+            onClick={() => setFilter("sort by")}
             style={`cursor-pointer rounded-full border ${filter === "sort-by" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
           >
             <span className="opacity-50">Sort by: </span>
@@ -103,100 +127,115 @@ export default function Home() {
           </Button>
         </div>
       </section>
-      <section className="relative container mx-auto grid w-full grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
-        <div className="absolute top-2 -left-1 z-50 flex cursor-pointer items-center gap-1 rounded-tl-full rounded-r-full bg-teal-600 px-2 py-1 shadow-xl shadow-teal-800 transition-colors hover:bg-teal-500">
-          <Image
-            src="/assets/icons/discount-item.png"
-            width={500}
-            height={500}
-            alt="Discount"
-            className="h-3.5 w-3.5"
-          />
-          <span className="text-sm font-medium text-white">60% Off</span>
-        </div>
-        {propertListingSample?.map((item, index) => (
-          <div key={index} className="flex flex-col gap-3">
-            <Link className="h-[200px]" href={`property/${item.name}`}>
-              <Image
-                src={item.image}
-                width={500}
-                height={500}
-                alt={item.name}
-                title={item.name}
-                className="h-full w-full cursor-pointer rounded-2xl object-cover transition-all hover:brightness-50"
-              />
-            </Link>
-            <div className="flex items-center gap-1 overflow-x-hidden text-[11px] font-medium whitespace-nowrap text-zinc-900">
-              {item.category &&
-                item.category.map((category, idx) => (
-                  <Pill
-                    key={idx}
-                    title={category}
-                    style="bg-zinc-200 hover:bg-teal-100"
-                  />
-                ))}
-            </div>
-            <div className="flex flex-col gap-3">
-              <div>
-                <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-zinc-900">
-                    {item.name}
-                  </h2>
-                  <div className="flex items-center justify-center gap-1">
-                    <Image
-                      src="/assets/icons/Star 2.png"
-                      width={500}
-                      height={500}
-                      alt="star"
-                      className="h-[15px] w-[15px]"
-                    />
-                    <span className="text-sm font-medium text-zinc-900">
-                      {item.rating}
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-sm font-medium text-zinc-600">
-                  {item.address.state} {item.address.city}{" "}
-                  {item.address.country}
-                </h3>
-              </div>
-              <div className="flex items-center justify-between">
-                <Pill style="gap-1 border-neutral-400 text-[11px] sm:ml-1">
-                  {item.offers &&
-                    Object.entries(item.offers).map((offer, odex) => (
-                      <div
-                        key={odex}
-                        className="flex items-center justify-center gap-0.5"
-                      >
-                        <Image
-                          src={offerIcons[offer[0]]}
-                          width={500}
-                          height={500}
-                          alt="Bed"
-                          className="h-3 w-3 sm:h-3.5 sm:w-3.5"
-                        />
-                        <span>{offer[1]}</span>
-                      </div>
-                    ))}
-                </Pill>
-                <span className="text-xs font-semibold text-zinc-900">
-                  ${item.discount ? item.discount : 0}
-                  <sub>/n</sub>
-                </span>
-              </div>
-            </div>
+      {!filtered || filtered.length < 1 ? (
+        <section className="my-10 flex flex-col items-center justify-center gap-2 text-xs sm:text-base">
+          <p className="text-zinc-950">
+            No properties found for the selected filter.
+          </p>
+          <Button
+            title="Clear filters"
+            style="text-teal-600 font-bold cursor-pointer hover:text-teal-700 transition-colors"
+            onClick={() => setFilter("all")}
+          ></Button>
+        </section>
+      ) : (
+        <section className="relative container mx-auto grid w-full grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="absolute top-2 -left-1 z-50 flex cursor-pointer items-center gap-1 rounded-tl-full rounded-r-full bg-teal-600 px-2 py-1 shadow-xl shadow-teal-800 transition-colors hover:bg-teal-500">
+            <Image
+              src="/assets/icons/discount-item.png"
+              width={500}
+              height={500}
+              alt="Discount"
+              className="h-3.5 w-3.5"
+            />
+            <span className="text-sm font-medium text-white">60% Off</span>
           </div>
-        ))}
-      </section>
-      <section className="container mx-auto mt-25 mb-9 flex flex-col items-center justify-center gap-3 sm:mt-30 sm:mb-13 lg:mt-20 lg:mb-8">
-        <Button
-          title="Show more"
-          style="cursor-pointer rounded-full bg-black px-3 py-1 text-center text-xs font-medium text-white transition-colors hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950 sm:text-sm"
-        />
-        <p className="text-center text-sm font-medium text-black">
-          Click to see more listings
-        </p>
-      </section>
+          {filtered.map((item, index) => (
+            <div key={index} className="flex flex-col gap-3">
+              <Link className="h-[200px]" href={`property/${item.name}`}>
+                <Image
+                  src={item.image}
+                  width={500}
+                  height={500}
+                  alt={item.name}
+                  title={item.name}
+                  className="h-full w-full cursor-pointer rounded-2xl object-cover transition-all hover:brightness-50"
+                />
+              </Link>
+              <div className="flex items-center gap-1 overflow-x-hidden text-[11px] font-medium whitespace-nowrap text-zinc-900">
+                {item.category &&
+                  item.category.map((category, idx) => (
+                    <Pill
+                      key={idx}
+                      title={category}
+                      style="bg-zinc-200 hover:bg-teal-100"
+                    />
+                  ))}
+              </div>
+              <div className="flex flex-col gap-3">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-semibold text-zinc-900">
+                      {item.name}
+                    </h2>
+                    <div className="flex items-center justify-center gap-1">
+                      <Image
+                        src="/assets/icons/Star 2.png"
+                        width={500}
+                        height={500}
+                        alt="star"
+                        className="h-[15px] w-[15px]"
+                      />
+                      <span className="text-sm font-medium text-zinc-900">
+                        {item.rating}
+                      </span>
+                    </div>
+                  </div>
+                  <h3 className="text-sm font-medium text-zinc-600">
+                    {item.address.state} {item.address.city}{" "}
+                    {item.address.country}
+                  </h3>
+                </div>
+                <div className="flex items-center justify-between">
+                  <Pill style="gap-1 border-neutral-400 text-[11px] sm:ml-1">
+                    {item.offers &&
+                      Object.entries(item.offers).map((offer, odex) => (
+                        <div
+                          key={odex}
+                          className="flex items-center justify-center gap-0.5"
+                        >
+                          <Image
+                            src={offerIcons[offer[0]]}
+                            width={500}
+                            height={500}
+                            alt="Bed"
+                            className="h-3 w-3 sm:h-3.5 sm:w-3.5"
+                          />
+                          <span>{offer[1]}</span>
+                        </div>
+                      ))}
+                  </Pill>
+                  <span className="text-xs font-semibold text-zinc-900">
+                    ${item.discount ? item.discount : 0}
+                    <sub>/n</sub>
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+      {filtered && filtered.length > 1 && (
+        <section className="container mx-auto mt-25 mb-9 flex flex-col items-center justify-center gap-3 sm:mt-30 sm:mb-13 lg:mt-20 lg:mb-8">
+          <Button
+            title="Show more"
+            style="cursor-pointer rounded-full bg-black px-3 py-1 text-center text-xs font-medium text-white transition-colors hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950 sm:text-sm"
+          />
+          <p className="text-center text-sm font-medium text-black">
+            Click to see more listings
+          </p>
+        </section>
+      )}
     </div>
   );
 }

@@ -98,7 +98,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "3",
       occupants: "4-6",
     },
-    image: "/assets/listing-images/List 1.png",
+    image: "/assets/listing-images/List_1.png",
     discount: "",
     description: {
       title:
@@ -122,7 +122,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "2",
       occupants: "5-7",
     },
-    image: "/assets/listing-images/List 10.png",
+    image: "/assets/listing-images/List_10.png",
     discount: "30",
     description: {
       title: "",
@@ -144,7 +144,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "1",
       occupants: "2-3",
     },
-    image: "/assets/listing-images/List 11.png",
+    image: "/assets/listing-images/List_11.png",
     discount: "",
     description: {
       title: "",
@@ -166,7 +166,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "2",
       occupants: "2-4",
     },
-    image: "/assets/listing-images/List 12.png",
+    image: "/assets/listing-images/List_12.png",
     discount: "15",
     description: {
       title: "",
@@ -188,7 +188,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "2",
       occupants: "4-6",
     },
-    image: "/assets/listing-images/List 9.png",
+    image: "/assets/listing-images/List_9.png",
     discount: "20",
     description: {
       title: "",
@@ -210,7 +210,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "4",
       occupants: "8-10",
     },
-    image: "/assets/listing-images/List 13.png",
+    image: "/assets/listing-images/List_13.png",
     discount: "",
     description: {
       title: "",
@@ -232,7 +232,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "3",
       occupants: "4-5",
     },
-    image: "/assets/listing-images/List 14.png",
+    image: "/assets/listing-images/List_14.png",
     discount: "10",
     description: {
       title: "",
@@ -254,7 +254,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "3",
       occupants: "5-6",
     },
-    image: "/assets/listing-images/List 15.png",
+    image: "/assets/listing-images/List_15.png",
     discount: "25",
     description: {
       title: "",
@@ -276,7 +276,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "1",
       occupants: "2-3",
     },
-    image: "/assets/listing-images/List 16.png",
+    image: "/assets/listing-images/List_16.png",
     discount: "",
     description: {
       title: "",
@@ -298,7 +298,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "2",
       occupants: "5-7",
     },
-    image: "/assets/listing-images/List 2.png",
+    image: "/assets/listing-images/List_2.png",
     discount: "40",
     description: {
       title: "",
@@ -320,7 +320,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "4",
       occupants: "6-8",
     },
-    image: "/assets/listing-images/List 3.png",
+    image: "/assets/listing-images/List_3.png",
     discount: "50",
     description: {
       title: "",
@@ -342,7 +342,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "3",
       occupants: "4-6",
     },
-    image: "/assets/listing-images/List 4-1.png",
+    image: "/assets/listing-images/List_4-1.png",
     discount: "",
     description: {
       title: "",
@@ -364,7 +364,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "2",
       occupants: "2-4",
     },
-    image: "/assets/listing-images/List 4.png",
+    image: "/assets/listing-images/List_4.png",
     discount: "35",
     description: {
       title: "",
@@ -386,7 +386,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "1",
       occupants: "2",
     },
-    image: "/assets/listing-images/List 6.png",
+    image: "/assets/listing-images/List_6.png",
     discount: "",
     description: {
       title: "",
@@ -408,7 +408,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "4",
       occupants: "6-8",
     },
-    image: "/assets/listing-images/List 7.png",
+    image: "/assets/listing-images/List_7.png",
     discount: "20",
     description: {
       title: "",
@@ -430,7 +430,7 @@ export const propertListingSample: PropertyProps[] = [
       shower: "1",
       occupants: "2-4",
     },
-    image: "/assets/listing-images/List 8.png",
+    image: "/assets/listing-images/List_8.png",
     discount: "25",
     description: {
       title: "",
@@ -529,7 +529,7 @@ export const propertListingSample: PropertyProps[] = [
 
 export const reviews: ReviewsProps[] = [
   {
-    avatar: "/assets/detail-images/image 25.png",
+    avatar: "/assets/detail-images/image_25.png",
     name: "kerry",
     comment:
       "I simply don't have the words to describe how incredibly beautiful the villa and its surroundings are. This is a wonderful remote spot that is simply breathtaking",
@@ -537,7 +537,7 @@ export const reviews: ReviewsProps[] = [
     time: "March 2024",
   },
   {
-    avatar: "/assets/detail-images/image 25-2.png",
+    avatar: "/assets/detail-images/image_25-2.png",
     name: "Pooja",
     comment:
       "We stayed at this home for a family vacation of 7 adults (including 3 couples, 1 baby) and had a fantastic stay. The house was BEAUTIFUL and honestly better than shown in pictures,",
@@ -545,7 +545,7 @@ export const reviews: ReviewsProps[] = [
     time: "March 2024",
   },
   {
-    avatar: "/assets/detail-images/image 25-1.png",
+    avatar: "/assets/detail-images/image_25-1.png",
     name: "Cindy & Ben",
     comment:
       "I simply don't have the words to describe how incredibly beautiful the villa and its surroundings are. This is a wonderful remote spot that is simply breathtaking",
@@ -553,7 +553,7 @@ export const reviews: ReviewsProps[] = [
     time: "August 2023",
   },
   {
-    avatar: "/assets/detail-images/image 25-3.png",
+    avatar: "/assets/detail-images/image_25-3.png",
     name: "Marnie",
     comment:
       "We stayed at this home for a family vacation of 7 adults (including 3 couples, 1 baby) and had a fantastic stay. The house was BEAUTIFUL and honestly better than shown in pictures, ",
@@ -563,7 +563,7 @@ export const reviews: ReviewsProps[] = [
 ];
 
 export const offerIcons: OfferProps = {
-  bed: "/assets/icons/bed 1.png",
-  shower: "/assets/icons/bathtub 1.png",
-  occupants: "/assets/icons/people 1.png",
+  bed: "/assets/icons/bed_1.png",
+  shower: "/assets/icons/bathtub_1.png",
+  occupants: "/assets/icons/people_1.png",
 };
