@@ -10,7 +10,10 @@ import type { PropertyProps } from "@/interfaces";
 
 export default function Home() {
   const [filtered, setFiltered] = useState<PropertyProps[] | null>(null);
+  const [display, setDisplay] = useState<PropertyProps[] | null>(null);
   const [filter, setFilter] = useState<string>("all");
+  const [showButton, setShowButton] = useState<boolean>(true);
+  const [sliceLength, setSliceLength] = useState<number>(20);
 
   useEffect(() => {
     setFiltered(propertListingSample);
@@ -18,7 +21,19 @@ export default function Home() {
 
   useEffect(() => {
     filterProperty(filter);
+    setSliceLength(20);
   }, [filter]);
+
+  useEffect(() => {
+    if (filtered) {
+      if (sliceLength < filtered.length) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+      setDisplay(filtered.slice(0, sliceLength));
+    }
+  }, [filtered, sliceLength]);
 
   const filterProperty = (term: string) => {
     const termToLowerCase: string = term.toLowerCase();
@@ -33,8 +48,17 @@ export default function Home() {
     setFiltered(newProperties);
   };
 
+  const showMore = () => {
+    if (filtered) {
+      setSliceLength((prev) => {
+        const sliceValue = prev < filtered.length ? prev + 20 : filtered.length;
+        return sliceValue;
+      });
+    }
+  };
+
   return (
-    <div className="bg-white px-2 sm:px-3 lg:px-4">
+    <div className="mb-9 bg-white px-2 sm:px-3 lg:px-4">
       <section className='mx-auto flex h-[296px] w-full max-w-7xl items-center justify-center rounded-3xl bg-[url("/assets/hero-section-image/Image_mobile.png")] bg-cover bg-center bg-no-repeat sm:h-[421px] sm:bg-[url("/assets/hero-section-image/Image_desktop.png")] lg:h-[481px]'>
         <div className="text-center text-white">
           <h1 className="text-2xl font-semibold sm:text-6xl lg:text-7xl">
@@ -69,27 +93,27 @@ export default function Home() {
           <Button
             onClick={() => setFilter("top villa")}
             title="Top Villa"
-            style={`cursor-pointer rounded-full border ${filter === "top-villa" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
+            style={`cursor-pointer rounded-full border ${filter === "top villa" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
           />
           <Button
             onClick={() => setFilter("free reschedule")}
             title="Free Reschedule"
-            style={`cursor-pointer rounded-full border ${filter === "free-reschedule" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
+            style={`cursor-pointer rounded-full border ${filter === "free reschedule" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
           />
           <Button
             onClick={() => setFilter("book now")}
             title="Book Now, Pay later"
-            style={`cursor-pointer rounded-full border ${filter === "book-now" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
+            style={`cursor-pointer rounded-full border ${filter === "book now" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
           />
           <Button
             onClick={() => setFilter("self checkin")}
             title="Self Checkin"
-            style={`cursor-pointer rounded-full border ${filter === "self-checkin" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
+            style={`cursor-pointer rounded-full border ${filter === "self checkin" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
           />
           <Button
             onClick={() => setFilter("instant book")}
             title="Instant Book"
-            style={`cursor-pointer rounded-full border ${filter === "instant-book" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
+            style={`cursor-pointer rounded-full border ${filter === "instant book" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
           />
           <Button
             onClick={() => setFilter("expand")}
@@ -120,15 +144,15 @@ export default function Home() {
           </Button>
           <Button
             onClick={() => setFilter("sort by")}
-            style={`cursor-pointer rounded-full border ${filter === "sort-by" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
+            style={`cursor-pointer rounded-full border ${filter === "sort by" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
           >
             <span className="opacity-50">Sort by: </span>
             <span>Highest Price</span>
           </Button>
         </div>
       </section>
-      {!filtered || filtered.length < 1 ? (
-        <section className="my-10 flex flex-col items-center justify-center gap-2 text-xs sm:text-base">
+      {!display || display.length < 1 ? (
+        <section className="mt-10 flex flex-col items-center justify-center gap-2 text-xs sm:text-base">
           <p className="text-zinc-950">
             No properties found for the selected filter.
           </p>
@@ -150,7 +174,7 @@ export default function Home() {
             />
             <span className="text-sm font-medium text-white">60% Off</span>
           </div>
-          {filtered.map((item, index) => (
+          {display.map((item, index) => (
             <div key={index} className="flex flex-col gap-3">
               <Link className="h-[200px]" href={`property/${item.name}`}>
                 <Image
@@ -225,9 +249,10 @@ export default function Home() {
           ))}
         </section>
       )}
-      {filtered && filtered.length > 1 && (
-        <section className="container mx-auto mt-25 mb-9 flex flex-col items-center justify-center gap-3 sm:mt-30 sm:mb-13 lg:mt-20 lg:mb-8">
+      {filtered && showButton && (
+        <section className="container mx-auto mt-25 flex flex-col items-center justify-center gap-3 sm:mt-30 sm:mb-13 lg:mt-20 lg:mb-8">
           <Button
+            onClick={() => showMore()}
             title="Show more"
             style="cursor-pointer rounded-full bg-black px-3 py-1 text-center text-xs font-medium text-white transition-colors hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950 sm:text-sm"
           />

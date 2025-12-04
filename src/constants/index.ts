@@ -525,6 +525,94 @@ export const propertListingSample: PropertyProps[] = [
       space: "",
     },
   },
+  {
+    name: "Snow Peak Lodge",
+    address: {
+      state: "Hakuba",
+      city: "Nagano",
+      country: "Japan",
+    },
+    rating: 4.84,
+    category: ["Ski Access", "Mountain View", "Hot Tub"],
+    price: 3500,
+    offers: {
+      bed: "4",
+      shower: "3",
+      occupants: "6-8",
+    },
+    image: "/assets/listing-images/list-21.jpg",
+    discount: "15",
+    description: {
+      title: "",
+      space: "",
+    },
+  },
+  {
+    name: "Desert Mirage Villa",
+    address: {
+      state: "Doha",
+      city: "Doha",
+      country: "Qatar",
+    },
+    rating: 4.9,
+    category: ["Desert View", "Private Pool", "Free Breakfast"],
+    price: 4800,
+    offers: {
+      bed: "5",
+      shower: "4",
+      occupants: "8-10",
+    },
+    image: "/assets/listing-images/list-22.jpg",
+    discount: "",
+    description: {
+      title: "",
+      space: "",
+    },
+  },
+  {
+    name: "Jungle Treehouse",
+    address: {
+      state: "Uvita",
+      city: "Puntarenas",
+      country: "Costa Rica",
+    },
+    rating: 4.88,
+    category: ["Jungle View", "Eco Friendly", "Self Checkin"],
+    price: 2100,
+    offers: {
+      bed: "2",
+      shower: "1",
+      occupants: "2-3",
+    },
+    image: "/assets/listing-images/list-23.jpg",
+    discount: "20",
+    description: {
+      title: "",
+      space: "",
+    },
+  },
+  {
+    name: "Mediterranean Cliff Villa",
+    address: {
+      state: "Ibiza",
+      city: "Balearic Islands",
+      country: "Spain",
+    },
+    rating: 4.91,
+    category: ["Sea View", "Infinity Pool", "Free Parking"],
+    price: 5200,
+    offers: {
+      bed: "4",
+      shower: "4",
+      occupants: "6-8",
+    },
+    image: "/assets/listing-images/list-24.jpg",
+    discount: "25",
+    description: {
+      title: "",
+      space: "",
+    },
+  },
 ];
 
 export const reviews: ReviewsProps[] = [
