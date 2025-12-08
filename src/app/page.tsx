@@ -142,13 +142,23 @@ export default function Home() {
               className="h-[18px] w-[18px]"
             />
           </Button>
-          <Button
+          <div
             onClick={() => setFilter("sort by")}
-            style={`cursor-pointer rounded-full border ${filter === "sort by" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
+            className={`flex cursor-pointer items-center rounded-full border ${filter === "sort by" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
           >
             <span className="opacity-50">Sort by: </span>
-            <span>Highest Price</span>
-          </Button>
+            <select
+              name="sort-by"
+              id="sort-by"
+              className="text-zinc-900 outline-0"
+            >
+              <option value="">---select---</option>
+              <option value="Highest Price">Highest Price</option>
+              <option value="Lowest Price">Lowest Price</option>
+              <option value="Highest Rating">Highest Rating</option>
+              <option value="Most popular">Most popular</option>
+            </select>
+          </div>
         </div>
       </section>
       {!display || display.length < 1 ? (
@@ -163,19 +173,23 @@ export default function Home() {
           ></Button>
         </section>
       ) : (
-        <section className="relative container mx-auto grid w-full grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
-          <div className="absolute top-2 -left-1 z-50 flex cursor-pointer items-center gap-1 rounded-tl-full rounded-r-full bg-teal-600 px-2 py-1 shadow-xl shadow-teal-800 transition-colors hover:bg-teal-500">
-            <Image
-              src="/assets/icons/discount-item.png"
-              width={500}
-              height={500}
-              alt="Discount"
-              className="h-3.5 w-3.5"
-            />
-            <span className="text-sm font-medium text-white">60% Off</span>
-          </div>
+        <section className="container mx-auto grid w-full grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
           {display.map((item, index) => (
-            <div key={index} className="flex flex-col gap-3">
+            <div key={index} className="relative flex flex-col gap-3">
+              {item.discount && (
+                <div className="absolute top-2 -left-0.5 z-50 flex cursor-pointer items-center gap-1 rounded-tl-full rounded-r-full bg-teal-600 px-2 py-1 shadow-xl shadow-teal-800 transition-colors hover:bg-teal-500">
+                  <Image
+                    src="/assets/icons/discount-item.png"
+                    width={500}
+                    height={500}
+                    alt="Discount"
+                    className="h-3.5 w-3.5"
+                  />
+                  <span className="text-xs font-medium text-white sm:text-sm">
+                    {item.discount}% Off
+                  </span>
+                </div>
+              )}
               <Link className="h-[200px]" href={`property/${item.name}`}>
                 <Image
                   src={item.image}
@@ -240,7 +254,7 @@ export default function Home() {
                       ))}
                   </Pill>
                   <span className="text-xs font-semibold text-zinc-900">
-                    ${item.discount ? item.discount : 0}
+                    ${item.price}
                     <sub>/n</sub>
                   </span>
                 </div>
