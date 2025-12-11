@@ -15,15 +15,26 @@ export default function Home() {
   const [showButton, setShowButton] = useState<boolean>(true);
   const [sliceLength, setSliceLength] = useState<number>(20);
 
+  // Updated filtered when the component mounts for the first time
   useEffect(() => {
     setFiltered(propertListingSample);
   }, []);
 
+  // Runs the filter function and updates list of displayed properties
   useEffect(() => {
-    filterProperty(filter);
-    setSliceLength(20);
+    if (filter === "") {
+      return;
+    } else if (filter === "expand") {
+      return;
+    } else if (filter === "sort by") {
+      return;
+    } else {
+      filterProperty(filter);
+      setSliceLength(20);
+    }
   }, [filter]);
 
+  // Displays show more button for paginated list of properties
   useEffect(() => {
     if (filtered) {
       if (sliceLength < filtered.length) {
@@ -35,19 +46,50 @@ export default function Home() {
     }
   }, [filtered, sliceLength]);
 
+  // Function for filtering properties based on user input
   const filterProperty = (term: string) => {
     const termToLowerCase: string = term.toLowerCase();
-    const newProperties: PropertyProps[] =
-      termToLowerCase === "all"
-        ? propertListingSample
-        : propertListingSample.filter((property) =>
-            property.category
-              .map((category) => category.toLowerCase())
-              .includes(termToLowerCase),
-          );
-    setFiltered(newProperties);
+    let newProperties: PropertyProps[] = [];
+    switch (termToLowerCase) {
+      case "all":
+        setFiltered(propertListingSample);
+        break;
+      case "free reschedule":
+        newProperties = propertListingSample.filter(
+          (property) => Number(property.offers.bed) > 4,
+        );
+        setFiltered(newProperties);
+        break;
+      case "highest price":
+        newProperties = propertListingSample.filter(
+          (property) => property.price >= 5000,
+        );
+        setFiltered(newProperties);
+        break;
+      case "lowest price":
+        newProperties = propertListingSample.filter(
+          (property) => property.price < 2000,
+        );
+        setFiltered(newProperties);
+        break;
+      case "highest rating":
+        newProperties = propertListingSample.filter(
+          (property) => property.rating > 4.9,
+        );
+        setFiltered(newProperties);
+        break;
+      default:
+        newProperties = propertListingSample.filter((property) =>
+          property.category
+            .map((category) => category.toLowerCase())
+            .includes(termToLowerCase),
+        );
+        setFiltered(newProperties);
+        break;
+    }
   };
 
+  // Function for extending the list of dispalyed properties
   const showMore = () => {
     if (filtered) {
       setSliceLength((prev) => {
@@ -148,22 +190,22 @@ export default function Home() {
           >
             <span className="opacity-50">Sort by: </span>
             <select
-              name="sort-by"
+              onChange={(e) => setFilter(e.target.value)}
               id="sort-by"
+              name="sort-by"
               className="text-zinc-900 outline-0"
             >
               <option value="">---select---</option>
               <option value="Highest Price">Highest Price</option>
               <option value="Lowest Price">Lowest Price</option>
               <option value="Highest Rating">Highest Rating</option>
-              <option value="Most popular">Most popular</option>
             </select>
           </div>
         </div>
       </section>
       {!display || display.length < 1 ? (
         <section className="mt-10 flex flex-col items-center justify-center gap-2 text-xs sm:text-base">
-          <p className="text-zinc-950">
+          <p className="text-zinc-700">
             No properties found for the selected filter.
           </p>
           <Button
