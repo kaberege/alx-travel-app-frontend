@@ -14,42 +14,44 @@ export default function Home() {
   const [filter, setFilter] = useState<string>("all");
   const [showButton, setShowButton] = useState<boolean>(true);
   const [sliceLength, setSliceLength] = useState<number>(20);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [sortBy, setSortBy] = useState<string>("");
 
-  // Updated filtered when the component mounts for the first time
+  // Updates filtered when the component mounts for the first time
   useEffect(() => {
     setFiltered(propertListingSample);
   }, []);
 
   // Runs the filter function and updates list of displayed properties
   useEffect(() => {
-    if (filter === "") {
-      return;
-    } else if (filter === "expand") {
-      return;
-    } else if (filter === "sort by") {
-      return;
-    } else {
-      filterProperty(filter);
-      setSliceLength(20);
-    }
+    filterProperty(filter);
+    setSliceLength(20);
   }, [filter]);
+
+  // Tracks change in select value and updates filter term
+  useEffect(() => {
+    if (!sortBy) return;
+
+    setFilter(sortBy);
+  }, [sortBy]);
 
   // Displays show more button for paginated list of properties
   useEffect(() => {
-    if (filtered) {
-      if (sliceLength < filtered.length) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-      setDisplay(filtered.slice(0, sliceLength));
+    if (!filtered) return;
+
+    if (sliceLength < filtered.length) {
+      setShowButton(true);
+    } else {
+      setShowButton(false);
     }
+    setDisplay(filtered.slice(0, sliceLength));
   }, [filtered, sliceLength]);
 
   // Function for filtering properties based on user input
   const filterProperty = (term: string) => {
     const termToLowerCase: string = term.toLowerCase();
     let newProperties: PropertyProps[] = [];
+    const sorted: PropertyProps[] = [...propertListingSample];
     switch (termToLowerCase) {
       case "all":
         setFiltered(propertListingSample);
@@ -61,22 +63,16 @@ export default function Home() {
         setFiltered(newProperties);
         break;
       case "highest price":
-        newProperties = propertListingSample.filter(
-          (property) => property.price >= 5000,
-        );
-        setFiltered(newProperties);
+        sorted.sort((a, b) => b.price - a.price);
+        setFiltered(sorted);
         break;
       case "lowest price":
-        newProperties = propertListingSample.filter(
-          (property) => property.price < 2000,
-        );
-        setFiltered(newProperties);
+        sorted.sort((a, b) => a.price - b.price);
+        setFiltered(sorted);
         break;
       case "highest rating":
-        newProperties = propertListingSample.filter(
-          (property) => property.rating > 4.9,
-        );
-        setFiltered(newProperties);
+        sorted.sort((a, b) => b.rating - a.rating);
+        setFiltered(sorted);
         break;
       default:
         newProperties = propertListingSample.filter((property) =>
@@ -157,18 +153,37 @@ export default function Home() {
             title="Instant Book"
             style={`cursor-pointer rounded-full border ${filter === "instant book" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
           />
-          <Button
-            onClick={() => setFilter("expand")}
-            style={`hidden cursor-pointer items-center justify-center rounded-full border ${filter === "expand" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} p-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:flex lg:hidden`}
+          <div
+            onClick={() => setIsExpanded((prev) => !prev)}
+            className={`relative hidden cursor-pointer items-center justify-center rounded-full border ${isExpanded ? "border-teal-600 bg-teal-50 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} p-1 transition-colors hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden`}
           >
             <Image
               src="/assets/icons/Linear/Arrows/Alt_Arrow_Down.png"
               width={500}
               height={500}
-              alt="Filter"
-              className="h-[19px] w-[19px]"
+              alt="Allow down"
+              className="m-auto h-[19px] w-[19px]"
             />
-          </Button>
+            <div
+              className={`absolute ${isExpanded ? "block" : "hidden"} top-full z-60 mt-1 flex min-w-48 flex-col space-y-2 rounded-md border border-neutral-200 bg-white p-2 shadow-md shadow-zinc-400 transition-[display] duration-300`}
+            >
+              <Button
+                onClick={() => setFilter("book now")}
+                title="Book Now, Pay later"
+                style={`cursor-pointer rounded-full border ${filter === "book now" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
+              />
+              <Button
+                onClick={() => setFilter("self checkin")}
+                title="Self Checkin"
+                style={`cursor-pointer rounded-full border ${filter === "self checkin" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
+              />
+              <Button
+                onClick={() => setFilter("instant book")}
+                title="Instant Book"
+                style={`cursor-pointer rounded-full border ${filter === "instant book" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
+              />
+            </div>
+          </div>
         </div>
         <div className="flex items-center gap-3 text-xs font-semibold text-zinc-900 sm:text-sm">
           <Button
@@ -185,12 +200,12 @@ export default function Home() {
             />
           </Button>
           <div
-            onClick={() => setFilter("sort by")}
-            className={`flex cursor-pointer items-center rounded-full border ${filter === "sort by" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
+            className={`flex cursor-pointer items-center rounded-full border ${["Highest Price", "Lowest Price", "Highest Rating"].includes(filter) ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
           >
             <span className="opacity-50">Sort by: </span>
             <select
-              onChange={(e) => setFilter(e.target.value)}
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
               id="sort-by"
               name="sort-by"
               className="text-zinc-900 outline-0"
