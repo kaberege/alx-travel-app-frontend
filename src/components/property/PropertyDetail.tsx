@@ -10,18 +10,22 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
   property,
 }) => {
   const style: string =
-    "border-[1px] border-neutral-300 hover:border-teal-600 rounded-full px-2 py-1 hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600 focus:ring-2 focus:ring-teal-800";
+    "border border-neutral-300 hover:border-teal-600 rounded-full px-2 py-1 hover:bg-teal-50 hover:text-teal-600 transition-colors hover:shadow-sm hover:shadow-teal-600 focus:ring-2 focus:ring-teal-800";
   const styleGridBtn: string =
-    "absolute right-3 bottom-4 font-semibold text-white hover:tracking-wider border-[1px] border-white hover:border-neutral-50 rounded-full px-2 py-1 bg-neutral-400 hover:bg-teal-600 transition-all durarion-300 focus:ring-2 focus:ring-neutral-300";
+    "absolute right-3 bottom-4 font-semibold text-white hover:tracking-wider border border-white hover:border-neutral-50 rounded-full px-2 py-1 bg-neutral-400 hover:bg-teal-600 transition-all durarion-300 focus:ring-2 focus:ring-neutral-300";
 
   return (
     <div className="container mx-auto p-6">
       <section className="flex items-center justify-between">
         <div className="flex items-center justify-center gap-2 sm:hidden">
-          <Button
-            icon="/assets/icons/Linear/Arrows/Arrow Left.png"
-            alt="return"
-          />
+          <Button>
+            <Image
+              src="/assets/icons/Linear/Arrows/Arrow Left.png"
+              width={500}
+              height={500}
+              alt="return"
+            />
+          </Button>
           <span className="text-xs font-medium text-zinc-900">Return</span>
         </div>
         <div className="hidden sm:block">
@@ -68,22 +72,40 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
           </div>
         </div>
         <div className="hidden items-center justify-center gap-2 sm:flex">
-          <Button
-            label="Save"
-            icon="/assets/icons/Fav.png"
-            alt="Save"
-            styles={style}
-          />
-          <Button
-            label="Share"
-            icon="/assets/icons/Share.png"
-            alt="Share"
-            styles={style}
-          />
+          <Button title="Save" style={style}>
+            <Image
+              src="/assets/icons/Fav.png"
+              width={500}
+              height={500}
+              alt="Save"
+            />
+          </Button>
+          <Button title="Share" style={style}>
+            <Image
+              src="/assets/icons/Share.png"
+              width={500}
+              height={500}
+              alt="Share"
+            />
+          </Button>
         </div>
         <div className="flex items-center justify-center gap-2 sm:hidden">
-          <Button icon="/assets/icons/Fav.png" alt="Save" />
-          <Button icon="/assets/icons/Share.png" alt="Share" />
+          <Button>
+            <Image
+              src="/assets/icons/Fav.png"
+              width={500}
+              height={500}
+              alt="Save"
+            />
+          </Button>
+          <Button>
+            <Image
+              src="/assets/icons/Share.png"
+              width={500}
+              height={500}
+              alt="Share"
+            />
+          </Button>
         </div>
       </section>
 
@@ -128,11 +150,7 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
               className="h-full w-full cursor-pointer object-cover transition-all hover:brightness-75"
             />
           </div>
-          <Button
-            label="Show all photo"
-            alt="Show all photo"
-            styles={styleGridBtn}
-          />
+          <Button title="Show all photo" style={styleGridBtn} />
         </div>
         <button className="absolute right-3 bottom-4 cursor-pointer rounded-full bg-zinc-950 px-2 py-0.5 text-xs font-semibold text-white transition-colors hover:bg-zinc-800 sm:hidden">
           1/12
