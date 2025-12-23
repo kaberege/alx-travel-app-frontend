@@ -275,7 +275,7 @@ export default function Home() {
                     </h2>
                     <div className="flex items-center justify-center gap-1">
                       <Image
-                        src="/assets/icons/Star 2.png"
+                        src="/assets/icons/Star_2.png"
                         width={500}
                         height={500}
                         alt="star"
@@ -303,17 +303,20 @@ export default function Home() {
                             src={offerIcons[offer[0]]}
                             width={500}
                             height={500}
-                            alt="Bed"
+                            alt={offer[0]}
                             className="h-3 w-3 sm:h-3.5 sm:w-3.5"
                           />
-                          <span>{offer[1]}</span>
+                          <data value={offer[1]}>{offer[1]}</data>
                         </div>
                       ))}
                   </Pill>
-                  <span className="text-xs font-semibold text-zinc-900">
+                  <data
+                    value={item.price}
+                    className="text-xs font-semibold text-zinc-900"
+                  >
                     ${item.price}
                     <sub>/n</sub>
-                  </span>
+                  </data>
                 </div>
               </div>
             </div>

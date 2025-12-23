@@ -1,6 +1,6 @@
 "use client";
 
-import { PROPERTYLISTINGSAMPLE } from "@/constants/index";
+import { propertListingSample } from "@/constants/index";
 import { useParams } from "next/navigation";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -9,10 +9,11 @@ import PropertyDetail from "@/components/property/PropertyDetail";
 export default function PropertyPage() {
   const params = useParams();
   const id = decodeURIComponent(params.id as string);
-  const propert = PROPERTYLISTINGSAMPLE.find((item) => item.name === id);
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const propert = propertListingSample.find((item) => item.name === id);
 
   useEffect(() => {
     const fetchProperty = async () => {

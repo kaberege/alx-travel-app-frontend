@@ -655,3 +655,9 @@ export const offerIcons: OfferProps = {
   shower: "/assets/icons/bathtub_1.png",
   occupants: "/assets/icons/people_1.png",
 };
+
+export const offerNames: OfferProps = {
+  bed: "Bedrooms",
+  shower: "Bathroom",
+  occupants: "Guests",
+};
