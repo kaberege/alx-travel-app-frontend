@@ -76,3 +76,15 @@ export interface LabelProps {
   title: string;
   style: string;
 }
+
+interface FooterURLs {
+  title: string;
+  link: string;
+}
+
+export interface FooterLinksProps {
+  explore: FooterURLs[];
+  about: FooterURLs[];
+  help: FooterURLs[];
+  services: FooterURLs[];
+}

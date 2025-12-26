@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { footerLinks } from "@/constants";
 
 const Footer = () => {
   return (
@@ -30,26 +31,20 @@ const Footer = () => {
                 Explore
               </h2>
               <ul className="mt-2 flex flex-col gap-1 text-[11px] font-medium text-neutral-300 sm:text-base">
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Apartments in Dubai
-                  </a>
-                </li>
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Hotels in New York
-                  </a>
-                </li>
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Villa in Spain
-                  </a>
-                </li>
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Mansion in Indonesia
-                  </a>
-                </li>
+                {footerLinks.explore.map((item, index) => (
+                  <li
+                    key={index}
+                    className="transition-colors hover:text-neutral-500"
+                  >
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
@@ -57,26 +52,20 @@ const Footer = () => {
                 Abour Us
               </h2>
               <ul className="mt-2 flex flex-col gap-1 text-[11px] font-medium text-neutral-300 sm:text-base">
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Blog
-                  </a>
-                </li>
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Career
-                  </a>
-                </li>
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Customers
-                  </a>
-                </li>
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Brand
-                  </a>
-                </li>
+                {footerLinks.about.map((item, index) => (
+                  <li
+                    key={index}
+                    className="transition-colors hover:text-neutral-500"
+                  >
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
@@ -84,21 +73,20 @@ const Footer = () => {
                 Help
               </h2>
               <ul className="mt-2 flex flex-col gap-1 text-[11px] font-medium text-neutral-300 sm:text-base">
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Support
-                  </a>
-                </li>
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Cancel booking
-                  </a>
-                </li>
-                <li className="transition-colors hover:text-neutral-500">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Refunds Process
-                  </a>
-                </li>
+                {footerLinks.help.map((item, index) => (
+                  <li
+                    key={index}
+                    className="transition-colors hover:text-neutral-500"
+                  >
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -117,21 +105,16 @@ const Footer = () => {
             </p>
           </div>
           <ul className="mb-10 flex justify-center gap-2 text-[11px] font-medium text-neutral-300 sm:gap-3 sm:text-base">
-            <li className="transition-colors hover:text-neutral-500">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                Terms of Service
-              </a>
-            </li>
-            <li className="transition-colors hover:text-neutral-500">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                Policy service
-              </a>
-            </li>
-            <li className="transition-colors hover:text-neutral-500">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                Partners
-              </a>
-            </li>
+            {footerLinks.services.map((item, index) => (
+              <li
+                key={index}
+                className="transition-colors hover:text-neutral-500"
+              >
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.title}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </section>

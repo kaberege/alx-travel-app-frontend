@@ -3,6 +3,7 @@ import type {
   PropertyProps,
   AcommodationProps,
   ReviewsProps,
+  FooterLinksProps,
 } from "@/interfaces";
 
 // Data for types of accommodation
@@ -660,4 +661,29 @@ export const offerNames: OfferProps = {
   bed: "Bedrooms",
   shower: "Bathroom",
   occupants: "Guests",
+};
+
+export const footerLinks: FooterLinksProps = {
+  explore: [
+    { title: "Apartments in Dubai", link: "#" },
+    { title: "Hotels in New York", link: "#" },
+    { title: "Villa in Spain", link: "#" },
+    { title: "Mansion in Indonesia", link: "#" },
+  ],
+  about: [
+    { title: "Blog", link: "#" },
+    { title: "Career", link: "#" },
+    { title: "Customers", link: "#" },
+    { title: "Brand", link: "#" },
+  ],
+  help: [
+    { title: "Support", link: "#" },
+    { title: "Cancel booking", link: "#" },
+    { title: "Refunds Process", link: "#" },
+  ],
+  services: [
+    { title: "Terms of Service", link: "#" },
+    { title: "Policy service", link: "#" },
+    { title: "Partners", link: "#" },
+  ],
 };

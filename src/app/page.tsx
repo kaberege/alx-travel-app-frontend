@@ -242,9 +242,12 @@ export default function Home() {
                     alt="Discount"
                     className="h-3.5 w-3.5"
                   />
-                  <span className="text-xs font-medium text-white sm:text-sm">
+                  <data
+                    value={item.discount}
+                    className="text-xs font-medium text-white sm:text-sm"
+                  >
                     {item.discount}% Off
-                  </span>
+                  </data>
                 </div>
               )}
               <Link className="h-[200px]" href={`property/${item.name}`}>
@@ -281,9 +284,12 @@ export default function Home() {
                         alt="star"
                         className="h-[15px] w-[15px]"
                       />
-                      <span className="text-sm font-medium text-zinc-900">
+                      <data
+                        value={item.rating}
+                        className="text-sm font-medium text-zinc-900"
+                      >
                         {item.rating}
-                      </span>
+                      </data>
                     </div>
                   </div>
                   <h3 className="text-sm font-medium text-zinc-600">
