@@ -687,3 +687,10 @@ export const footerLinks: FooterLinksProps = {
     { title: "Partners", link: "#" },
   ],
 };
+
+export const propertyDetails: string[] = [
+  "Description",
+  "What we offer",
+  "Reviews",
+  "About host",
+];

@@ -3,10 +3,9 @@ import Image from "next/image";
 import Button from "../common/Button";
 import { BiSolidRightArrowAlt } from "react-icons/bi";
 import BookingSection from "./BookingSection";
-import { reviews } from "@/constants";
 import ReviewSection from "./ReviewSection";
 import Pill from "../common/Pill";
-import { offerIcons, offerNames } from "@/constants";
+import { reviews, offerIcons, offerNames, propertyDetails } from "@/constants";
 
 const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
   property,
@@ -235,25 +234,22 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
 
       {/* Description */}
       <div className="mt-6 flex sm:justify-between sm:space-x-9">
-        <div className="border-t-[1px] border-neutral-300 pt-5">
-          <section className="border-b-[1px] border-neutral-300 pb-4 sm:pb-11 lg:pb-7">
-            <div className="flex items-center justify-between overflow-x-hidden border-b-[1px] border-neutral-300 text-xs font-semibold whitespace-nowrap text-zinc-600">
+        <div className="border-t border-neutral-300 pt-5">
+          <section className="border-b border-neutral-300 pb-4 sm:pb-11 lg:pb-7">
+            <div className="flex items-center justify-between overflow-x-hidden border-b border-neutral-300 text-xs font-semibold whitespace-nowrap text-zinc-600">
               <div className="flex gap-2 sm:gap-3">
-                <h2 className="cursor-pointer border-b-2 border-teal-600 pb-1 text-teal-600 transition-colors hover:border-teal-600">
-                  Description
-                </h2>
-                <h2 className="cursor-pointer border-b-2 border-teal-600/0 pb-1 transition-colors hover:border-teal-600 hover:text-teal-600">
-                  What we offer
-                </h2>
-                <h2 className="cursor-pointer border-b-2 border-teal-600/0 pb-1 transition-colors hover:border-teal-600 hover:text-teal-600">
-                  Reviews
-                </h2>
-                <h2 className="cursor-pointer border-b-2 border-teal-600/0 pb-1 transition-colors hover:border-teal-600 hover:text-teal-600">
-                  About host
-                </h2>
+                {propertyDetails.map((detail, index) => (
+                  <h2
+                    key={index}
+                    className="cursor-pointer border-b-2 border-teal-600 pb-1 text-teal-600 transition-colors hover:border-teal-600"
+                  >
+                    {detail}
+                  </h2>
+                ))}
+                {/* className="border-teal-600/0 hover:text-teal-600" */}
               </div>
               <h2 className="hidden cursor-pointer border-b-2 border-teal-600/0 pb-1 transition-colors hover:border-teal-600 hover:text-teal-600 lg:block">
-                Published <span>July 01, 2024</span>
+                Published <time dateTime="2024-07-01">July 01, 2024</time>
               </h2>
             </div>
             <p className="mt-6 mb-4 text-xs text-zinc-800 sm:pr-12 sm:text-sm">
