@@ -52,6 +52,10 @@ export interface PropertyProps {
   description: {
     title: string;
     space: string;
+    offer: string;
+    review: string;
+    host: string;
+    [key: string]: string;
   };
 }
 

@@ -106,6 +106,9 @@ export const propertListingSample: PropertyProps[] = [
         "Feel like exploring the Dominican? Start the day with a hike on one of Playa Moron's many trails. Weave your way around the gated community to find secluded sandy coves for swimming and paddleboarding. When you'Feel like exploring the Dominican? Start the day with a hike on one of Playa Moron's many trails. Weave your way around the gated community to find secluded sandy coves for swimming and paddleboarding. When you're ready to chill with friends, the beach house pool awaits. Spend the night entertaining in the outdoor lounge, sipping drinks in the hot tub, and gazing out over incredible ocean views.",
       space:
         "Bedroom 1 - Primary: King size bed, Ensuite bathroom with stand-alone rain shower, Dual vanity, Walk-in closet, Television, Sofa, Deck, Balcony, Ocean view",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -128,6 +131,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -150,6 +156,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -172,6 +181,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -194,6 +206,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -216,6 +231,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -238,6 +256,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -260,6 +281,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -282,6 +306,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -304,6 +331,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -326,6 +356,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -348,6 +381,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -370,6 +406,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -392,6 +431,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -414,6 +456,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -436,6 +481,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -458,6 +506,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -480,6 +531,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -502,6 +556,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -524,6 +581,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -546,6 +606,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -568,6 +631,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -590,6 +656,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
   {
@@ -612,6 +681,9 @@ export const propertListingSample: PropertyProps[] = [
     description: {
       title: "",
       space: "",
+      offer: "",
+      review: "",
+      host: "",
     },
   },
 ];
@@ -688,9 +760,9 @@ export const footerLinks: FooterLinksProps = {
   ],
 };
 
-export const propertyDetails: string[] = [
-  "Description",
-  "What we offer",
-  "Reviews",
-  "About host",
-];
+export const propertyDetails = {
+  title: "Description",
+  offer: "What we offer",
+  review: "Reviews",
+  host: "About host",
+};

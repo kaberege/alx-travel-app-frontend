@@ -6,10 +6,13 @@ import BookingSection from "./BookingSection";
 import ReviewSection from "./ReviewSection";
 import Pill from "../common/Pill";
 import { reviews, offerIcons, offerNames, propertyDetails } from "@/constants";
+import { useState } from "react";
 
 const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
   property,
 }) => {
+  const [detail, setDetail] = useState<string>("title");
+
   return (
     <div className="container mx-auto p-6">
       <section className="flex items-center justify-between">
@@ -222,7 +225,7 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
                 width={500}
                 height={500}
                 alt={offer[0]}
-                className="h-[12px] w-[12px]"
+                className="h-3 w-3"
               />
               <data value={offer[1]}>
                 {offer[1]} {offerNames[offer[0]]}
@@ -234,27 +237,33 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
 
       {/* Description */}
       <div className="mt-6 flex sm:justify-between sm:space-x-9">
-        <div className="border-t border-neutral-300 pt-5">
+        <div className="grow border-t border-neutral-300 pt-5">
           <section className="border-b border-neutral-300 pb-4 sm:pb-11 lg:pb-7">
             <div className="flex items-center justify-between overflow-x-hidden border-b border-neutral-300 text-xs font-semibold whitespace-nowrap text-zinc-600">
               <div className="flex gap-2 sm:gap-3">
-                {propertyDetails.map((detail, index) => (
+                {Object.entries(propertyDetails).map((item, index) => (
                   <h2
                     key={index}
-                    className="cursor-pointer border-b-2 border-teal-600 pb-1 text-teal-600 transition-colors hover:border-teal-600"
+                    onClick={() => setDetail(item[0])}
+                    className={` ${detail === item[0] ? "border-teal-600 text-teal-600" : "border-teal-600/0"} cursor-pointer border-b-2 pb-1 transition-colors hover:border-teal-600 hover:text-teal-600`}
                   >
-                    {detail}
+                    {item[1]}
                   </h2>
                 ))}
-                {/* className="border-teal-600/0 hover:text-teal-600" */}
               </div>
               <h2 className="hidden cursor-pointer border-b-2 border-teal-600/0 pb-1 transition-colors hover:border-teal-600 hover:text-teal-600 lg:block">
                 Published <time dateTime="2024-07-01">July 01, 2024</time>
               </h2>
             </div>
-            <p className="mt-6 mb-4 text-xs text-zinc-800 sm:pr-12 sm:text-sm">
-              {property.description.title}
-            </p>
+            {property.description[detail] ? (
+              <p className="mt-6 mb-4 text-xs text-zinc-800 sm:pr-12 sm:text-sm">
+                {property.description[detail]}
+              </p>
+            ) : (
+              <p className="mt-6 mb-4 text-xs text-zinc-600 sm:pr-12 sm:text-sm">
+                No detail found
+              </p>
+            )}
             <div className="sm:pr-12">
               <div className="mb-3 hidden lg:block">
                 <h3 className="text-sm font-semibold text-zinc-800">
