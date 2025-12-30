@@ -1,40 +1,11 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { type ReviewsProps } from "@/interfaces";
 
 const ReviewSection: React.FC<{ reviews: ReviewsProps[] }> = ({ reviews }) => {
-  const [reviewss, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [propertyId, setPropertyId] = useState<number>(0);
-
-  useEffect(() => {
-    console.log(reviewss);
-    setPropertyId(1);
-    const fetchReviews = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/properties/${propertyId}/reviews`,
-        );
-        setReviews(response.data);
-      } catch (error) {
-        console.error("Error fetching reviews:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchReviews();
-  }, [propertyId, reviewss]);
-
-  if (!loading) {
-    return <p>Loading reviews...</p>;
-  }
-
   return (
     <div className="mt-6 grid grid-cols-1 gap-x-3 gap-y-8 md:grid-cols-2">
       {reviews.map((review, index) => (
-        <div key={index} className="">
+        <div key={index}>
           <div className="flex items-center">
             <Image
               src={review.avatar}
@@ -45,12 +16,16 @@ const ReviewSection: React.FC<{ reviews: ReviewsProps[] }> = ({ reviews }) => {
             />
             <div>
               <p className="text-sm font-bold text-zinc-950">{review.name}</p>
-              <p className="text-xs text-zinc-500">{review.experience} stars</p>
+              <data value={review.experience} className="text-xs text-zinc-500">
+                {review.experience} stars
+              </data>
             </div>
           </div>
           <div className="my-3 flex items-center space-x-2 text-[13px]">
-            <span className="text-zinc-900">{review.time}</span>
-            <li className="text-zinc-500">Family trip</li>
+            <time dateTime={review.time} className="text-zinc-900">
+              {review.time}
+            </time>
+            <li className="ml-4 text-zinc-500">Family trip</li>
           </div>
           <p className="text-xs text-zinc-800">{review.comment}</p>
         </div>

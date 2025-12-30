@@ -234,8 +234,6 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
           ))}
         </div>
       </section>
-
-      {/* Description */}
       <div className="mt-6 flex sm:justify-between sm:space-x-9">
         <div className="grow border-t border-neutral-300 pt-5">
           <section className="border-b border-neutral-300 pb-4 sm:pb-11 lg:pb-7">
@@ -269,12 +267,14 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
                 <h3 className="text-sm font-semibold text-zinc-800">
                   The space
                 </h3>
-                <h4 className="text-sm font-medium text-zinc-800">
+                <h4 className="my-0.5 text-sm font-medium text-zinc-800">
                   BEDROOM & BATHROOM
                 </h4>
-                <p className="text-xs text-zinc-800">
-                  <li className="">{property.description.space}</li>
-                </p>
+                <ul className="text-xs text-zinc-800">
+                  <li className="ml-4 list-disc">
+                    {property.description.space}
+                  </li>
+                </ul>
               </div>
               <a
                 href="#"
@@ -286,10 +286,8 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
               </a>
             </div>
           </section>
-
-          {/* Amenities */}
-          <section className="mt-4 border-b-[1px] border-neutral-300 pb-7">
-            <h2 className="text-sm font-semibold sm:text-base">
+          <section className="mt-4 border-b border-neutral-300 pb-7">
+            <h2 className="text-sm font-semibold text-black sm:text-base">
               What this place offers
             </h2>
             <p className="mt-1 text-xs text-zinc-800">
@@ -304,9 +302,7 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
               ))}
             </ul>
           </section>
-
-          {/* Review Section*/}
-          <section className="mb-9 w-full max-w-xl border-b-[1px] border-neutral-300 pt-11 pb-7">
+          <section className="mb-9 w-full max-w-xl border-b border-neutral-300 pt-11 pb-7">
             <h3 className="flex items-center gap-1">
               <Image
                 src="/assets/icons/Star_2.png"
@@ -316,8 +312,12 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
                 className="h-[19px] w-[19px]"
               />
               <div className="flex items-center justify-center gap-1 text-base font-semibold">
-                <span className="text-zinc-900">{property.rating}</span>
-                <span className="text-zinc-500">( 345 reviews )</span>
+                <data value={property.rating} className="text-zinc-900">
+                  {property.rating}
+                </data>
+                <data value={345} className="text-zinc-500">
+                  ( 345 reviews )
+                </data>
               </div>
             </h3>
             <ReviewSection reviews={reviews} />
