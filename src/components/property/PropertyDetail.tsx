@@ -323,8 +323,6 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
             <ReviewSection reviews={reviews} />
           </section>
         </div>
-
-        {/*Booking Section */}
         <BookingSection price={property.price} />
       </div>
     </div>
