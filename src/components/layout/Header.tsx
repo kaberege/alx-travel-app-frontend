@@ -2,15 +2,15 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { typesOfAcommodation } from "@/constants";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { BsArrowLeft } from "react-icons/bs";
 import Button from "../common/Button";
 import { Input, Label } from "../common/Form";
 
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <header>
@@ -205,13 +205,13 @@ const Header = () => {
       {["/booking"].includes(pathname) && (
         <section className="border-y border-y-neutral-200 bg-slate-50">
           <div className="container mx-auto flex items-center gap-2 px-4 lg:px-6">
-            <Link
-              href="#"
-              className="flex cursor-pointer items-center space-x-1 border-b-2 border-b-teal-600 py-3 font-bold text-teal-600 transition-all hover:border-b-teal-700 hover:tracking-wide hover:text-teal-700"
+            <Button
+              onClick={() => router.back()}
+              title="Booking"
+              style="flex cursor-pointer items-center space-x-1 border-b-2 border-b-teal-600 py-3 font-bold text-sm text-teal-600 transition-all hover:border-b-teal-700 hover:tracking-wide hover:text-teal-700"
             >
               <BsArrowLeft size={16} />
-              <span className="text-sm">Booking</span>
-            </Link>
+            </Button>
           </div>
         </section>
       )}

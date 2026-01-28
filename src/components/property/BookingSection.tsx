@@ -24,8 +24,19 @@ const bookingCharges: BookingChargesProps[] = [
   { title: "Service fee", value: "$33" },
 ];
 
-const BookingSection: React.FC<{ price: number }> = ({ price }) => {
+const BookingSection: React.FC<{ price: number; id: string }> = ({
+  price,
+  id,
+}) => {
   const router = useRouter();
+
+  const goToBooking = () => {
+    // Create a query string
+    const query = new URLSearchParams({ propertyID: id }).toString();
+    // Navigate to the booking route with the query string appended
+    router.push(`/booking?${query}`);
+  };
+
   return (
     <div className="hidden h-[410px] w-[250px] shrink-0 rounded-lg bg-white p-6 shadow-md shadow-zinc-700 sm:block md:h-[430px] lg:w-80">
       <h3 className="mb-4 border-b border-neutral-300 pb-1 text-base font-semibold text-zinc-950 md:text-xl">
@@ -69,7 +80,7 @@ const BookingSection: React.FC<{ price: number }> = ({ price }) => {
         </data>
       </div>
       <Button
-        onClick={() => router.push("/booking")}
+        onClick={() => goToBooking()}
         title="Reserve now"
         style="mt-4 w-full cursor-pointer rounded-md bg-teal-600 px-4 py-2 text-sm text-white shadow-md shadow-teal-900 transition-colors duration-300 hover:bg-teal-700 focus:ring-2 focus:ring-teal-800"
       />
