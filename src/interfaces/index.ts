@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, ChangeEvent } from "react";
 
 export interface CardProps {
   title: string;
@@ -72,7 +72,9 @@ export interface InputProps {
   name: string;
   type: "text" | "number" | "search" | "date";
   style: string;
+  value: string | number;
   placeholder?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface LabelProps {

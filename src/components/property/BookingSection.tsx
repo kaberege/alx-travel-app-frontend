@@ -1,10 +1,17 @@
+"use client";
+
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Input, Label } from "../common/Form";
-import Button from "../common/Button";
+
+interface CheckingProps {
+  checkin: string;
+  checkout: string;
+}
 
 interface BookingDatesProps {
   title: string;
-  id: string;
+  id: keyof CheckingProps;
   type: string;
 }
 
@@ -14,8 +21,8 @@ interface BookingChargesProps {
 }
 
 const bookingDates: BookingDatesProps[] = [
-  { title: "Check-in", id: "check-in-book", type: "date" },
-  { title: " Check-out", id: "check-out-book", type: "date" },
+  { title: "Check-in", id: "checkin", type: "date" },
+  { title: " Check-out", id: "checkout", type: "date" },
 ];
 
 const bookingCharges: BookingChargesProps[] = [
@@ -30,7 +37,33 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
 }) => {
   const router = useRouter();
 
-  const goToBooking = () => {
+  const [checking, setChecking] = useState<CheckingProps>({
+    checkin: "",
+    checkout: "",
+  });
+  const [error, setError] = useState<string>("");
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setChecking((prev) => ({ ...prev, [name as keyof CheckingProps]: value }));
+  };
+
+  const goToBooking = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (checking.checkin === "" || checking.checkout === "") {
+      setError("Dates can not be empty!");
+      return;
+    }
+
+    const startDate = new Date(checking.checkin).getTime();
+    const endDate = new Date(checking.checkout).getTime();
+
+    if (startDate > endDate) {
+      setError("Start date can not be greater than end date!");
+      return;
+    }
+
     // Create a query string
     const query = new URLSearchParams({ propertyID: id }).toString();
     // Navigate to the booking route with the query string appended
@@ -38,7 +71,10 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
   };
 
   return (
-    <div className="hidden h-[410px] w-[250px] shrink-0 rounded-lg bg-white p-6 shadow-md shadow-zinc-700 sm:block md:h-[430px] lg:w-80">
+    <form
+      onSubmit={(e: FormEvent<HTMLFormElement>) => goToBooking(e)}
+      className="hidden max-h-[414px] w-[250px] shrink-0 rounded-lg bg-white p-6 shadow-md shadow-zinc-700 sm:block md:max-h-[434px] lg:w-80"
+    >
       <h3 className="mb-4 border-b border-neutral-300 pb-1 text-base font-semibold text-zinc-950 md:text-xl">
         <data value={price}>
           <strong>${price}</strong>
@@ -56,6 +92,8 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
             type="date"
             id={item.id}
             name={item.id}
+            value={checking[item.id]}
+            onChange={(e) => handleInputChange(e)}
             style="mt-1 w-full rounded-md border border-zinc-300 p-1 text-sm text-zinc-600 outline-teal-600 md:p-2"
           />
         </div>
@@ -79,12 +117,11 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
           <strong>${price * 7}</strong>
         </data>
       </div>
-      <Button
-        onClick={() => goToBooking()}
-        title="Reserve now"
-        style="mt-4 w-full cursor-pointer rounded-md bg-teal-600 px-4 py-2 text-sm text-white shadow-md shadow-teal-900 transition-colors duration-300 hover:bg-teal-700 focus:ring-2 focus:ring-teal-800"
-      />
-    </div>
+      <button className="mt-4 w-full cursor-pointer rounded-md bg-teal-600 px-4 py-2 text-sm text-white shadow-md shadow-teal-900 transition-colors duration-300 hover:bg-teal-700 focus:ring-2 focus:ring-teal-800">
+        Reserve now
+      </button>
+      {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
+    </form>
   );
 };
 
