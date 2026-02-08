@@ -6,6 +6,7 @@ const Input: React.FC<InputProps> = ({
   type,
   name,
   value,
+  min,
   style,
   placeholder,
   onChange,
@@ -16,6 +17,7 @@ const Input: React.FC<InputProps> = ({
       type={type}
       name={name}
       value={value}
+      min={min}
       className={style}
       placeholder={placeholder}
       onChange={onChange}

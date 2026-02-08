@@ -74,6 +74,7 @@ export interface InputProps {
   style: string;
   value: string | number;
   placeholder?: string;
+  min?: string | number;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
