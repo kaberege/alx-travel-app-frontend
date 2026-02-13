@@ -3,6 +3,7 @@
 import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Input, Label } from "../common/Form";
+import { type PropertyProps } from "@/interfaces/index";
 
 interface CheckingProps {
   checkin: string;
@@ -27,9 +28,8 @@ const bookingDates: BookingDatesProps[] = [
   { title: " Check-out", id: "checkout", type: "date" },
 ];
 
-const BookingSection: React.FC<{ price: number; id: string }> = ({
-  price,
-  id,
+const BookingSection: React.FC<{ property: PropertyProps }> = ({
+  property,
 }) => {
   const router = useRouter();
 
@@ -55,8 +55,12 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
       setIsValid(true);
 
       const diffInDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
-      const totalBasePrice = endDate === startDate ? price : price * diffInDays;
-      const discount = diffInDays > 7 ? Math.floor(totalBasePrice * 0.1) : 0; // 10% off for 7+ days
+      const totalBasePrice =
+        endDate === startDate ? property.price : property.price * diffInDays;
+      const discount =
+        diffInDays > 7
+          ? Math.round((totalBasePrice * property.discount) / 100)
+          : 0; // 10% off for 7+ days
       const serviceFee = 33; // Charge service fee of $33
       const finalTotal = totalBasePrice - discount + serviceFee;
 
@@ -77,7 +81,7 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
         finalTotal: 0,
       });
     }
-  }, [checking, price]);
+  }, [checking, property]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -89,7 +93,7 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
 
     // Create a query string
     const query = new URLSearchParams({
-      propertyID: id,
+      propertyID: property.name,
       checkin: checking.checkin,
       checkout: checking.checkout,
       nights: nights.toString(),
@@ -105,8 +109,8 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
       className="hidden max-h-[414px] w-[250px] shrink-0 rounded-lg bg-white p-6 shadow-md shadow-zinc-700 sm:block md:max-h-[434px] lg:w-80"
     >
       <h3 className="mb-4 border-b border-neutral-300 pb-1 text-base font-semibold text-zinc-950 md:text-xl">
-        <data value={price}>
-          <strong>${price}</strong>
+        <data value={property.price}>
+          <strong>${property.price}</strong>
           <span className="text-sm text-zinc-600">/night</span>
         </data>
       </h3>
@@ -135,7 +139,7 @@ const BookingSection: React.FC<{ price: number; id: string }> = ({
       <div className="mt-4 border-b border-neutral-300 pb-4">
         <div className="flex items-center justify-between text-sm">
           <span className="text-zinc-600">
-            ${price} x {nights} night{nights > 1 ? "s" : ""}
+            ${property.price} x {nights} night{nights > 1 ? "s" : ""}
           </span>
           <data value={fees.totalBasePrice} className="text-zinc-950">
             <strong> {fees.totalBasePrice}</strong>

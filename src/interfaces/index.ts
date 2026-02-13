@@ -48,7 +48,7 @@ export interface PropertyProps {
   price: number;
   offers: OfferProps;
   image: string;
-  discount: string;
+  discount: number;
   description: {
     title: string;
     space: string;

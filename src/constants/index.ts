@@ -100,7 +100,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "4-6",
     },
     image: "/assets/listing-images/List_1.png",
-    discount: "",
+    discount: 0,
     description: {
       title:
         "Feel like exploring the Dominican? Start the day with a hike on one of Playa Moron's many trails. Weave your way around the gated community to find secluded sandy coves for swimming and paddleboarding. When you'Feel like exploring the Dominican? Start the day with a hike on one of Playa Moron's many trails. Weave your way around the gated community to find secluded sandy coves for swimming and paddleboarding. When you're ready to chill with friends, the beach house pool awaits. Spend the night entertaining in the outdoor lounge, sipping drinks in the hot tub, and gazing out over incredible ocean views.",
@@ -127,7 +127,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "5-7",
     },
     image: "/assets/listing-images/List_10.png",
-    discount: "30",
+    discount: 30,
     description: {
       title: "",
       space: "",
@@ -152,7 +152,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "2-3",
     },
     image: "/assets/listing-images/List_11.png",
-    discount: "",
+    discount: 0,
     description: {
       title: "",
       space: "",
@@ -177,7 +177,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "2-4",
     },
     image: "/assets/listing-images/List_12.png",
-    discount: "15",
+    discount: 15,
     description: {
       title: "",
       space: "",
@@ -202,7 +202,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "4-6",
     },
     image: "/assets/listing-images/List_9.png",
-    discount: "20",
+    discount: 20,
     description: {
       title: "",
       space: "",
@@ -227,7 +227,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "8-10",
     },
     image: "/assets/listing-images/List_13.png",
-    discount: "",
+    discount: 0,
     description: {
       title: "",
       space: "",
@@ -252,7 +252,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "4-5",
     },
     image: "/assets/listing-images/List_14.png",
-    discount: "10",
+    discount: 10,
     description: {
       title: "",
       space: "",
@@ -277,7 +277,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "5-6",
     },
     image: "/assets/listing-images/List_15.png",
-    discount: "25",
+    discount: 25,
     description: {
       title: "",
       space: "",
@@ -302,7 +302,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "2-3",
     },
     image: "/assets/listing-images/List_16.png",
-    discount: "",
+    discount: 0,
     description: {
       title: "",
       space: "",
@@ -327,7 +327,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "5-7",
     },
     image: "/assets/listing-images/List_2.png",
-    discount: "40",
+    discount: 40,
     description: {
       title: "",
       space: "",
@@ -352,7 +352,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "6-8",
     },
     image: "/assets/listing-images/List_3.png",
-    discount: "50",
+    discount: 50,
     description: {
       title: "",
       space: "",
@@ -377,7 +377,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "4-6",
     },
     image: "/assets/listing-images/List_4-1.png",
-    discount: "",
+    discount: 0,
     description: {
       title: "",
       space: "",
@@ -402,7 +402,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "2-4",
     },
     image: "/assets/listing-images/List_4.png",
-    discount: "35",
+    discount: 35,
     description: {
       title: "",
       space: "",
@@ -427,7 +427,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "2",
     },
     image: "/assets/listing-images/List_6.png",
-    discount: "",
+    discount: 0,
     description: {
       title: "",
       space: "",
@@ -452,7 +452,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "6-8",
     },
     image: "/assets/listing-images/List_7.png",
-    discount: "20",
+    discount: 20,
     description: {
       title: "",
       space: "",
@@ -477,7 +477,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "2-4",
     },
     image: "/assets/listing-images/List_8.png",
-    discount: "25",
+    discount: 25,
     description: {
       title: "",
       space: "",
@@ -502,7 +502,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "6-8",
     },
     image: "/assets/listing-images/list-17.jpg",
-    discount: "30",
+    discount: 30,
     description: {
       title: "",
       space: "",
@@ -527,7 +527,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "4-5",
     },
     image: "/assets/listing-images/list-18.jpg",
-    discount: "",
+    discount: 0,
     description: {
       title: "",
       space: "",
@@ -552,7 +552,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "8-10",
     },
     image: "/assets/listing-images/list-19.jpg",
-    discount: "60",
+    discount: 60,
     description: {
       title: "",
       space: "",
@@ -577,7 +577,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "4-5",
     },
     image: "/assets/listing-images/list-20.jpg",
-    discount: "",
+    discount: 0,
     description: {
       title: "",
       space: "",
@@ -602,7 +602,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "6-8",
     },
     image: "/assets/listing-images/list-21.jpg",
-    discount: "15",
+    discount: 15,
     description: {
       title: "",
       space: "",
@@ -627,7 +627,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "8-10",
     },
     image: "/assets/listing-images/list-22.jpg",
-    discount: "",
+    discount: 0,
     description: {
       title: "",
       space: "",
@@ -652,7 +652,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "2-3",
     },
     image: "/assets/listing-images/list-23.jpg",
-    discount: "20",
+    discount: 20,
     description: {
       title: "",
       space: "",
@@ -677,7 +677,7 @@ export const propertListingSample: PropertyProps[] = [
       occupants: "6-8",
     },
     image: "/assets/listing-images/list-24.jpg",
-    discount: "25",
+    discount: 25,
     description: {
       title: "",
       space: "",

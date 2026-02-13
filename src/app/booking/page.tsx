@@ -12,13 +12,6 @@ export default function BookingPage() {
   const [property, setProperty] = useState<PropertyProps | null>(null);
 
   const searchParams = useSearchParams();
-  /*  const bookingDetails = {
-    propertyName: "Villa Arrecife Beach House",
-    price: 7500,
-    bookingFee: 65,
-    totalNights: 3,
-    startDate: "24 August 2024",
-  }; */
 
   useEffect(() => {
     const propertyID: string | null = searchParams.get("propertyID");
@@ -49,7 +42,7 @@ export default function BookingPage() {
     <div className="container mx-auto px-2 pb-10 sm:px-6 sm:pb-14">
       <div className="mt-4 flex flex-col-reverse gap-6 sm:flex-row">
         <BookingForm />
-        <OrderSummary bookingDetails={property} />
+        <OrderSummary property={property} />
       </div>
     </div>
   );

@@ -323,7 +323,7 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
             <ReviewSection reviews={reviews} />
           </section>
         </div>
-        <BookingSection price={property.price} id={property.name} />
+        <BookingSection property={property} />
       </div>
     </div>
   );
