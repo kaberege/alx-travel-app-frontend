@@ -70,12 +70,13 @@ export interface ReviewsProps {
 export interface InputProps {
   id: string;
   name: string;
-  type: "text" | "number" | "search" | "date";
+  type: "text" | "number" | "search" | "email" | "date" | "checkbox";
   style: string;
-  value: string | number;
+  value?: string | number;
   placeholder?: string;
   min?: string | number;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
 }
 
 export interface LabelProps {

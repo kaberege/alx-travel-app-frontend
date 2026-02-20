@@ -17,7 +17,7 @@ const CancellationPolicy = () => (
     </p>
     <ul className="mt-2 ml-3 list-inside list-disc text-xs text-gray-600">
       <li>Follow the house rules</li>
-      <li>Treat your Host’s home like your own</li>
+      <li>Treat your Host&apos;s home like your own</li>
     </ul>
     <div className="hidden lg:flex lg:pt-4">
       <div className="w-full border-b border-b-zinc-300"></div>

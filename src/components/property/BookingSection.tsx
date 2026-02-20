@@ -132,6 +132,7 @@ const BookingSection: React.FC<{ property: PropertyProps }> = ({
                 : new Date().toISOString().split("T")[0]
             }
             onChange={(e) => handleInputChange(e)}
+            required={true}
             style="mt-1 w-full rounded-md border border-zinc-300 p-1 text-sm text-zinc-600 outline-teal-600 md:p-2"
           />
         </div>

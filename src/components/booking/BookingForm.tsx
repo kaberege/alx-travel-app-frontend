@@ -5,9 +5,58 @@ import { useState } from "react";
 import { BiCheck } from "react-icons/bi";
 import Image from "next/image";
 import CancellationPolicy from "./CancellationPolicy";
+import { Label, Input } from "../common/Form";
+
+interface FormProps {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  cardNumber: string;
+  expirationDate: string;
+  cvv: string;
+  billingAddress: string;
+  method: string;
+  street: string;
+  apt: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  country: string;
+  [key: string]: string;
+}
+
+interface ContactProps {
+  id: string;
+  type: "number" | "text" | "search" | "email" | "date";
+  name: string;
+  title: string;
+}
+
+const contactDetails: ContactProps[] = [
+  {
+    id: "first-name-booking",
+    type: "text",
+    name: "firstName",
+    title: "First Name",
+  },
+  {
+    id: "last-name-booking",
+    type: "text",
+    name: "lastName",
+    title: "Last Name",
+  },
+  { id: "email-booking", type: "email", name: "email", title: "Email" },
+  {
+    id: "phone-booking",
+    type: "text",
+    name: "phoneNumber",
+    title: "Phone Number",
+  },
+];
 
 const BookingForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormProps>({
     firstName: "",
     lastName: "",
     email: "",
@@ -56,89 +105,48 @@ const BookingForm = () => {
   };
 
   return (
-    <section className="rounded-lg bg-white p-3 shadow-md sm:grow sm:p-6 lg:pt-8">
-      <h2 className="text-base font-semibold text-zinc-950 lg:text-xl">
-        Contact Detail
-      </h2>
-      <form onSubmit={handleSubmit}>
-        {/* Contact Information */}
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-lg bg-white p-3 shadow-md sm:grow sm:p-6 lg:pt-8"
+    >
+      {/* Contact Information */}
+      <section className="border-b border-b-zinc-300 pb-6">
+        <h2 className="text-base font-semibold text-zinc-950 lg:text-xl">
+          Contact Detail
+        </h2>
         <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <label
-              htmlFor="first-name-booking"
-              className="text-xs font-medium text-zinc-950 lg:text-sm"
-            >
-              First Name
-            </label>
-            <input
-              id="first-name-booking"
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="last-name-booking"
-              className="text-xs font-medium text-zinc-950 lg:text-sm"
-            >
-              Last Name
-            </label>
-            <input
-              id="last-name-booking"
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
-            />
-          </div>
+          {contactDetails.map((item: ContactProps, index: number) => (
+            <div key={index}>
+              <Label
+                htmlFor={item.id}
+                style={"text-xs font-medium text-zinc-950 lg:text-sm"}
+                title={item.title}
+              />
+              <Input
+                id={item.id}
+                type={item.type}
+                name={item.name}
+                value={formData[item.name]}
+                onChange={handleChange}
+                required={true}
+                style="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
+              />
+            </div>
+          ))}
         </div>
-        <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <label
-              htmlFor="email-booking"
-              className="text-xs font-medium text-zinc-950 lg:text-sm"
-            >
-              Email
-            </label>
-            <input
-              id="email-booking"
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="phone-booking"
-              className="text-xs font-medium text-zinc-950 lg:text-sm"
-            >
-              Phone Number
-            </label>
-            <input
-              id="phone-booking"
-              type="text"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
-            />
-          </div>
-        </div>
-
         {/* Accept Information */}
-        <div className="mt-4 border-b border-b-zinc-300 pb-6">
-          <label className="group flex cursor-pointer items-center">
-            <input type="checkbox" className="peer hidden" />
+        <div className="mt-4">
+          <label
+            htmlFor="checkbox"
+            className="group flex cursor-pointer items-center"
+          >
+            <Input
+              id="checkbox"
+              type="checkbox"
+              name="checkbox"
+              style="peer hidden"
+              required={true}
+            />
             <div className="flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border-2 border-teal-600 transition-colors duration-200 peer-checked:border-teal-600/0 peer-checked:bg-teal-600 peer-checked:hover:bg-teal-700">
               <BiCheck className="hidden shrink-0 font-bold text-white group-has-[:checked]:block" />
             </div>
@@ -148,7 +156,8 @@ const BookingForm = () => {
             </span>
           </label>
         </div>
-
+      </section>
+      <section>
         {/* Payment Information */}
         <h2 className="mt-6 text-base font-semibold text-zinc-950 lg:text-xl">
           Pay with
@@ -314,19 +323,18 @@ const BookingForm = () => {
             <option value="Uganada">Uganada</option>
           </select>
         </div>
-        <CancellationPolicy />
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          disabled={loading}
-          className="mx-auto mt-6 w-full cursor-pointer rounded-md bg-teal-600 px-4 py-2 text-sm text-white shadow-md shadow-teal-900 transition-colors duration-300 hover:bg-teal-700 focus:ring-2 focus:ring-teal-800 sm:max-w-40 lg:max-w-60"
-        >
-          {loading ? "Processing..." : "Confirm & Pay"}
-        </button>
-        {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
-      </form>
-    </section>
+      </section>
+      <CancellationPolicy />
+      {/* Submit Button */}
+      <button
+        type="submit"
+        disabled={loading}
+        className="mx-auto mt-6 w-full cursor-pointer rounded-md bg-teal-600 px-4 py-2 text-sm text-white shadow-md shadow-teal-900 transition-colors duration-300 hover:bg-teal-700 focus:ring-2 focus:ring-teal-800 sm:max-w-40 lg:max-w-60"
+      >
+        {loading ? "Processing..." : "Confirm & Pay"}
+      </button>
+      {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
+    </form>
   );
 };
 
