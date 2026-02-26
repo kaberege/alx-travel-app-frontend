@@ -233,7 +233,7 @@ export default function Home() {
         <section className="container mx-auto grid w-full grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
           {display.map((item, index) => (
             <div key={index} className="relative flex flex-col gap-3">
-              {item.discount && (
+              {item.discount > 0 && (
                 <div className="absolute top-2 -left-0.5 z-50 flex cursor-pointer items-center gap-1 rounded-tl-full rounded-r-full bg-teal-600 px-2 py-1 shadow-xl shadow-teal-800 transition-colors hover:bg-teal-500">
                   <Image
                     src="/assets/icons/discount-item.png"
