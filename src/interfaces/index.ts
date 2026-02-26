@@ -59,6 +59,14 @@ export interface PropertyProps {
   };
 }
 
+export interface BookingDataProps {
+  propertyId: string;
+  checkin: string;
+  checkout: string;
+  nights: number;
+  total: number;
+}
+
 export interface ReviewsProps {
   avatar: string;
   name: string;

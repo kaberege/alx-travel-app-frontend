@@ -1,11 +1,10 @@
-"use client";
-
 import axios from "axios";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { BiCheck } from "react-icons/bi";
 import Image from "next/image";
 import CancellationPolicy from "./CancellationPolicy";
 import { Label, Input } from "../common/Form";
+import { BookingDataProps } from "@/interfaces";
 
 interface FormProps {
   firstName: string;
@@ -55,7 +54,9 @@ const contactDetails: ContactProps[] = [
   },
 ];
 
-const BookingForm = () => {
+const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
+  bookingData,
+}) => {
   const [formData, setFormData] = useState<FormProps>({
     firstName: "",
     lastName: "",
@@ -73,7 +74,7 @@ const BookingForm = () => {
     zipCode: "",
     country: "",
   });
-
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -109,7 +110,6 @@ const BookingForm = () => {
       onSubmit={handleSubmit}
       className="rounded-lg bg-white p-3 shadow-md sm:grow sm:p-6 lg:pt-8"
     >
-      {/* Contact Information */}
       <section className="border-b border-b-zinc-300 pb-6">
         <h2 className="text-base font-semibold text-zinc-950 lg:text-xl">
           Contact Detail
@@ -134,18 +134,19 @@ const BookingForm = () => {
             </div>
           ))}
         </div>
-        {/* Accept Information */}
         <div className="mt-4">
           <label
             htmlFor="checkbox"
             className="group flex cursor-pointer items-center"
           >
-            <Input
+            <input
               id="checkbox"
               type="checkbox"
               name="checkbox"
-              style="peer hidden"
-              required={true}
+              className="peer sr-only"
+              checked={isChecked}
+              onChange={() => setIsChecked((prev) => !prev)}
+              required
             />
             <div className="flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border-2 border-teal-600 transition-colors duration-200 peer-checked:border-teal-600/0 peer-checked:bg-teal-600 peer-checked:hover:bg-teal-700">
               <BiCheck className="hidden shrink-0 font-bold text-white group-has-[:checked]:block" />
@@ -158,7 +159,6 @@ const BookingForm = () => {
         </div>
       </section>
       <section>
-        {/* Payment Information */}
         <h2 className="mt-6 text-base font-semibold text-zinc-950 lg:text-xl">
           Pay with
         </h2>
@@ -167,7 +167,7 @@ const BookingForm = () => {
             src="/assets/icons/credit-card 1.png"
             width={500}
             height={500}
-            alt="Payment method"
+            alt="Pay with credit card"
             className="mr-2 h-4 w-4"
           />
           <select
@@ -183,125 +183,121 @@ const BookingForm = () => {
             <option value="debit">Debit card</option>
           </select>
         </div>
-        <div className="flex flex-col">
-          <div className="mt-2 flex items-center rounded-t-md border border-zinc-300 px-2">
-            <label
-              htmlFor="card-booking"
-              className="flex shrink-0 items-center"
-            >
-              <span className="mr-1 text-[10px] text-zinc-500 sm:mr-3 sm:text-xs">
-                Card number
-              </span>
-              <Image
-                src="/assets/icons/Bold/Security/Lock.png"
-                width={500}
-                height={500}
-                alt="Payment method"
-                className="h-3 w-3"
-              />
-            </label>
-            <input
-              id="card-booking"
+        <div className="mt-2 flex items-center rounded-t-md border border-zinc-300 px-2">
+          <label
+            htmlFor="card-booking"
+            className="flex shrink-0 items-center py-2"
+          >
+            <span className="mr-1 text-[10px] text-zinc-500 sm:mr-3 sm:text-xs">
+              Card number
+            </span>
+            <Image
+              src="/assets/icons/Bold/Security/Lock.png"
+              width={500}
+              height={500}
+              alt="A lock"
+              className="h-3 w-3"
+            />
+          </label>
+          <Input
+            id="card-booking"
+            type="text"
+            name="cardNumber"
+            value={formData.cardNumber}
+            onChange={handleChange}
+            required={true}
+            style="w-full px-1 py-2 text-sm outline-none"
+          />
+        </div>
+        <div className="grid grid-cols-2 rounded-b-md border-x border-b border-zinc-300 text-xs">
+          <div className="border-r border-zinc-300">
+            <Input
+              id="expiration-booking"
               type="text"
-              name="cardNumber"
-              value={formData.cardNumber}
+              name="expirationDate"
+              value={formData.expirationDate}
               onChange={handleChange}
-              required
-              className="w-full px-1 py-2 text-sm outline-none"
+              required={true}
+              placeholder="Expiration Date"
+              style="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
-          <div className="grid grid-cols-2 rounded-b-md border-x border-b border-zinc-300 text-xs">
-            <div className="border-r border-zinc-300">
-              <input
-                id="expiration-booking"
-                type="text"
-                name="expirationDate"
-                value={formData.expirationDate}
-                onChange={handleChange}
-                required
-                placeholder="Expiration Date"
-                className="mt-1 w-full px-2 py-1.5 outline-none"
-              />
-            </div>
-            <div>
-              <input
-                id="CVV-booking"
-                type="text"
-                name="cvv"
-                value={formData.cvv}
-                onChange={handleChange}
-                required
-                placeholder="CVV"
-                className="mt-1 w-full px-2 py-1.5 outline-none"
-              />
-            </div>
+          <div>
+            <Input
+              id="CVV-booking"
+              type="text"
+              name="cvv"
+              value={formData.cvv}
+              onChange={handleChange}
+              required={true}
+              placeholder="CVV"
+              style="mt-1 w-full px-2 py-1.5 outline-none"
+            />
           </div>
         </div>
-
-        {/* Billing Address */}
         <h2 className="mt-4 mb-1 text-xs font-semibold text-zinc-950">
           Billing Address
         </h2>
         <div className="rounded-md border border-zinc-300 text-xs">
           <div className="border-b border-zinc-300">
-            <input
+            <Input
               id="street-booking"
               type="text"
               name="street"
               value={formData.street}
               onChange={handleChange}
-              required
+              required={true}
               placeholder="Street Address"
-              className="mt-1 w-full px-2 py-1.5 outline-none"
+              style="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="border-b border-zinc-300">
-            <input
+            <Input
               id="Apt-suite"
               type="text"
               name="apt"
               value={formData.apt}
               onChange={handleChange}
-              required
+              required={true}
               placeholder="Apt or suite number"
-              className="mt-1 w-full px-2 py-1.5 outline-none"
+              style="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="border-b border-zinc-300">
-            <input
+            <Input
               id="city-booking"
               type="text"
               name="city"
               value={formData.city}
               onChange={handleChange}
-              required
+              required={true}
               placeholder="City"
-              className="mt-1 w-full px-2 py-1.5 outline-none"
+              style="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="grid grid-cols-2">
             <div className="border-r border-zinc-300">
-              <input
+              <Input
                 id="state-booking"
                 type="text"
                 name="state"
                 value={formData.state}
                 onChange={handleChange}
-                required
+                required={true}
                 placeholder=" State"
-                className="mt-1 w-full px-2 py-1.5 outline-none"
+                style="mt-1 w-full px-2 py-1.5 outline-none"
               />
             </div>
             <div className="">
-              <input
+              <Input
                 id="zip-code-booking"
                 type="text"
                 name="zipCode"
                 value={formData.zipCode}
                 onChange={handleChange}
-                required
+                required={true}
                 placeholder="Zip Code"
-                className="mt-1 w-full px-2 py-1.5 outline-none"
+                style="mt-1 w-full px-2 py-1.5 outline-none"
               />
             </div>
           </div>
@@ -324,8 +320,7 @@ const BookingForm = () => {
           </select>
         </div>
       </section>
-      <CancellationPolicy />
-      {/* Submit Button */}
+      <CancellationPolicy checkin={bookingData.checkin} />
       <button
         type="submit"
         disabled={loading}
