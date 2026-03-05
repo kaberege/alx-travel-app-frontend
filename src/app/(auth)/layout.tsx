@@ -4,56 +4,57 @@ import { usePathname } from "next/navigation";
 
 export default function AuthLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   const pathname = usePathname();
 
   // Logic to determine content based on the current URL
-  const getContent = () => {
+  const getContent = (): {
+    bgClass: string;
+    title: string;
+    desc: string;
+  } => {
     if (pathname.includes("register")) {
       return {
-        bg: "/assets/auth/register-image.jpg",
+        bgClass: "bg-[url('/assets/auth/register-image.jpg')]",
         title: "Find your sanctuary.",
         desc: "Join 2M+ travelers finding unique spaces globally.",
       };
     }
     if (pathname.includes("forgot-password")) {
       return {
-        bg: "/assets/auth/reset-password-image.jpg",
+        bgClass: "bg-[url('/assets/auth/reset-password-image.jpg')]",
         title: "Don't stress.",
         desc: "We'll help you get back into your account safely.",
       };
     }
     // Default for Login
     return {
-      bg: "/assets/auth/login-image.jpg",
+      bgClass: "bg-[url('/assets/auth/login-image.jpg')]",
       title: "Welcome back home.",
       desc: "Log in to manage your bookings and explore new stays.",
     };
   };
 
-  const { bg, title, desc } = getContent();
+  const { bgClass, title, desc } = getContent();
 
   return (
-    <div className="flex min-h-screen bg-white font-sans">
+    <div className="flex min-h-screen bg-white">
       <section className="relative hidden w-1/2 flex-col overflow-hidden p-16 text-white lg:flex">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center transition-all duration-1000"
-          style={{ backgroundImage: `url(${bg})` }}
+          className={`absolute inset-0 z-0 ${bgClass} bg-cover bg-center transition-all duration-1000`}
         />
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-teal-900/10 to-teal-900/80" />
-
-        <div className="relative z-20 flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-teal-600 shadow-xl shadow-black/20">
-            <span className="text-xl font-black italic">K</span>
-          </div>
-          <span className="text-xs font-black tracking-[0.4em] uppercase">
+        <div className="z-20 flex h-14 w-14 items-center justify-center rounded-full bg-white">
+          <span className="text-center text-xs font-black tracking-[0.4em] text-teal-600 uppercase">
             KGN
           </span>
         </div>
-
-        <div className="animate-in fade-in slide-in-from-left-8 relative z-20 mt-auto duration-700">
+        <div
+          key={pathname}
+          className="animate-content-in relative z-20 mt-auto"
+        >
           <h2 className="text-6xl leading-none font-bold tracking-tighter">
             {title}
           </h2>

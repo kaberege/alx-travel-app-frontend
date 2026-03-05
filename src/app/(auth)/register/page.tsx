@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function RegisterPage() {
   return (
-    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+    <div className="animate-content-in">
       <h1 className="text-3xl font-bold text-gray-900">Join the family</h1>
       <form className="mt-8 space-y-1">
         <div className="grid grid-cols-2 gap-1">

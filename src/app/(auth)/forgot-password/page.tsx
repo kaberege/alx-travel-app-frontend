@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ForgotPasswordPage() {
   return (
-    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+    <div className="animate-content-in">
       <h1 className="text-3xl font-bold text-gray-900">Reset Password</h1>
       <p className="mt-2 text-sm leading-relaxed text-gray-500">
         Enter the email address associated with your account and we&apos;ll send

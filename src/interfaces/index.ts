@@ -26,7 +26,7 @@ export interface PillProps {
   children?: ReactNode;
 }
 
-export type MyProps = {
+export type ReactNodeProps = {
   children: ReactNode;
 };
 

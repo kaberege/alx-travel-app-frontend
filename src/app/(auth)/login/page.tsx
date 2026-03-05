@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+    <div className="animate-content-in">
       <h1 className="text-3xl font-bold text-gray-900">Sign in</h1>
       <form className="mt-8 space-y-6">
         <div className="border-b-2 border-gray-100 py-2 transition-colors focus-within:border-teal-600">

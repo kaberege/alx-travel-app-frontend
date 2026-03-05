@@ -1,13 +1,19 @@
+"use client";
+
 import Header from "./Header";
 import Footer from "./Footer";
-import { MyProps } from "@/interfaces";
+import { ReactNodeProps } from "@/interfaces";
+import { usePathname } from "next/navigation";
 
-const Layout: React.FC<MyProps> = ({ children }) => {
+const authRoutes: string[] = ["/login", "/register", "/forgot-password"];
+
+const Layout: React.FC<Readonly<ReactNodeProps>> = ({ children }) => {
+  const pathname: string = usePathname();
   return (
     <>
-      <Header />
+      {!authRoutes.includes(pathname) && <Header />}
       <main className="min-h-screen">{children}</main>
-      <Footer />
+      {!authRoutes.includes(pathname) && <Footer />}
     </>
   );
 };
