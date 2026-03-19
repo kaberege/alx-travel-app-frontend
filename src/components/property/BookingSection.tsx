@@ -119,7 +119,7 @@ const BookingSection: React.FC<{ property: PropertyProps }> = ({
           <Label
             htmlFor={item.id}
             title={item.title}
-            style="text-xs text-zinc-950"
+            className="text-xs text-zinc-950"
           />
           <Input
             type="date"
@@ -133,7 +133,7 @@ const BookingSection: React.FC<{ property: PropertyProps }> = ({
             }
             onChange={(e) => handleInputChange(e)}
             required={true}
-            style="mt-1 w-full rounded-md border border-zinc-300 p-1 text-sm text-zinc-600 outline-teal-600 md:p-2"
+            className="mt-1 w-full rounded-md border border-zinc-300 p-1 text-sm text-zinc-600 outline-teal-600 md:p-2"
           />
         </div>
       ))}

@@ -1,29 +1,9 @@
-import { ReactNode, ChangeEvent } from "react";
-
-export interface CardProps {
-  title: string;
-  image: string;
-  description: string;
-}
+import { ReactNode } from "react";
 
 // Defines accomodation types
 export interface AcommodationProps {
   name: string;
   image: string;
-}
-
-export interface ButtonProps {
-  title?: string;
-  onClick?: () => void;
-  type?: "button" | "submit" | "reset";
-  style?: string;
-  children?: ReactNode;
-}
-
-export interface PillProps {
-  title?: string;
-  style?: string;
-  children?: ReactNode;
 }
 
 export type ReactNodeProps = {
@@ -73,24 +53,6 @@ export interface ReviewsProps {
   comment: string;
   experience: string;
   time: string;
-}
-
-export interface InputProps {
-  id: string;
-  name: string;
-  type: "text" | "number" | "search" | "email" | "date" | "checkbox";
-  style: string;
-  value?: string | number;
-  placeholder?: string;
-  min?: string | number;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-}
-
-export interface LabelProps {
-  htmlFor: string;
-  title: string;
-  style: string;
 }
 
 interface FooterURLs {

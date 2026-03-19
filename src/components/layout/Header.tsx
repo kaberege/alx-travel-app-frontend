@@ -27,10 +27,9 @@ const Header = () => {
           <p className="text-[11px] font-semibold text-white sm:text-xs">
             Overseas trip? Get the latest information on travel guides
           </p>
-          <Button
-            title="More Info"
-            style="cursor-pointer rounded-full bg-black px-1.5 py-0.5 text-center text-[11px] font-semibold whitespace-nowrap text-white transition-all hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950"
-          />
+          <Button className="cursor-pointer rounded-full bg-black px-1.5 py-0.5 text-center text-[11px] font-semibold whitespace-nowrap text-white transition-all hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950">
+            More Info
+          </Button>
         </div>
       </section>
       <section className="overflow-hidden border-b border-b-neutral-300 bg-white py-3">
@@ -44,7 +43,7 @@ const Header = () => {
               title="kgn logo"
               className="h-7 w-7 cursor-pointer md:h-10 md:w-10"
             />
-            <Button style="flex h-7 w-7 items-center justify-center rounded-full bg-teal-600">
+            <Button className="flex h-7 w-7 items-center justify-center rounded-full bg-teal-600">
               <Image
                 src="/assets/icons/profile2.png"
                 width={500}
@@ -71,7 +70,7 @@ const Header = () => {
                     type="search"
                     name="location"
                     id="locations"
-                    style="w-3/5 text-[10px] text-neutral-500 outline-none"
+                    className="w-3/5 text-[10px] text-neutral-500 outline-none"
                     placeholder="Location"
                   />
                   <span className="h-1 w-1 shrink-0 rounded-full bg-neutral-500"></span>
@@ -79,7 +78,7 @@ const Header = () => {
                     type="date"
                     name="check-out"
                     id="check-outs"
-                    style="w-1/5 text-[10px] text-neutral-500 outline-none"
+                    className="w-1/5 text-[10px] text-neutral-500 outline-none"
                     placeholder="Date"
                   />
                   <span className="h-1 w-1 shrink-0 rounded-full bg-neutral-500"></span>
@@ -87,7 +86,7 @@ const Header = () => {
                     type="search"
                     name="people"
                     id="person"
-                    style="mr-1 w-1/5 text-[10px] text-neutral-500 outline-none"
+                    className="mr-1 w-1/5 text-[10px] text-neutral-500 outline-none"
                     placeholder="Add guest"
                   />
                 </div>
@@ -96,62 +95,66 @@ const Header = () => {
                 <div className="col-span-2 flex-col border-r border-neutral-300 pr-2 sm:flex">
                   <Label
                     htmlFor="location"
-                    title="Location"
-                    style="text-xs font-medium text-zinc-900"
-                  />
+                    className="text-xs font-medium text-zinc-900"
+                  >
+                    Location
+                  </Label>
                   <Input
                     type="search"
                     name="location"
                     id="location"
-                    style="text-[10px] text-neutral-500 outline-none"
+                    className="text-[10px] text-neutral-500 outline-none"
                     placeholder="Search for destination"
                   />
                 </div>
                 <div className="flex flex-col border-r border-neutral-300 px-2">
                   <Label
                     htmlFor="check-in"
-                    title="Check in"
-                    style="text-xs font-medium text-zinc-900"
-                  />
+                    className="text-xs font-medium text-zinc-900"
+                  >
+                    Check in
+                  </Label>
 
                   <Input
                     type="date"
                     name="check-in"
                     id="check-in"
-                    style="text-[10px] text-neutral-500 outline-none"
+                    className="text-[10px] text-neutral-500 outline-none"
                     placeholder="Add date"
                   />
                 </div>
                 <div className="flex flex-col border-r border-neutral-300 px-2">
                   <Label
                     htmlFor="check-out"
-                    title=" Check out"
-                    style="text-xs font-medium text-zinc-900"
-                  />
+                    className="text-xs font-medium text-zinc-900"
+                  >
+                    Check out
+                  </Label>
                   <Input
                     type="date"
                     name="check-out"
                     id="check-out"
-                    style="text-[10px] text-neutral-500 outline-none"
+                    className="text-[10px] text-neutral-500 outline-none"
                     placeholder="Add date"
                   />
                 </div>
                 <div className="flex flex-col pl-2">
                   <Label
                     htmlFor="people"
-                    title=" People"
-                    style="text-xs font-medium text-zinc-900"
-                  />
+                    className="text-xs font-medium text-zinc-900"
+                  >
+                    People
+                  </Label>
                   <Input
                     type="search"
                     name="people"
                     id="people"
-                    style="text-[10px] text-neutral-500 outline-none"
+                    className="text-[10px] text-neutral-500 outline-none"
                     placeholder="Add guest"
                   />
                 </div>
               </div>
-              <Button style="flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-full bg-amber-500 transition-colors hover:bg-amber-400 sm:h-8 sm:w-8">
+              <Button className="flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-full bg-amber-500 transition-colors hover:bg-amber-400 sm:h-8 sm:w-8">
                 <Image
                   src="/assets/icons/Linear/Search/magnifers.png"
                   width={500}
@@ -162,7 +165,7 @@ const Header = () => {
               </Button>
             </form>
           </div>
-          <Button style="hidden h-7 w-7 items-center justify-center rounded-full bg-teal-600 sm:flex lg:hidden">
+          <Button className="hidden h-7 w-7 items-center justify-center rounded-full bg-teal-600 sm:flex lg:hidden">
             <Image
               src="/assets/icons/profile2.png"
               width={500}
@@ -172,14 +175,12 @@ const Header = () => {
             />
           </Button>
           <div className="hidden gap-2 lg:flex">
-            <Button
-              title="Sign in"
-              style="flex cursor-pointer items-center justify-center rounded-full bg-teal-600 px-3 py-1 text-sm text-white shadow-sm shadow-teal-900 transition-colors hover:bg-teal-700 focus:ring-2 focus:ring-teal-800"
-            />
-            <Button
-              title="Sign up"
-              style="flex cursor-pointer items-center justify-center rounded-full border-1 border-neutral-200 px-3 py-1 text-sm text-zinc-900 shadow-sm shadow-zinc-500 transition-colors hover:bg-neutral-300 focus:ring-2 focus:ring-zinc-700"
-            />
+            <Button className="flex cursor-pointer items-center justify-center rounded-full bg-teal-600 px-3 py-1 text-sm text-white shadow-sm shadow-teal-900 transition-colors hover:bg-teal-700 focus:ring-2 focus:ring-teal-800">
+              Sign in
+            </Button>
+            <Button className="flex cursor-pointer items-center justify-center rounded-full border-1 border-neutral-200 px-3 py-1 text-sm text-zinc-900 shadow-sm shadow-zinc-500 transition-colors hover:bg-neutral-300 focus:ring-2 focus:ring-zinc-700">
+              Sign up
+            </Button>
           </div>
         </div>
       </section>
@@ -188,8 +189,7 @@ const Header = () => {
           {typesOfAcommodation.map((type, index) => (
             <Button
               key={index}
-              style="flex cursor-pointer flex-col items-center justify-center gap-1 border-b-2 border-b-neutral-600/0 pb-2 text-[11px] font-medium whitespace-nowrap text-neutral-500 transition-colors duration-200 hover:border-b-neutral-600 hover:text-neutral-800 sm:text-xs"
-              title={type.name}
+              className="flex cursor-pointer flex-col items-center justify-center gap-1 border-b-2 border-b-neutral-600/0 pb-2 text-[11px] font-medium whitespace-nowrap text-neutral-500 transition-colors duration-200 hover:border-b-neutral-600 hover:text-neutral-800 sm:text-xs"
             >
               <Image
                 src={type.image}
@@ -198,6 +198,7 @@ const Header = () => {
                 alt={type.name}
                 className="h-6 w-6 sm:h-7 sm:w-7"
               />
+              {type.name}
             </Button>
           ))}
         </section>
@@ -207,10 +208,10 @@ const Header = () => {
           <div className="container mx-auto flex items-center gap-2 px-4 lg:px-6">
             <Button
               onClick={() => router.back()}
-              title="Booking"
-              style="flex cursor-pointer items-center space-x-1 border-b-2 border-b-teal-600 py-3 font-bold text-sm text-teal-600 transition-all hover:border-b-teal-700 hover:tracking-wide hover:text-teal-700"
+              className="flex cursor-pointer items-center space-x-1 border-b-2 border-b-teal-600 py-3 text-sm font-bold text-teal-600 transition-all hover:border-b-teal-700 hover:tracking-wide hover:text-teal-700"
             >
               <BsArrowLeft size={16} />
+              Booking
             </Button>
           </div>
         </section>

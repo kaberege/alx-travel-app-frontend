@@ -1,18 +1,21 @@
-import React from "react";
-import { type ButtonProps } from "../../interfaces";
+import React, { forwardRef, ComponentPropsWithoutRef } from "react";
 
-const Button: React.FC<ButtonProps> = ({
-  type = "button",
-  title,
-  style,
-  onClick,
-  children,
-}) => {
+const Button = forwardRef<
+  HTMLButtonElement,
+  ComponentPropsWithoutRef<"button">
+>(({ type = "button", className, children, ...props }, ref) => {
   return (
-    <button onClick={onClick} type={type} className={style}>
-      {children} {title && <span>{title}</span>}
+    <button
+      ref={ref}
+      type={type}
+      className={`transition-all ${className}`}
+      {...props}
+    >
+      {children}
     </button>
   );
-};
+});
+
+Button.displayName = "Button";
 
 export default Button;

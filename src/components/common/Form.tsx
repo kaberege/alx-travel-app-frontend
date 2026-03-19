@@ -1,36 +1,27 @@
-import React from "react";
-import type { LabelProps, InputProps } from "@/interfaces";
+import React, { forwardRef, ComponentPropsWithoutRef } from "react";
 
-const Input: React.FC<InputProps> = ({
-  id,
-  type,
-  name,
-  value,
-  min,
-  style,
-  placeholder,
-  onChange,
-  required = false,
+const Input = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<"input">>(
+  ({ className, ...props }, ref) => {
+    return (
+      <input
+        ref={ref}
+        {...props}
+        className={`w-full bg-transparent outline-none ${className}`}
+      />
+    );
+  },
+);
+
+Input.displayName = "Input";
+
+const Label: React.FC<ComponentPropsWithoutRef<"label">> = ({
+  children,
+  className,
+  ...props
 }) => {
   return (
-    <input
-      id={id}
-      type={type}
-      name={name}
-      value={value}
-      min={min}
-      className={style}
-      placeholder={placeholder}
-      onChange={onChange}
-      required={required}
-    />
-  );
-};
-
-const Label: React.FC<LabelProps> = ({ htmlFor, title, style }) => {
-  return (
-    <label htmlFor={htmlFor} className={style}>
-      {title}
+    <label {...props} className={`text-[10px] font-black ${className}`}>
+      {children}
     </label>
   );
 };

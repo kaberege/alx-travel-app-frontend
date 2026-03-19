@@ -119,7 +119,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
             <div key={index}>
               <Label
                 htmlFor={item.id}
-                style={"text-xs font-medium text-zinc-950 lg:text-sm"}
+                className={"text-xs font-medium text-zinc-950 lg:text-sm"}
                 title={item.title}
               />
               <Input
@@ -129,7 +129,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
                 value={formData[item.name]}
                 onChange={handleChange}
                 required={true}
-                style="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
+                className="mt-1 w-full rounded-md border border-zinc-300 px-2 py-1 focus:outline-1 focus:outline-teal-600"
               />
             </div>
           ))}
@@ -206,7 +206,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
             value={formData.cardNumber}
             onChange={handleChange}
             required={true}
-            style="w-full px-1 py-2 text-sm outline-none"
+            className="w-full px-1 py-2 text-sm outline-none"
           />
         </div>
         <div className="grid grid-cols-2 rounded-b-md border-x border-b border-zinc-300 text-xs">
@@ -219,7 +219,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
               onChange={handleChange}
               required={true}
               placeholder="Expiration Date"
-              style="mt-1 w-full px-2 py-1.5 outline-none"
+              className="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div>
@@ -231,7 +231,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
               onChange={handleChange}
               required={true}
               placeholder="CVV"
-              style="mt-1 w-full px-2 py-1.5 outline-none"
+              className="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
         </div>
@@ -248,7 +248,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
               onChange={handleChange}
               required={true}
               placeholder="Street Address"
-              style="mt-1 w-full px-2 py-1.5 outline-none"
+              className="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="border-b border-zinc-300">
@@ -260,7 +260,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
               onChange={handleChange}
               required={true}
               placeholder="Apt or suite number"
-              style="mt-1 w-full px-2 py-1.5 outline-none"
+              className="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="border-b border-zinc-300">
@@ -272,7 +272,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
               onChange={handleChange}
               required={true}
               placeholder="City"
-              style="mt-1 w-full px-2 py-1.5 outline-none"
+              className="mt-1 w-full px-2 py-1.5 outline-none"
             />
           </div>
           <div className="grid grid-cols-2">
@@ -285,7 +285,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
                 onChange={handleChange}
                 required={true}
                 placeholder=" State"
-                style="mt-1 w-full px-2 py-1.5 outline-none"
+                className="mt-1 w-full px-2 py-1.5 outline-none"
               />
             </div>
             <div className="">
@@ -297,7 +297,7 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
                 onChange={handleChange}
                 required={true}
                 placeholder="Zip Code"
-                style="mt-1 w-full px-2 py-1.5 outline-none"
+                className="mt-1 w-full px-2 py-1.5 outline-none"
               />
             </div>
           </div>

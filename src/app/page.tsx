@@ -113,7 +113,7 @@ export default function Home() {
         <div className="flex items-center gap-3 text-xs font-semibold text-zinc-900 sm:text-sm">
           <Button
             onClick={() => setFilter("filter")}
-            style={`flex shrink-0 items-center justify-center cursor-pointer rounded-full border ${filter === "filter" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} p-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden`}
+            className={`flex shrink-0 cursor-pointer items-center justify-center rounded-full border ${filter === "filter" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} p-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden`}
           >
             <Image
               src="/assets/icons/Linear/Essentional_UI/Filter.png"
@@ -125,34 +125,40 @@ export default function Home() {
           </Button>
           <Button
             onClick={() => setFilter("all")}
-            title="All"
-            style={`cursor-pointer rounded-full border ${filter === "all" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
-          />
+            className={`cursor-pointer rounded-full border ${filter === "all" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
+          >
+            All
+          </Button>
           <Button
             onClick={() => setFilter("top villa")}
-            title="Top Villa"
-            style={`cursor-pointer rounded-full border ${filter === "top villa" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
-          />
+            className={`cursor-pointer rounded-full border ${filter === "top villa" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
+          >
+            Top Villa
+          </Button>
           <Button
             onClick={() => setFilter("free reschedule")}
-            title="Free Reschedule"
-            style={`cursor-pointer rounded-full border ${filter === "free reschedule" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
-          />
+            className={`cursor-pointer rounded-full border ${filter === "free reschedule" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
+          >
+            Free Reschedule
+          </Button>
           <Button
             onClick={() => setFilter("book now")}
-            title="Book Now, Pay later"
-            style={`cursor-pointer rounded-full border ${filter === "book now" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
-          />
+            className={`cursor-pointer rounded-full border ${filter === "book now" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block`}
+          >
+            Book Now, Pay later
+          </Button>
           <Button
             onClick={() => setFilter("self checkin")}
-            title="Self Checkin"
-            style={`cursor-pointer rounded-full border ${filter === "self checkin" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
-          />
+            className={`cursor-pointer rounded-full border ${filter === "self checkin" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block`}
+          >
+            Self Checkin
+          </Button>
           <Button
             onClick={() => setFilter("instant book")}
-            title="Instant Book"
-            style={`cursor-pointer rounded-full border ${filter === "instant book" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:hidden lg:block`}
-          />
+            className={`cursor-pointer rounded-full border ${filter === "instant book" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:hidden lg:block`}
+          >
+            Instant Book
+          </Button>
           <div
             onClick={() => setIsExpanded((prev) => !prev)}
             className={`relative hidden cursor-pointer items-center justify-center rounded-full border ${isExpanded ? "border-teal-600 bg-teal-50 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} p-1 transition-colors hover:bg-teal-50 hover:shadow-sm hover:shadow-teal-600 sm:flex lg:hidden`}
@@ -169,26 +175,29 @@ export default function Home() {
             >
               <Button
                 onClick={() => setFilter("book now")}
-                title="Book Now, Pay later"
-                style={`cursor-pointer rounded-full border ${filter === "book now" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
-              />
+                className={`cursor-pointer rounded-full border ${filter === "book now" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
+              >
+                Book Now, Pay later
+              </Button>
               <Button
                 onClick={() => setFilter("self checkin")}
-                title="Self Checkin"
-                style={`cursor-pointer rounded-full border ${filter === "self checkin" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
-              />
+                className={`cursor-pointer rounded-full border ${filter === "self checkin" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
+              >
+                Self Checkin
+              </Button>
               <Button
                 onClick={() => setFilter("instant book")}
-                title="Instant Book"
-                style={`cursor-pointer rounded-full border ${filter === "instant book" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors`}
-              />
+                className={`cursor-pointer rounded-full border ${filter === "instant book" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600`}
+              >
+                Instant Book
+              </Button>
             </div>
           </div>
         </div>
         <div className="flex items-center gap-3 text-xs font-semibold text-zinc-900 sm:text-sm">
           <Button
             onClick={() => setFilter("filter")}
-            style={`hidden cursor-pointer items-center justify-center gap-1 rounded-full border ${filter === "filter" ? "bg-teal-50 text-teal-600 border-teal-600 shadow-sm shadow-teal-600" : "bg-white border-neutral-400"} px-2 py-1 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 transition-colors sm:flex`}
+            className={`hidden cursor-pointer items-center justify-center gap-1 rounded-full border ${filter === "filter" ? "border-teal-600 bg-teal-50 text-teal-600 shadow-sm shadow-teal-600" : "border-neutral-400 bg-white"} px-2 py-1 transition-colors hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 sm:flex`}
           >
             <span className="hidden lg:block">Filter</span>
             <Image
@@ -224,10 +233,11 @@ export default function Home() {
             No properties found for the selected filter.
           </p>
           <Button
-            title="Clear filters"
-            style="text-teal-600 font-bold cursor-pointer hover:text-teal-700 transition-colors"
+            className="cursor-pointer font-bold text-teal-600 transition-colors hover:text-teal-700"
             onClick={() => setFilter("all")}
-          ></Button>
+          >
+            Clear filters
+          </Button>
         </section>
       ) : (
         <section className="container mx-auto grid w-full grid-cols-1 gap-x-3 gap-y-8 max-sm:max-w-[390px] sm:grid-cols-2 lg:grid-cols-4">
@@ -263,11 +273,9 @@ export default function Home() {
               <div className="flex items-center gap-1 overflow-x-hidden text-[11px] font-medium whitespace-nowrap text-zinc-900">
                 {item.category &&
                   item.category.map((category, idx) => (
-                    <Pill
-                      key={idx}
-                      title={category}
-                      style="bg-zinc-200 hover:bg-teal-100"
-                    />
+                    <Pill key={idx} className="bg-zinc-200 hover:bg-teal-100">
+                      {category}
+                    </Pill>
                   ))}
               </div>
               <div className="flex flex-col gap-3">
@@ -298,7 +306,7 @@ export default function Home() {
                   </h3>
                 </div>
                 <div className="flex items-center justify-between">
-                  <Pill style="gap-1 border-neutral-400 text-[11px] sm:ml-1">
+                  <Pill className="gap-1 border-neutral-400 text-[11px] sm:ml-1">
                     {item.offers &&
                       Object.entries(item.offers).map((offer, odex) => (
                         <div
@@ -333,9 +341,10 @@ export default function Home() {
         <section className="container mx-auto mt-25 flex flex-col items-center justify-center gap-3 sm:mt-30 sm:mb-13 lg:mt-20 lg:mb-8">
           <Button
             onClick={() => showMore()}
-            title="Show more"
-            style="cursor-pointer rounded-full bg-black px-3 py-1 text-center text-xs font-medium text-white transition-colors hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950 sm:text-sm"
-          />
+            className="cursor-pointer rounded-full bg-black px-3 py-1 text-center text-xs font-medium text-white transition-colors hover:bg-slate-700 hover:text-amber-50 focus:ring-2 focus:ring-slate-950 sm:text-sm"
+          >
+            Show more
+          </Button>
           <p className="text-center text-sm font-medium text-black">
             Click to see more listings
           </p>
