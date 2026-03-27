@@ -80,7 +80,7 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
               alt="Save"
               className="h-3 w-3"
             />
-            Save
+            <span>Save</span>
           </Button>
           <Button className="flex cursor-pointer items-center space-x-1 rounded-full border border-neutral-300 px-2 py-1 text-xs text-zinc-900 transition-colors hover:border-teal-600 hover:bg-teal-50 hover:text-teal-600 hover:shadow-sm hover:shadow-teal-600 focus:ring-2 focus:ring-teal-800">
             <Image
@@ -90,7 +90,7 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
               alt="Share"
               className="h-3 w-3"
             />
-            Share
+            <span>Share</span>
           </Button>
         </div>
         <div className="flex items-center justify-center gap-2 sm:hidden">
@@ -159,10 +159,9 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
             className="durarion-300 absolute right-3 bottom-4 rounded-full border border-white bg-neutral-400 px-2 py-1 font-semibold text-white transition-all hover:border-neutral-50 hover:bg-teal-600 hover:tracking-wider focus:ring-2 focus:ring-neutral-300"
           />
         </div>
-        <Button
-          
-          className="absolute right-3 bottom-4 cursor-pointer rounded-full bg-zinc-950 px-2 py-0.5 text-xs font-semibold text-white transition-colors hover:bg-zinc-800 sm:hidden"
-        >1/12</Button>
+        <Button className="absolute right-3 bottom-4 cursor-pointer rounded-full bg-zinc-950 px-2 py-0.5 text-xs font-semibold text-white transition-colors hover:bg-zinc-800 sm:hidden">
+          1/12
+        </Button>
       </section>
       <section>
         <div className="mb-4 sm:hidden">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Input, Label } from "@/components/common/Form";
 
 export default function RegisterPage() {
   return (
@@ -7,10 +8,14 @@ export default function RegisterPage() {
       <form className="mt-8 space-y-1">
         <div className="grid grid-cols-2 gap-1">
           <div className="rounded-tl-2xl border-r border-b border-gray-100 bg-gray-50 p-4">
-            <label className="text-[10px] font-black text-gray-400 uppercase">
+            <Label
+              htmlFor="first-name"
+              className="text-[10px] font-black text-gray-400 uppercase"
+            >
               First Name
-            </label>
-            <input
+            </Label>
+            <Input
+              id="first-name"
               type="text"
               className="w-full bg-transparent font-bold text-gray-900 outline-none"
             />

@@ -211,7 +211,7 @@ const Header = () => {
               className="flex cursor-pointer items-center space-x-1 border-b-2 border-b-teal-600 py-3 text-sm font-bold text-teal-600 transition-all hover:border-b-teal-700 hover:tracking-wide hover:text-teal-700"
             >
               <BsArrowLeft size={16} />
-              Booking
+              <span>Booking</span>
             </Button>
           </div>
         </section>

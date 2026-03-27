@@ -14,16 +14,20 @@ const Input = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<"input">>(
 
 Input.displayName = "Input";
 
-const Label: React.FC<ComponentPropsWithoutRef<"label">> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <label {...props} className={`text-[10px] font-black ${className}`}>
-      {children}
-    </label>
-  );
-};
+const Label = forwardRef<HTMLLabelElement, ComponentPropsWithoutRef<"label">>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <label
+        ref={ref}
+        {...props}
+        className={`text-[10px] font-black ${className}`}
+      >
+        {children}
+      </label>
+    );
+  },
+);
+
+Label.displayName = "Label";
 
 export { Input, Label };

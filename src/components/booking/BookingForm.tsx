@@ -120,8 +120,9 @@ const BookingForm: FC<{ bookingData: BookingDataProps }> = ({
               <Label
                 htmlFor={item.id}
                 className={"text-xs font-medium text-zinc-950 lg:text-sm"}
-                title={item.title}
-              />
+              >
+                {item.title}
+              </Label>
               <Input
                 id={item.id}
                 type={item.type}

@@ -116,11 +116,9 @@ const BookingSection: React.FC<{ property: PropertyProps }> = ({
       </h3>
       {bookingDates.map((item, index) => (
         <div key={index} className="mt-4">
-          <Label
-            htmlFor={item.id}
-            title={item.title}
-            className="text-xs text-zinc-950"
-          />
+          <Label htmlFor={item.id} className="text-2xl text-zinc-950">
+            {item.title}
+          </Label>
           <Input
             type="date"
             id={item.id}

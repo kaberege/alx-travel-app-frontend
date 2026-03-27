@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Input, Label } from "@/components/common/Form";
 
 export default function ForgotPasswordPage() {
   return (
