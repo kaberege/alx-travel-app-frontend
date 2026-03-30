@@ -1,4 +1,5 @@
 import React, { forwardRef, ComponentPropsWithoutRef } from "react";
+import { cn } from "@/lib/utils";
 
 const Button = forwardRef<
   HTMLButtonElement,
@@ -8,7 +9,7 @@ const Button = forwardRef<
     <button
       ref={ref}
       type={type}
-      className={`transition-all ${className}`}
+      className={cn("transition-all", className)}
       {...props}
     >
       {children}

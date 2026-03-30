@@ -1,12 +1,16 @@
 import React, { forwardRef, ComponentPropsWithoutRef } from "react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 // The Container
 const Card = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
   ({ className, children, ...props }, ref) => (
     <div
       ref={ref}
-      className={`overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm ${className || ""}`}
+      className={cn(
+        "overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm",
+        className,
+      )}
       {...props}
     >
       {children}
@@ -22,7 +26,7 @@ const CardImage = ({
   className,
   ...props
 }: ComponentPropsWithoutRef<"div"> & { src: string; alt: string }) => (
-  <div className={`relative h-48 w-full ${className || ""}`} {...props}>
+  <div className={cn("relative h-48 w-full", className)} {...props}>
     <Image src={src} alt={alt} fill className="object-cover" />
   </div>
 );
@@ -32,15 +36,12 @@ const CardContent = ({
   className,
   ...props
 }: ComponentPropsWithoutRef<"div">) => (
-  <div className={`p-5 ${className || ""}`} {...props} />
+  <div className={cn("p-5", className)} {...props} />
 );
 
 // Header/Footer
 const CardTitle = ({ className, ...props }: ComponentPropsWithoutRef<"h3">) => (
-  <h3
-    className={`text-lg font-bold text-gray-900 ${className || ""}`}
-    {...props}
-  />
+  <h3 className={cn("text-lg font-bold text-gray-900", className)} {...props} />
 );
 
 export { Card, CardImage, CardContent, CardTitle };

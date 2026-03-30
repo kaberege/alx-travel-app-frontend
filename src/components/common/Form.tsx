@@ -1,4 +1,5 @@
 import React, { forwardRef, ComponentPropsWithoutRef } from "react";
+import { cn } from "@/lib/utils";
 
 const Input = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<"input">>(
   ({ className, ...props }, ref) => {
@@ -6,7 +7,7 @@ const Input = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<"input">>(
       <input
         ref={ref}
         {...props}
-        className={`w-full bg-transparent outline-none ${className}`}
+        className={cn("w-full bg-transparent outline-none", className)}
       />
     );
   },
@@ -20,7 +21,7 @@ const Label = forwardRef<HTMLLabelElement, ComponentPropsWithoutRef<"label">>(
       <label
         ref={ref}
         {...props}
-        className={`text-[10px] font-black ${className}`}
+        className={cn("text-[10px] font-black", className)}
       >
         {children}
       </label>
