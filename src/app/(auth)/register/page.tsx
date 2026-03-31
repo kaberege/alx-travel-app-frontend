@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Input, Label } from "@/components/common/Form";
+import { Form, Input, Label } from "@/components/common/Form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Button from "@/components/common/Button";
 
@@ -16,7 +16,7 @@ export default function RegisterPage() {
   return (
     <div className="animate-content-in">
       <h1 className="text-3xl font-bold text-gray-900">Join the family</h1>
-      <form className="mt-8 space-y-1">
+      <Form className="mt-8 space-y-1">
         <div className="grid grid-cols-2 gap-1">
           <div className="rounded-tl-2xl border-r border-b border-gray-100 bg-gray-50 p-4">
             <Label htmlFor="first-name" className="text-gray-400 uppercase">
@@ -26,6 +26,7 @@ export default function RegisterPage() {
               id="first-name"
               type="text"
               className="font-bold text-gray-900"
+              required
             />
           </div>
           <div className="rounded-tr-2xl border-b border-gray-100 bg-gray-50 p-4">
@@ -36,6 +37,7 @@ export default function RegisterPage() {
               id="last-name"
               type="text"
               className="font-bold text-gray-900"
+              required
             />
           </div>
         </div>
@@ -47,6 +49,7 @@ export default function RegisterPage() {
             id="email-address"
             type="email"
             className="font-bold text-gray-900"
+            required
           />
         </div>
         <div className="rounded-b-2xl bg-gray-50 p-4">
@@ -59,6 +62,7 @@ export default function RegisterPage() {
               type={isPasswordVisible ? "text" : "password"}
               placeholder="••••••••"
               className="pr-10 font-bold text-gray-900"
+              required
             />
             <Button
               type="button"
@@ -74,10 +78,13 @@ export default function RegisterPage() {
             </Button>
           </div>
         </div>
-        <button className="mt-8 w-full rounded-2xl bg-teal-600 py-4 font-bold text-white shadow-xl shadow-teal-600/20 transition-all hover:bg-teal-700">
+        <Button
+          type="submit"
+          className="mt-8 w-full rounded-2xl bg-teal-600 py-4 font-bold text-white shadow-xl shadow-teal-600/20 transition-all hover:bg-teal-700"
+        >
           Agree and continue
-        </button>
-      </form>
+        </Button>
+      </Form>
       <p className="mt-8 text-center text-sm font-medium text-gray-500">
         Already a member?{" "}
         <Link href="/login" className="font-bold text-teal-600">

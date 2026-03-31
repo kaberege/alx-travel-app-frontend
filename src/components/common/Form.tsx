@@ -1,5 +1,25 @@
-import React, { forwardRef, ComponentPropsWithoutRef } from "react";
+import React, { forwardRef, ComponentPropsWithoutRef, FormEvent } from "react";
 import { cn } from "@/lib/utils";
+
+const Form = forwardRef<HTMLFormElement, ComponentPropsWithoutRef<"form">>(
+  ({ className, onSubmit, children, ...props }, ref) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+
+      if (onSubmit) {
+        onSubmit(e);
+      }
+    };
+
+    return (
+      <form ref={ref} onSubmit={handleSubmit} {...props} className={className}>
+        {children}
+      </form>
+    );
+  },
+);
+
+Form.displayName = "Form";
 
 const Input = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<"input">>(
   ({ className, ...props }, ref) => {
@@ -31,4 +51,4 @@ const Label = forwardRef<HTMLLabelElement, ComponentPropsWithoutRef<"label">>(
 
 Label.displayName = "Label";
 
-export { Input, Label };
+export { Form, Input, Label };
