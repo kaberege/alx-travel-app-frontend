@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { Input, Label } from "@/components/common/Form";
+import { Form, Input, Label } from "@/components/common/Form";
+import Button from "@/components/common/Button";
 
 export default function ForgotPasswordPage() {
   return (
@@ -9,21 +12,25 @@ export default function ForgotPasswordPage() {
         Enter the email address associated with your account and we&apos;ll send
         you a link to reset your password.
       </p>
-      <form className="mt-10 space-y-8">
+      <Form className="mt-10 space-y-8">
         <div className="border-b-2 border-gray-100 py-2 transition-all focus-within:border-teal-600">
-          <label className="text-[10px] font-black text-teal-600 uppercase">
+          <Label htmlFor="forgot-password" className="text-teal-600 uppercase">
             Your Email
-          </label>
-          <input
+          </Label>
+          <Input
+            id="forgot-password"
             type="email"
             required
-            className="w-full bg-transparent text-lg font-medium outline-none"
+            className="text-lg font-medium"
           />
         </div>
-        <button className="w-full rounded-2xl bg-gray-900 py-4 font-bold text-white transition-all hover:bg-black">
+        <Button
+          type="submit"
+          className="w-full rounded-2xl bg-gray-900 py-4 font-bold text-white transition-all hover:bg-black"
+        >
           Send recovery email
-        </button>
-      </form>
+        </Button>
+      </Form>
       <Link
         href="/login"
         className="mt-10 block text-center text-sm font-bold text-gray-400 transition-colors hover:text-teal-600"
