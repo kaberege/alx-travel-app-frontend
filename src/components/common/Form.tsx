@@ -1,12 +1,12 @@
 import React, { ComponentProps, FormEvent } from "react";
 import { cn } from "@/lib/utils";
 
-const Form = ({
+const Form: React.FC<ComponentProps<"form">> = ({
   className,
   onSubmit,
   children,
   ...props
-}: ComponentProps<"form">) => {
+}) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -22,7 +22,7 @@ const Form = ({
   );
 };
 
-const Input = ({ className, ...props }: ComponentProps<"input">) => {
+const Input: React.FC<ComponentProps<"input">> = ({ className, ...props }) => {
   return (
     <input
       {...props}
@@ -31,7 +31,11 @@ const Input = ({ className, ...props }: ComponentProps<"input">) => {
   );
 };
 
-const Label = ({ children, className, ...props }: ComponentProps<"label">) => {
+const Label: React.FC<ComponentProps<"label">> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <label {...props} className={cn("text-[10px] font-black", className)}>
       {children}
