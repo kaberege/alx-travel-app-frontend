@@ -67,7 +67,7 @@ export default function RegisterPage() {
             <Button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute right-3 cursor-pointer text-gray-400 transition-colors hover:text-teal-600 focus:outline-none"
+              className="hover:text-brand absolute right-3 cursor-pointer text-gray-400 transition-colors focus:outline-none"
               aria-label={isPasswordVisible ? "Hide password" : "Show password"}
             >
               {isPasswordVisible ? (
@@ -80,14 +80,17 @@ export default function RegisterPage() {
         </div>
         <Button
           type="submit"
-          className="mt-8 w-full rounded-2xl bg-teal-600 py-4 font-bold text-white shadow-xl shadow-teal-600/20 transition-all hover:bg-teal-700"
+          className="bg-brand text-background mt-8 w-full cursor-pointer rounded-2xl py-4 font-bold shadow-xl shadow-teal-600/20 transition-all hover:bg-teal-700"
         >
           Agree and continue
         </Button>
       </Form>
       <p className="mt-8 text-center text-sm font-medium text-gray-500">
         Already a member?{" "}
-        <Link href="/login" className="font-bold text-teal-600">
+        <Link
+          href="/login"
+          className="text-brand font-bold transition-colors hover:text-teal-700"
+        >
           Log in
         </Link>
       </p>

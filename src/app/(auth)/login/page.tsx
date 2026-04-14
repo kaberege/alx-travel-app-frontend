@@ -17,8 +17,8 @@ export default function LoginPage() {
     <div className="animate-content-in">
       <h1 className="text-3xl font-bold text-gray-900">Sign in</h1>
       <Form className="mt-8 space-y-6">
-        <div className="border-b-2 border-gray-100 py-2 transition-colors focus-within:border-teal-600">
-          <Label htmlFor="login-email" className="text-teal-600 uppercase">
+        <div className="focus-within:border-brand border-b-2 border-gray-100 py-2 transition-colors">
+          <Label htmlFor="login-email" className="text-brand uppercase">
             Email
           </Label>
           <Input
@@ -28,9 +28,9 @@ export default function LoginPage() {
             className="text-lg font-medium"
           />
         </div>
-        <div className="border-b-2 border-gray-100 py-2 transition-colors focus-within:border-teal-600">
+        <div className="focus-within:border-brand border-b-2 border-gray-100 py-2 transition-colors">
           <div className="flex justify-between">
-            <Label htmlFor="login-password" className="text-teal-600 uppercase">
+            <Label htmlFor="login-password" className="text-brand uppercase">
               Password
             </Label>
             <Link
@@ -52,7 +52,7 @@ export default function LoginPage() {
             <Button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute right-3 cursor-pointer text-gray-400 transition-colors hover:text-teal-600 focus:outline-none"
+              className="hover:text-brand absolute right-3 cursor-pointer text-gray-400 transition-colors focus:outline-none"
               aria-label={isPasswordVisible ? "Hide password" : "Show password"}
             >
               {isPasswordVisible ? (
@@ -63,13 +63,16 @@ export default function LoginPage() {
             </Button>
           </div>
         </div>
-        <Button className="w-full rounded-2xl bg-teal-600 py-4 font-bold text-white shadow-lg shadow-teal-100 transition-all hover:bg-teal-700">
+        <Button className="bg-brand text-background w-full cursor-pointer rounded-2xl py-4 font-bold shadow-lg shadow-teal-100 transition-all hover:bg-teal-700">
           Continue
         </Button>
       </Form>
       <p className="mt-8 text-center text-sm font-medium text-gray-500">
         New here?{" "}
-        <Link href="/register" className="font-bold text-teal-600">
+        <Link
+          href="/register"
+          className="text-brand font-bold transition-colors hover:text-teal-700"
+        >
           Create account
         </Link>
       </p>
