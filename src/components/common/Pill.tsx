@@ -1,7 +1,7 @@
-import React, { ComponentPropsWithoutRef } from "react";
+import React, { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
-const Pill: React.FC<ComponentPropsWithoutRef<"div">> = ({
+const Pill: React.FC<ComponentProps<"div">> = ({
   children,
   className,
   ...props

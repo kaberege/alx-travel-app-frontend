@@ -1,22 +1,17 @@
-import React, { forwardRef, ComponentPropsWithoutRef } from "react";
+import React, { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
-const Button = forwardRef<
-  HTMLButtonElement,
-  ComponentPropsWithoutRef<"button">
->(({ type = "button", className, children, ...props }, ref) => {
+const Button = ({
+  type = "button",
+  className,
+  children,
+  ...props
+}: ComponentProps<"button">) => {
   return (
-    <button
-      ref={ref}
-      type={type}
-      className={cn("transition-all", className)}
-      {...props}
-    >
+    <button type={type} className={cn("transition-all", className)} {...props}>
       {children}
     </button>
   );
-});
-
-Button.displayName = "Button";
+};
 
 export default Button;
