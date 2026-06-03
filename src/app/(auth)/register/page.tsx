@@ -119,8 +119,10 @@ export default function RegisterPage() {
         </p>
       )}
       <Form onSubmit={handleSubmit} className="mt-8 space-y-1">
-        <div className="grid grid-cols-2 gap-1">
-          <div className="rounded-tl-2xl border-r border-b border-gray-100 bg-gray-50 p-4">
+        <div className="grid-rows grid gap-1 sm:grid-cols-2">
+          <div
+            className={`rounded-tl-2xl border-b p-4 transition-colors max-sm:rounded-tr-2xl ${errors.firstName ? "border-red-500 bg-red-50/30" : "focus-within:border-brand border-gray-100 bg-gray-50 focus-within:bg-white"}`}
+          >
             <Label htmlFor="firstName" className="text-gray-400 uppercase">
               First Name
             </Label>
@@ -129,10 +131,10 @@ export default function RegisterPage() {
               type="text"
               name="firstName"
               value={formData.firstName}
-              className="font-bold text-gray-900"
               required
               disabled={isLoading}
               onChange={handleChange}
+              className="font-bold text-gray-900"
             />
             {errors.firstName && (
               <p className="mt-1 text-[10px] text-red-500">
@@ -140,7 +142,9 @@ export default function RegisterPage() {
               </p>
             )}
           </div>
-          <div className="rounded-tr-2xl border-b border-gray-100 bg-gray-50 p-4">
+          <div
+            className={`border-b p-4 transition-colors sm:rounded-tr-2xl ${errors.lastName ? "border-red-500 bg-red-50/30" : "focus-within:border-brand border-gray-100 bg-gray-50 focus-within:bg-white"}`}
+          >
             <Label htmlFor="lastName" className="text-gray-400 uppercase">
               Last Name
             </Label>
@@ -149,17 +153,19 @@ export default function RegisterPage() {
               type="text"
               name="lastName"
               value={formData.lastName}
-              className="font-bold text-gray-900"
               required
               disabled={isLoading}
               onChange={handleChange}
+              className="font-bold text-gray-900"
             />
             {errors.lastName && (
               <p className="mt-1 text-[10px] text-red-500">{errors.lastName}</p>
             )}
           </div>
         </div>
-        <div className="border-b border-gray-100 bg-gray-50 p-4">
+        <div
+          className={`border-b p-4 transition-colors ${errors.emailAddress ? "border-red-500 bg-red-50/30" : "focus-within:border-brand border-gray-100 bg-gray-50 focus-within:bg-white"}`}
+        >
           <Label htmlFor="emailAddress" className="text-gray-400 uppercase">
             Email Address
           </Label>
@@ -168,10 +174,10 @@ export default function RegisterPage() {
             type="email"
             name="emailAddress"
             value={formData.emailAddress}
-            className="font-bold text-gray-900"
             required
             disabled={isLoading}
             onChange={handleChange}
+            className="font-bold text-gray-900"
           />
           {errors.emailAddress && (
             <p className="mt-1 text-[10px] text-red-500">
@@ -179,7 +185,9 @@ export default function RegisterPage() {
             </p>
           )}
         </div>
-        <div className="rounded-b-2xl bg-gray-50 p-4">
+        <div
+          className={`rounded-b-2xl border-b p-4 transition-colors ${errors.password ? "border-red-500 bg-red-50/30" : "focus-within:border-brand border-gray-100 bg-gray-50 focus-within:bg-white"}`}
+        >
           <Label htmlFor="password" className="text-gray-400 uppercase">
             Password
           </Label>
@@ -190,10 +198,10 @@ export default function RegisterPage() {
               name="password"
               value={formData.password}
               placeholder="••••••••"
-              className="pr-10 font-bold text-gray-900"
               required
               disabled={isLoading}
               onChange={handleChange}
+              className="pr-10 font-bold text-gray-900"
             />
             <Button
               type="button"
@@ -214,8 +222,8 @@ export default function RegisterPage() {
         </div>
         <Button
           type="submit"
-          className={` ${isLoading ? "bg-brand/50 cursor-not-allowed" : "bg-brand cursor-pointer hover:bg-teal-700"} text-background mt-8 w-full rounded-2xl py-4 font-bold shadow-xl shadow-teal-600/20 transition-all`}
           disabled={isLoading}
+          className="bg-brand text-background shadow-brand/20 mt-8 w-full cursor-pointer rounded-2xl py-4 font-bold shadow-xl transition-all hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isLoading ? "Creating Account..." : "Agree and continue"}
         </Button>
@@ -224,7 +232,7 @@ export default function RegisterPage() {
         Already a member?{" "}
         <Link
           href="/login"
-          className="text-brand font-bold transition-colors hover:text-teal-700"
+          className="text-brand font-bold transition-colors hover:brightness-90"
         >
           Log in
         </Link>

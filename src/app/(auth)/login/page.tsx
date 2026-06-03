@@ -1,59 +1,167 @@
 "use client";
 
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import Link from "next/link";
+import Cookies from "js-cookie";
 import Button from "@/components/common/Button";
 import { Form, Input, Label } from "@/components/common/Form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
+import { api } from "@/lib/axios";
+
+interface FormDataProps {
+  email: string;
+  password: string;
+}
 
 export default function LoginPage() {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errors, setErrors] = useState<Partial<Record<string, string>>>({});
+  const [formData, setFormData] = useState<FormDataProps>({
+    email: "",
+    password: "",
+  });
 
   function togglePasswordVisibility() {
     setIsPasswordVisible((prevState) => !prevState);
   }
 
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target;
+
+    if (errors[name]) {
+      const newErrors = { ...errors };
+      delete newErrors[name];
+      setErrors(newErrors);
+    }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function validateForm(): boolean {
+    const localErrors: Partial<Record<keyof FormDataProps, string>> = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(formData.email)) {
+      localErrors.email = "Enter a valid email address.";
+    }
+
+    if (!formData.password.trim()) {
+      localErrors.password = "Password field cannot be empty.";
+    }
+
+    setErrors(localErrors);
+    return Object.keys(localErrors).length === 0;
+  }
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+    setErrors({});
+
+    try {
+      const { data } = await api.post("auth/login/", formData);
+      // Store token safely in secure cookie for middleware protection access
+      Cookies.set("token", data.access, {
+        expires: 7,
+        secure: true,
+        sameSite: "lax",
+      });
+
+      const params = new URLSearchParams(window.location.search);
+      window.location.href = params.get("callbackUrl") || "/dashboard";
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        if (err.response?.status === 400 || err.response?.status === 401) {
+          const serverErrors = err.response.data;
+          setErrors({
+            email: serverErrors.email?.[0],
+            password: serverErrors.password?.[0],
+            detail:
+              serverErrors.non_field_errors?.[0] ||
+              serverErrors.detail ||
+              "Invalid login credentials.",
+          });
+        } else {
+          setErrors({ detail: "Server connection failed." });
+        }
+      } else {
+        setErrors({ detail: "An unexpected error occurred." });
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <div className="animate-content-in">
       <h1 className="text-3xl font-bold text-gray-900">Sign in</h1>
-      <Form className="mt-8 space-y-6">
-        <div className="focus-within:border-brand border-b-2 border-gray-100 py-2 transition-colors">
-          <Label htmlFor="login-email" className="text-brand uppercase">
+      {errors.detail && (
+        <p className="mt-4 rounded-lg bg-red-50 p-3 text-sm font-medium text-red-600">
+          {errors.detail}
+        </p>
+      )}
+      <Form onSubmit={handleSubmit} className="mt-8 space-y-6">
+        <div
+          className={`border-b-2 py-2 transition-colors ${errors.email ? "border-red-500" : "focus-within:border-brand border-gray-100"}`}
+        >
+          <Label
+            htmlFor="email"
+            className="text-brand text-xs font-bold uppercase"
+          >
             Email
           </Label>
           <Input
-            id="login-email"
+            id="email"
             type="email"
+            name="email"
+            value={formData.email}
             required
+            disabled={isLoading}
+            onChange={handleChange}
             className="text-lg font-medium"
           />
+          {errors.email && (
+            <p className="mt-1 text-xs font-medium text-red-500">
+              {errors.email}
+            </p>
+          )}
         </div>
-        <div className="focus-within:border-brand border-b-2 border-gray-100 py-2 transition-colors">
+        <div
+          className={`border-b-2 py-2 transition-colors ${errors.password ? "border-red-500" : "focus-within:border-brand border-gray-100"}`}
+        >
           <div className="flex justify-between">
-            <Label htmlFor="login-password" className="text-brand uppercase">
+            <Label
+              htmlFor="password"
+              className="text-brand text-xs font-bold uppercase"
+            >
               Password
             </Label>
             <Link
               href="/forgot-password"
-              title="reset"
-              className="text-[10px] font-bold text-gray-400"
+              className="hover:text-brand text-[10px] font-bold text-gray-400 transition-colors"
             >
               Forgot?
             </Link>
           </div>
           <div className="relative flex items-center">
             <Input
-              id="login-password"
+              id="password"
               type={isPasswordVisible ? "text" : "password"}
-              placeholder=""
-              className="text-lg font-medium"
+              name="password"
+              value={formData.password}
               required
+              disabled={isLoading}
+              onChange={handleChange}
+              className="pr-10 text-lg font-medium"
             />
             <Button
               type="button"
               onClick={togglePasswordVisibility}
               className="hover:text-brand absolute right-3 cursor-pointer text-gray-400 transition-colors focus:outline-none"
-              aria-label={isPasswordVisible ? "Hide password" : "Show password"}
             >
               {isPasswordVisible ? (
                 <FaEyeSlash size={18} />
@@ -62,16 +170,25 @@ export default function LoginPage() {
               )}
             </Button>
           </div>
+          {errors.password && (
+            <p className="mt-1 text-xs font-medium text-red-500">
+              {errors.password}
+            </p>
+          )}
         </div>
-        <Button className="bg-brand text-background w-full cursor-pointer rounded-2xl py-4 font-bold shadow-lg shadow-teal-100 transition-all hover:bg-teal-700">
-          Continue
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="bg-brand text-background shadow-brand/20 w-full cursor-pointer rounded-2xl py-4 font-bold shadow-lg transition-all hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {isLoading ? "Signing in..." : "Continue"}
         </Button>
       </Form>
       <p className="mt-8 text-center text-sm font-medium text-gray-500">
         New here?{" "}
         <Link
           href="/register"
-          className="text-brand font-bold transition-colors hover:text-teal-700"
+          className="text-brand font-bold transition-colors hover:brightness-90"
         >
           Create account
         </Link>
