@@ -8,6 +8,7 @@ import { Form, Input, Label } from "@/components/common/Form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { api } from "@/lib/axios";
+import { useAuth } from "@/context/AuthContext";
 
 interface FormDataProps {
   email: string;
@@ -15,6 +16,7 @@ interface FormDataProps {
 }
 
 export default function LoginPage() {
+  const { setUser } = useAuth();
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errors, setErrors] = useState<Partial<Record<string, string>>>({});
@@ -63,13 +65,23 @@ export default function LoginPage() {
     setErrors({});
 
     try {
-      const { data } = await api.post("auth/login/", formData);
-      // Store token safely in secure cookie for middleware protection access
-      Cookies.set("token", data.access, {
+      const response = await api.post("auth/login/", formData);
+      const { access, refresh, user_data } = response.data;
+
+      Cookies.set("token", access, {
+        expires: 1,
+        secure: true,
+        sameSite: "lax",
+      });
+
+      Cookies.set("refresh_token", refresh, {
         expires: 7,
         secure: true,
         sameSite: "lax",
       });
+
+      localStorage.setItem("user_profile", JSON.stringify(user_data));
+      setUser(user_data);
 
       const params = new URLSearchParams(window.location.search);
       window.location.href = params.get("callbackUrl") || "/dashboard";
