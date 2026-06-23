@@ -1,4 +1,4 @@
-import React, { ComponentProps, FormEvent } from "react";
+import React, { ComponentProps, SubmitEvent } from "react";
 import { cn } from "@/lib/utils";
 
 const Form: React.FC<ComponentProps<"form">> = ({
@@ -7,7 +7,7 @@ const Form: React.FC<ComponentProps<"form">> = ({
   children,
   ...props
 }) => {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (onSubmit) {

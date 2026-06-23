@@ -8,7 +8,7 @@ import { Form, Input, Label } from "@/components/common/Form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { api } from "@/lib/axios";
-import { useAuth } from "@/context/AuthContext";
+import { setUser } from "@/lib/redux/features/auth/authSlice";
 
 interface FormDataProps {
   email: string;
@@ -16,7 +16,6 @@ interface FormDataProps {
 }
 
 export default function LoginPage() {
-  const { setUser } = useAuth();
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errors, setErrors] = useState<Partial<Record<string, string>>>({});
