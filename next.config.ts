@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Next.js 16 - turbopack at the top level of nextConfig
   turbopack: {
     root: path.join(__dirname, "./"),
   },
