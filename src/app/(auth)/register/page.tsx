@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, SubmitEvent, useState } from "react";
 import Link from "next/link";
 import { Form, Input, Label } from "@/components/common/Form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -77,7 +77,7 @@ export default function RegisterPage() {
     return Object.keys(localErrors).length === 0;
   }
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (!validateForm()) return;

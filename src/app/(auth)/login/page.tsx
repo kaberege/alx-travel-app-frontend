@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, SubmitEvent, ChangeEvent } from "react";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import Button from "@/components/common/Button";
@@ -55,7 +55,7 @@ export default function LoginPage() {
     return Object.keys(localErrors).length === 0;
   }
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (!validateForm()) return;

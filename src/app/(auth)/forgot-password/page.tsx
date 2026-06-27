@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, SubmitEvent, useState } from "react";
 import Link from "next/link";
 import { Form, Input, Label } from "@/components/common/Form";
 import Button from "@/components/common/Button";
@@ -28,7 +28,7 @@ export default function ForgotPasswordPage() {
     return true;
   }
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!validateForm()) return;
 
